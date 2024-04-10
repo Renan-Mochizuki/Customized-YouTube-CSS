@@ -1,0 +1,408 @@
+:root {
+  --carregandopagina: linear-gradient(-90deg,rgb(255, 196, 0),red 40%,rgb(41, 0, 123));
+  --volumeesquerda: linear-gradient(45deg, rgb(50, 0, 151), rgb(142, 142, 255));
+  --volumedireita:  linear-gradient(45deg,rgb(168, 168, 255),rgb(50, 0, 151) 10%,rgb(24, 0, 71) 50%);
+  --progressothumb: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
+  --progressovideo: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
+  --arcoiris: linear-gradient(rgba(248,13,27,1) 0%, rgba(255,160,0,1) 11%, rgba(255,227,2,1) 22%, rgba(0,250,34,1) 33%, rgba(0,169,238,1) 44%, rgba(159,0,255,1) 55%, rgba(0,169,238,1) 66%, rgba(0,250,34,1) 77%, rgba(255,227,2,1) 88%,rgba(248,13,27,1) 100%);
+  --cursorprogresso: rgb(212, 6, 143);
+  --cursorprogressosombra: 0 0 8px 2px rgb(168, 125, 255);
+  --sombrabotoes: rgba(245, 245, 245, 0.612);
+  --sombratexto: violet;
+  --sombra: whitesmoke;
+  --contornocanal: gold;
+  --notificacao: #cc0000;
+}
+@keyframes AnimacaoArcoiris{ 
+  0%{background-position: 0% 0%}
+  100%{background-position: 0% 230%}
+}
+
+/* HEADER E HOME */
+/* Logo do Youtube */
+#logo-icon {
+  content: url("https://i.imgur.com/9n4AS59.png");
+  background-image: none;
+  width: 47px;
+  height: 30px;
+  margin-left:5px;
+}
+#country-code{
+  display: none;
+}
+/* Botão ativar teclado virtual */
+.gsst_a{
+  filter:opacity(10%);
+  margin-right:5px;
+}
+.gsst_a:hover{
+  filter: drop-shadow(0px 0px 1px var(--sombra)) opacity(100%);
+  transition: 0.5s all ease;
+}
+/* Barra de pesquisa */
+#search form{
+  filter: drop-shadow(0px 0px 1px var(--sombra));
+}
+/* Botão pesquisar */
+#search-icon-legacy{
+  box-shadow: 0px 0px 2px var(--sombra);
+  transition: all ease 0.15s;
+  transition-property: transform,filter;
+}
+#search-icon-legacy:hover{
+  transform: scale(1.05) translate(1px);
+  filter: drop-shadow(0px 0px 2px var(--sombrabotoes));
+}
+/* Tooltip do botão pesquisar */
+#tooltip{
+  display:none;
+}
+/* Botão pesquisa por voz */
+#voice-search-button{
+  filter:opacity(0%);
+  transition-duration: .3s;
+  transition-property: filter;
+}
+#voice-search-button:hover{
+  filter: opacity(100%);
+}
+/* Botão limpar pesquisa */
+#search-clear-button .yt-spec-button-shape-next--icon-only-default{
+  width:30px;
+  height:30px;
+  margin-right:8px;
+}
+/* Barra de carregamento da página */
+#progress {
+  background-image: var(--carregandopagina);
+}
+/* Animação botão três linhas */
+#guide-button{
+  filter:opacity(0%);
+  transition-duration: 1s;
+  transition-property: filter;
+}
+#start:hover #guide-button, #guide-content #header:hover #guide-button{
+  filter:opacity(100%);
+}
+ytd-topbar-logo-renderer{
+  left:-50px;
+  transition-duration: .5s;
+  transition-property: left;
+  position:relative;
+}
+#start:hover ytd-topbar-logo-renderer, #guide-content #header:hover ytd-topbar-logo-renderer{
+  left:0px;
+}
+/* Animação botões perfil */
+ytd-notification-topbar-button-renderer{
+  position:relative;
+  display:block;
+  left:58px;
+  transition-duration: .5s;
+  transition-property: left, z-index, filter;
+  filter: opacity(0%);
+  z-index:-1;
+}
+ytd-topbar-menu-button-renderer[has-no-text]{
+  position:relative;
+  display:block;
+  left:108px;
+  transition-duration: .5s;
+  transition-property: left, z-index, filter;
+  filter: opacity(0%);
+  z-index:-1;
+}
+ytd-notification-topbar-button-renderer:has(.yt-spec-icon-badge-shape__badge) ~ ytd-topbar-menu-button-renderer::after{
+  content: '';
+  position: absolute;
+  background-color: var(--notificacao);
+  width: 12px;
+  height:12px;
+  border-radius:100%;
+  border: 1px solid black;
+  right: 23px;
+  top: 6px;
+  transition: .4s filter;
+}
+#end:hover ytd-notification-topbar-button-renderer{
+  left:0px;
+  z-index:1;
+  filter: opacity(100%);
+}
+#end:hover ytd-topbar-menu-button-renderer[has-no-text]{
+  left:0px;
+  z-index:1;
+  filter: opacity(100%);
+}
+#end:hover ytd-topbar-menu-button-renderer::after{
+  filter: opacity(0%);
+}
+/* Vídeos da home */
+ytd-browse[page-subtype="home"] #contents{
+  margin-top:10px;
+}
+/* Remover os chips quando a barra lateral não estiver minimizada */
+tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-renderer{
+  display: none;
+}
+/* Remover os Shorts das inscrições quando a barra lateral não estiver minimizada */
+tp-yt-app-drawer[opened] ~ ytd-page-manager ytd-rich-item-renderer.ytd-rich-grid-row:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]){
+  display: none !important;
+}
+/* Centralizar vídeos na página de inscrições*/
+ytd-rich-grid-row #contents{
+  justify-content: center;
+}
+/* Arco Íris na lateral */
+ytd-app:not([masthead-hidden=""]):before, #guide-wrapper:before{
+  width:3px;
+  height:100%;
+  content:"";
+  position:fixed;
+  z-index:10000;
+  background-image: var(--arcoiris);
+  background-size: 3px 180%;
+  animation: AnimacaoArcoiris 5s infinite linear reverse;
+}
+
+/* PLAYER */
+/* Barra de progresso em vídeos */
+.ytp-play-progress{
+  background-image: var(--progressovideo);
+}
+/* Barra de progresso em thumbs*/
+#progress.ytd-thumbnail-overlay-resume-playback-renderer {
+  background-image: var(--progressothumb);
+}
+/* Cursor de progresso */
+.ytp-scrubber-button.ytp-swatch-background-color {
+  background: var(--cursorprogresso);
+  box-shadow: var(--cursorprogressosombra);
+}
+/* Barra de volume esquerda*/
+.ytp-volume-slider-handle:before {
+  background: var(--volumeesquerda);
+  z-index: -1;
+}
+/* Barra de volume direita*/
+.ytp-volume-slider-handle:after {
+  background: var(--volumedireita);
+  z-index: -1;
+}
+/* Borda no player */
+#player video{
+  border-radius:10px;
+}
+.html5-video-player.ytp-fit-cover-video{
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+/* Animação icone do canal no canto do player */
+.annotation-type-custom.iv-branding{
+  filter: opacity(0%);
+  transition-property: filter;
+  transition-duration: .3s;
+}
+.annotation-type-custom.iv-branding:hover{
+  filter: opacity(100%);
+}
+/* Tirar a mensagem do icone no canto do player */
+.branding-context-container-inner.ytp-rounded-branding-context{
+  display: none;
+}
+
+
+/* PÁGINA DE VÍDEO */
+/* Título do vídeo */
+h1 yt-formatted-string[force-default-style] {
+  text-shadow: 1px 1px 3px var(--sombratexto);
+}
+yt-formatted-string[force-default-style]:hover {
+  text-shadow: 0px 0px 1px var(--sombra);
+  backdrop-filter: blur(10px);
+  transition: 0.2s ease-in;
+}
+/* Nome do canal em vídeos*/
+#upload-info #channel-name #container #text-container {
+  text-shadow: 1px 1px 1px var(--sombratexto);
+}
+#text a:hover {
+  text-shadow: 0px 0px 1px var(--sombra);
+  transition: 0.2s ease-in;
+}
+/* Sombra dos botões */
+#menu .ytd-watch-metadata #top-level-buttons-computed .ytd-menu-renderer, #owner #subscribe-button, #flexible-item-buttons ytd-button-renderer{
+  box-shadow: 0px 0px 2.5px var(--sombrabotoes);
+  border-radius: 25px;
+  margin-right: 2px;
+}
+/* Botão três pontos */
+yt-button-shape[version="modern"].ytd-menu-renderer button{
+  box-shadow: 0px 0px 4px var(--sombrabotoes);
+  border-radius: 25px;
+}
+/* Garantir que a sombra dos botões em vídeo não cortem */
+#actions-inner #menu .ytd-watch-metadata{
+  padding:5px;
+}
+/* Efeito brilho botão like e dislike */
+#segmented-like-button,#segmented-dislike-button,.YtLikeButtonViewModelHost,.YtDislikeButtonViewModelHost{
+  filter: drop-shadow(0px 0px 5px var(--sombrabotoes));
+}
+/* Ícone do perfil*/
+#avatar{
+  transition-duration: .5s;
+  transition-property: transform, filter;
+}
+#avatar:hover {
+  filter: drop-shadow(0px 0px 1.5px var(--contornocanal));
+  transform: scale(1.1);
+}
+
+/* Descrição */
+#bottom-row #description{
+  background-color: transparent;
+}
+/* Texto visualizações na descrição */
+#description-inner #info span{
+  text-shadow: 1px 1px 3px var(--sombratexto);
+}
+/* Texto mostrar mais na descrição */
+#description-inline-expander #expand{
+  margin-left:-5px;
+  text-shadow: 0px 0px 2px var(--sombratexto);
+  padding:2px;
+  border-radius: 10px;
+}
+/* Texto mostrar menos na descrição */
+#description-inline-expander #collapse{
+  margin-top:-2px;
+  text-shadow: 0px 0px 2px var(--sombratexto);
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+/* Tirar os temas da página de vídeo */
+yt-related-chip-cloud-renderer{
+  display: none;
+}
+ytd-watch-next-secondary-results-renderer #contents{
+  margin-top:-8px;
+}
+/* Tirar a borda da playlist lateral */
+ytd-playlist-panel-renderer#playlist > #container{
+  border: none;
+  border-bottom: 1px var(--sombrabotoes) solid;
+}
+
+/* Fazer com que a header suma quanto a altura da tela estiver pequena */
+@media screen and (max-height: 600px){
+  #masthead-container{
+    filter: opacity(0%);
+    transition-duration: 0.3s;
+    transition-property: filter !important;
+  }
+  #masthead-container:hover{
+    filter: opacity(100%);
+  }
+  ytd-page-manager#page-manager{
+    margin-top: 0px !important;
+    transition-duration: 0.3s;
+    transition-property: margin-top;
+  }
+  #masthead-container:hover ~ ytd-page-manager#page-manager{
+    margin-top:56px !important;
+  }
+  ytd-watch-flexy[flexy] #player-container.ytd-watch-flexy {
+    top: -10px !important; 
+  }
+}
+
+
+/* PLAYLIST */
+/* Botões compartilhar e três pontos de playlist */
+.metadata-buttons-wrapper .ytd-playlist-header-renderer yt-button-shape{
+  box-shadow: 0px 0px 5px var(--sombrabotoes);
+  border-radius: 25px;
+  margin-left: 2px;
+}
+/* Título da playlist */
+.ytd-playlist-header-renderer #text, #header-description h3{
+  font-family: Calibri;
+  text-shadow: 0px 0px 2px black;
+  filter: drop-shadow(0px 0px 3px var(--sombra));
+}
+/* Nome do canal na playlist*/
+.metadata-action-bar .metadata-text-wrapper .metadata-owner #owner-text a::before{
+  background-image: url('https://i.imgur.com/l09c79x.png');
+  background-size: 14px 15px;
+  display: inline-block;
+  width: 14px; 
+  height: 15px;
+  content:"";
+  margin-right: 5px;
+}
+/* Botão editar na página da playlist*/
+.thumbnail-and-metadata-wrapper #edit-button{
+  opacity: 5%;
+  transition: .2s;
+}
+.thumbnail-and-metadata-wrapper #edit-button button{
+  background-color: transparent;
+}
+.thumbnail-and-metadata-wrapper #edit-button:hover{
+  opacity: 100%;
+}
+/* Subir a playlist na página */
+ytd-playlist-header-renderer.ytd-browse{
+  margin-top: -10px;
+}
+ytd-two-column-browse-results-renderer[page-subtype="playlist"] #primary{
+  margin-top: -20px
+}
+
+
+/* BIBLIOTECA */
+/* Título da playlist na biblioteca */
+#video-title.ytd-grid-playlist-renderer{
+  font-family: Calibri;
+  text-shadow: 0px 0px 2px black;
+  filter: drop-shadow(0px 0px 3px var(--sombra));
+  font-size: 18px;
+}
+/* Botão ver playlist completa na biblioteca */
+#details #view-more a{
+  font-size: 15px;
+  margin-top:5px;
+}
+#details #view-more a::before{
+  background-image: url('https://i.imgur.com/CdZxU8M.png');
+  background-size: 20px 20px;
+  display: inline-block;
+  width: 20px; 
+  height: 20px;
+  content:"";
+  position: relative;
+  top:2px;
+}
+/* Mensagem ultima atualização na biblioteca */
+.ytd-grid-playlist-renderer #metadata-line span::before{
+  background-image: url('https://i.imgur.com/6WrBfng.png');
+  background-size: 12px 12px;
+  display: inline-block;
+  width: 12px; 
+  height: 12px;
+  content:"";
+  margin-right: 2px;
+}
+/* Nome do canal da playlist na biblioteca*/
+.ytd-grid-playlist-renderer #channel-name #text a::before{
+  background-image: url('https://i.imgur.com/l09c79x.png');
+  background-size: 11px 12px;
+  display: inline-block;
+  width: 11px; 
+  height: 12px;
+  content:"";
+  margin-right: 2px;
+}
