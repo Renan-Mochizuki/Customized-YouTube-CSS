@@ -365,18 +365,18 @@ ytd-two-column-browse-results-renderer[page-subtype="playlist"] #primary{
 
 /* BIBLIOTECA */
 /* Título da playlist na biblioteca */
-#video-title.ytd-grid-playlist-renderer{
+#video-title.ytd-grid-playlist-renderer,.yt-lockup-metadata-view-model-wiz__title span{
   font-family: Calibri;
   text-shadow: 0px 0px 2px black;
   filter: drop-shadow(0px 0px 3px var(--sombra));
   font-size: 18px;
 }
 /* Botão ver playlist completa na biblioteca */
-#details #view-more a{
+#details #view-more a, .yt-content-metadata-view-model-wiz__metadata-row span[style="font-weight: 500;"] a{
   font-size: 15px;
   margin-top:5px;
 }
-#details #view-more a::before{
+#details #view-more a::before, .yt-content-metadata-view-model-wiz__metadata-row span[style="font-weight: 500;"] a::before{
   background-image: url('https://i.imgur.com/CdZxU8M.png');
   background-size: 20px 20px;
   display: inline-block;
@@ -387,7 +387,7 @@ ytd-two-column-browse-results-renderer[page-subtype="playlist"] #primary{
   top:2px;
 }
 /* Mensagem ultima atualização na biblioteca */
-.ytd-grid-playlist-renderer #metadata-line span::before{
+.ytd-grid-playlist-renderer #metadata-line span::before, .yt-content-metadata-view-model-wiz div:nth-child(2):nth-last-child(2) span::before{
   background-image: url('https://i.imgur.com/6WrBfng.png');
   background-size: 12px 12px;
   display: inline-block;
@@ -397,7 +397,7 @@ ytd-two-column-browse-results-renderer[page-subtype="playlist"] #primary{
   margin-right: 2px;
 }
 /* Nome do canal da playlist na biblioteca*/
-.ytd-grid-playlist-renderer #channel-name #text a::before{
+.ytd-grid-playlist-renderer #channel-name #text a:first-child::before, .yt-content-metadata-view-model-wiz__metadata-row span:first-child span[style="font-weight: 400;"] a::before{
   background-image: url('https://i.imgur.com/l09c79x.png');
   background-size: 11px 12px;
   display: inline-block;
