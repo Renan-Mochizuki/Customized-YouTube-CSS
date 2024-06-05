@@ -25,15 +25,38 @@
   background-image: none;
   width: 47px;
   height: 30px;
-  margin-left:5px;
+  margin-left: 5px;
+}
+.ytd-topbar-logo-renderer#logo {
+  content: url("https://i.imgur.com/9n4AS59.png");
+  background-image: none;
+  max-width: 47px;
+  width: 47px;
+  min-width: 47px;
+  height: 30px;
+  margin-left: 15px;
+  transition: 0.5s all ease;
 }
 #country-code{
   display: none;
 }
+/* Apenas mostrar as logos especiais/eventos do youtube ao se abrir a barra lateral */
+#content:has(tp-yt-app-drawer[opened]) ytd-topbar-logo-renderer #logo {
+  content: '' !important;
+  background-image: none;
+  max-width: 47px;
+  min-width: 47px;
+  height: 30px;
+  margin-left: 0px;
+}
+/* Botão três linhas */
+#guide-button.ytd-app {
+    min-width: 40px;
+}
 /* Botão ativar teclado virtual */
 .gsst_a{
-  filter:opacity(10%);
-  margin-right:5px;
+  filter: opacity(10%);
+  margin-right: 5px;
 }
 .gsst_a:hover{
   filter: drop-shadow(0px 0px 1px var(--sombra)) opacity(100%);
@@ -55,11 +78,11 @@
 }
 /* Tooltip do botão pesquisar */
 #tooltip{
-  display:none;
+  display: none;
 }
 /* Botão pesquisa por voz */
 #voice-search-button{
-  filter:opacity(0%);
+  filter: opacity(0%);
   transition-duration: .3s;
   transition-property: filter;
 }
@@ -68,9 +91,9 @@
 }
 /* Botão limpar pesquisa */
 #search-clear-button .yt-spec-button-shape-next--icon-only-default{
-  width:30px;
-  height:30px;
-  margin-right:8px;
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
 }
 /* Barra de carregamento da página */
 #progress {
@@ -78,61 +101,61 @@
 }
 /* Animação botão três linhas */
 #guide-button{
-  filter:opacity(0%);
+  filter: opacity(0%);
   transition-duration: 1s;
   transition-property: filter;
 }
 #start:hover #guide-button, #guide-content #header:hover #guide-button{
-  filter:opacity(100%);
+  filter: opacity(100%);
 }
 ytd-topbar-logo-renderer{
   left:-50px;
   transition-duration: .5s;
   transition-property: left;
-  position:relative;
+  position: relative;
 }
 #start:hover ytd-topbar-logo-renderer, #guide-content #header:hover ytd-topbar-logo-renderer{
-  left:0px;
+  left: 0px;
 }
 /* Animação botões perfil */
 ytd-notification-topbar-button-renderer{
-  position:relative;
-  display:block;
-  left:58px;
+  position: relative;
+  display: block;
+  left: 58px;
   transition-duration: .5s;
   transition-property: left, z-index, filter;
   filter: opacity(0%);
-  z-index:-1;
+  z-index: -1;
 }
 ytd-topbar-menu-button-renderer[has-no-text]{
-  position:relative;
-  display:block;
-  left:108px;
+  position: relative;
+  display: block;
+  left: 108px;
   transition-duration: .5s;
   transition-property: left, z-index, filter;
   filter: opacity(0%);
-  z-index:-1;
+  z-index: -1;
 }
 ytd-notification-topbar-button-renderer:has(.yt-spec-icon-badge-shape__badge) ~ ytd-topbar-menu-button-renderer::after{
   content: '';
   position: absolute;
   background-color: var(--notificacao);
   width: 12px;
-  height:12px;
-  border-radius:100%;
+  height: 12px;
+  border-radius: 100%;
   border: 1px solid black;
   right: 23px;
   top: 6px;
   transition: .4s filter;
 }
 #end:hover ytd-notification-topbar-button-renderer{
-  left:0px;
-  z-index:1;
+  left: 0px;
+  z-index: 1;
   filter: opacity(100%);
 }
 #end:hover ytd-topbar-menu-button-renderer[has-no-text]{
-  left:0px;
-  z-index:1;
+  left: 0px;
+  z-index: 1;
   filter: opacity(100%);
 }
 #end:hover ytd-topbar-menu-button-renderer::after{
@@ -140,7 +163,7 @@ ytd-notification-topbar-button-renderer:has(.yt-spec-icon-badge-shape__badge) ~ 
 }
 /* Vídeos da home */
 ytd-browse[page-subtype="home"] #contents{
-  margin-top:10px;
+  margin-top: 10px;
 }
 /* Remover os chips quando a barra lateral não estiver minimizada */
 tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-renderer{
@@ -156,11 +179,11 @@ ytd-rich-grid-row #contents{
 }
 /* Arco Íris na lateral */
 ytd-app:not([masthead-hidden=""]):before, #guide-wrapper:before{
-  width:3px;
-  height:100%;
-  content:"";
-  position:fixed;
-  z-index:10000;
+  width: 3px;
+  height: 100%;
+  content: "";
+  position: fixed;
+  z-index: 10000;
   background-image: var(--arcoiris);
   background-size: 3px 180%;
   animation: AnimacaoArcoiris 5s infinite linear reverse;
@@ -192,7 +215,7 @@ ytd-app:not([masthead-hidden=""]):before, #guide-wrapper:before{
 }
 /* Borda no player */
 #player video{
-  border-radius:10px;
+  border-radius: 10px;
 }
 .html5-video-player.ytp-fit-cover-video{
   border-bottom-left-radius: 10px;
@@ -244,7 +267,7 @@ yt-button-shape[version="modern"].ytd-menu-renderer button{
 }
 /* Garantir que a sombra dos botões em vídeo não cortem */
 #actions-inner #menu .ytd-watch-metadata{
-  padding:5px;
+  padding: 5px;
 }
 /* Efeito brilho botão like e dislike */
 #segmented-like-button,#segmented-dislike-button,.YtLikeButtonViewModelHost,.YtDislikeButtonViewModelHost{
@@ -270,9 +293,9 @@ yt-button-shape[version="modern"].ytd-menu-renderer button{
 }
 /* Texto mostrar mais na descrição */
 #description-inline-expander #expand{
-  margin-left:-5px;
+  margin-left: -5px;
   text-shadow: 0px 0px 2px var(--sombratexto);
-  padding:2px;
+  padding: 2px;
   border-radius: 10px;
 }
 /* Texto mostrar menos na descrição */
@@ -288,12 +311,38 @@ yt-related-chip-cloud-renderer{
   display: none;
 }
 ytd-watch-next-secondary-results-renderer #contents{
-  margin-top:-8px;
+  margin-top: -8px;
 }
 /* Tirar a borda da playlist lateral */
 ytd-playlist-panel-renderer#playlist > #container{
   border: none;
   border-bottom: 1px var(--sombrabotoes) solid;
+}
+
+/* Ocultar os shorts da página de vídeo e mostrar com hover */
+ytd-reel-shelf-renderer #contents{
+  position: relative;
+  display: block;
+  height: 0px;
+  filter: opacity(0%);
+  z-index: -5;
+  transition-duration: 0.6s;
+  transition-property: height, filter,z-index;
+}
+ytd-reel-shelf-renderer:hover #contents{
+  height: 330px;
+  filter: opacity(100%);
+  z-index: 5;
+}
+ytd-reel-shelf-renderer #title-container::after{
+  content: "Passe o cursor para ver Shorts";
+  font-size: 12px;
+  filter: opacity(100%);
+  transition-duration: 0.6s;
+  transition-property: filter;
+}
+  ytd-reel-shelf-renderer:hover #title-container::after{
+  filter: opacity(0%);
 }
 
 /* Fazer com que a header suma quanto a altura da tela estiver pequena */
@@ -312,7 +361,7 @@ ytd-playlist-panel-renderer#playlist > #container{
     transition-property: margin-top;
   }
   #masthead-container:hover ~ ytd-page-manager#page-manager{
-    margin-top:56px !important;
+    margin-top: 56px !important;
   }
   ytd-watch-flexy[flexy] #player-container.ytd-watch-flexy {
     top: -10px !important; 
@@ -340,7 +389,7 @@ ytd-playlist-panel-renderer#playlist > #container{
   display: inline-block;
   width: 14px; 
   height: 15px;
-  content:"";
+  content: "";
   margin-right: 5px;
 }
 /* Botão editar na página da playlist*/
@@ -374,7 +423,7 @@ ytd-two-column-browse-results-renderer[page-subtype="playlist"] #primary{
 /* Botão ver playlist completa na biblioteca */
 #details #view-more a, .yt-content-metadata-view-model-wiz__metadata-row span[style="font-weight: 500;"] a{
   font-size: 15px;
-  margin-top:5px;
+  margin-top: 5px;
 }
 #details #view-more a::before, .yt-content-metadata-view-model-wiz__metadata-row span[style="font-weight: 500;"] a::before{
   background-image: url('https://i.imgur.com/CdZxU8M.png');
@@ -382,9 +431,9 @@ ytd-two-column-browse-results-renderer[page-subtype="playlist"] #primary{
   display: inline-block;
   width: 20px; 
   height: 20px;
-  content:"";
+  content: "";
   position: relative;
-  top:2px;
+  top: 2px;
 }
 /* Mensagem ultima atualização na biblioteca */
 .ytd-grid-playlist-renderer #metadata-line span::before, .yt-content-metadata-view-model-wiz div:nth-child(2):nth-last-child(2) span::before{
@@ -393,7 +442,7 @@ ytd-two-column-browse-results-renderer[page-subtype="playlist"] #primary{
   display: inline-block;
   width: 12px; 
   height: 12px;
-  content:"";
+  content: "";
   margin-right: 2px;
 }
 /* Nome do canal da playlist na biblioteca*/
@@ -403,6 +452,6 @@ ytd-two-column-browse-results-renderer[page-subtype="playlist"] #primary{
   display: inline-block;
   width: 11px; 
   height: 12px;
-  content:"";
+  content: "";
   margin-right: 2px;
 }
