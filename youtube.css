@@ -17,6 +17,7 @@
   --imagemiconeplaylist: url('https://i.imgur.com/CdZxU8M.png');
   --imagemiconerelogio: url('https://i.imgur.com/6WrBfng.png');
   --textovershorts: "Passe o cursor para ver Shorts";
+  --alturashorts: 330px;
 }
 @keyframes AnimacaoArcoiris{ 
   0%{background-position: 0% 0%}
@@ -180,7 +181,7 @@ ytd-rich-grid-row #contents{
   justify-content: center;
 }
 /* Arco Íris na lateral */
-ytd-app:before{
+ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before{
   width: 3px;
   height: 100%;
   content: "";
@@ -330,11 +331,13 @@ ytd-playlist-panel-renderer#playlist > #container{
   z-index: -5;
   transition-duration: 0.6s;
   transition-property: height, filter,z-index;
+  transition-delay: 1s;
 }
 #items ytd-reel-shelf-renderer:hover #contents{
-  height: 330px;
+  height: var(--alturashorts);
   filter: opacity(100%);
-  z-index: 5;
+  z-index: 5;  
+  transition-delay: 0s;
 }
 #items ytd-reel-shelf-renderer #title-container::after{
   content: var(--textovershorts);
@@ -342,9 +345,11 @@ ytd-playlist-panel-renderer#playlist > #container{
   filter: opacity(100%);
   transition-duration: 0.6s;
   transition-property: filter;
+  transition-delay: 1s;
 }
 #items ytd-reel-shelf-renderer:hover #title-container::after{
   filter: opacity(0%);
+  transition-delay: 0s;
 }
 
 /* Fazer com que a header suma quanto a altura da tela estiver pequena */
