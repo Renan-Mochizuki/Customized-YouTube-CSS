@@ -308,6 +308,10 @@ yt-button-shape[version="modern"].ytd-menu-renderer button{
   border-radius: 10px;
   font-size: 16px;
 }
+/* Remover shorts da descrição */
+#description #items ytd-reel-shelf-renderer{
+  display: none;
+}
 
 /* Tirar os temas da página de vídeo */
 yt-related-chip-cloud-renderer{
