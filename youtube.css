@@ -12,6 +12,11 @@
   --sombra: whitesmoke;
   --contornocanal: gold;
   --notificacao: #cc0000;
+  --imagemlogoyoutube: url("https://i.imgur.com/9n4AS59.png");
+  --imagemusuario: url('https://i.imgur.com/l09c79x.png');
+  --imagemiconeplaylist: url('https://i.imgur.com/CdZxU8M.png');
+  --imagemiconerelogio: url('https://i.imgur.com/6WrBfng.png');
+  --textovershorts: "Passe o cursor para ver Shorts";
 }
 @keyframes AnimacaoArcoiris{ 
   0%{background-position: 0% 0%}
@@ -21,13 +26,14 @@
 /* HEADER E HOME */
 /* Logo do Youtube */
 #logo-icon {
-  content: url("https://i.imgur.com/9n4AS59.png");
+  content: var(--imagemlogoyoutube);
   background-image: none;
   width: 47px;
   height: 30px;
   margin-left: 5px;
 }
-.ytd-topbar-logo-renderer#logo {
+/* NECESSÁRIO MELHORAR REFERÊNCIA DE EVENTO */
+/* .ytd-topbar-logo-renderer#logo {
   content: url("https://i.imgur.com/9n4AS59.png");
   background-image: none;
   max-width: 47px;
@@ -36,7 +42,7 @@
   height: 30px;
   margin-left: 15px;
   transition: 0.5s all ease;
-}
+} */
 #country-code{
   display: none;
 }
@@ -47,11 +53,11 @@
   max-width: 47px;
   min-width: 47px;
   height: 30px;
-  margin-left: 0px;
+  /* margin-left: 5px; */
 }
 /* Botão três linhas */
 #guide-button.ytd-app {
-    min-width: 40px;
+  min-width: 40px;
 }
 /* Botão ativar teclado virtual */
 .gsst_a{
@@ -146,7 +152,7 @@ ytd-notification-topbar-button-renderer:has(.yt-spec-icon-badge-shape__badge) ~ 
   border: 1px solid black;
   right: 23px;
   top: 6px;
-  transition: .4s filter;
+  transition: 0.4s filter;
 }
 #end:hover ytd-notification-topbar-button-renderer{
   left: 0px;
@@ -169,16 +175,12 @@ ytd-browse[page-subtype="home"] #contents{
 tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-renderer{
   display: none;
 }
-/* Remover os Shorts das inscrições quando a barra lateral não estiver minimizada */
-tp-yt-app-drawer[opened] ~ ytd-page-manager ytd-rich-item-renderer.ytd-rich-grid-row:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]){
-  display: none !important;
-}
 /* Centralizar vídeos na página de inscrições*/
 ytd-rich-grid-row #contents{
   justify-content: center;
 }
 /* Arco Íris na lateral */
-ytd-app:not([masthead-hidden=""]):before, #guide-wrapper:before{
+ytd-app:before{
   width: 3px;
   height: 100%;
   content: "";
@@ -320,7 +322,7 @@ ytd-playlist-panel-renderer#playlist > #container{
 }
 
 /* Ocultar os shorts da página de vídeo e mostrar com hover */
-ytd-reel-shelf-renderer #contents{
+#items ytd-reel-shelf-renderer #contents{
   position: relative;
   display: block;
   height: 0px;
@@ -329,19 +331,19 @@ ytd-reel-shelf-renderer #contents{
   transition-duration: 0.6s;
   transition-property: height, filter,z-index;
 }
-ytd-reel-shelf-renderer:hover #contents{
+#items ytd-reel-shelf-renderer:hover #contents{
   height: 330px;
   filter: opacity(100%);
   z-index: 5;
 }
-ytd-reel-shelf-renderer #title-container::after{
-  content: "Passe o cursor para ver Shorts";
+#items ytd-reel-shelf-renderer #title-container::after{
+  content: var(--textovershorts);
   font-size: 12px;
   filter: opacity(100%);
   transition-duration: 0.6s;
   transition-property: filter;
 }
-  ytd-reel-shelf-renderer:hover #title-container::after{
+#items ytd-reel-shelf-renderer:hover #title-container::after{
   filter: opacity(0%);
 }
 
@@ -366,6 +368,15 @@ ytd-reel-shelf-renderer #title-container::after{
   ytd-watch-flexy[flexy] #player-container.ytd-watch-flexy {
     top: -10px !important; 
   }
+  /* Barra lateral */
+  tp-yt-app-drawer #guide-content{
+    margin-top: -50px !important;
+    transition-duration: 0.3s;
+    transition-property: margin-top;
+  }
+  #masthead-container:hover ~ tp-yt-app-drawer #guide-content{
+    margin-top: 0px !important;
+  }
 }
 
 
@@ -384,7 +395,7 @@ ytd-reel-shelf-renderer #title-container::after{
 }
 /* Nome do canal na playlist*/
 .metadata-action-bar .metadata-text-wrapper .metadata-owner #owner-text a::before{
-  background-image: url('https://i.imgur.com/l09c79x.png');
+  background-image: var(--imagemusuario);
   background-size: 14px 15px;
   display: inline-block;
   width: 14px; 
@@ -426,7 +437,7 @@ ytd-two-column-browse-results-renderer[page-subtype="playlist"] #primary{
   margin-top: 5px;
 }
 #details #view-more a::before, .yt-content-metadata-view-model-wiz__metadata-row span[style="font-weight: 500;"] a::before{
-  background-image: url('https://i.imgur.com/CdZxU8M.png');
+  background-image: var(--imagemiconeplaylist);
   background-size: 20px 20px;
   display: inline-block;
   width: 20px; 
@@ -437,7 +448,7 @@ ytd-two-column-browse-results-renderer[page-subtype="playlist"] #primary{
 }
 /* Mensagem ultima atualização na biblioteca */
 .ytd-grid-playlist-renderer #metadata-line span::before, .yt-content-metadata-view-model-wiz div:nth-child(2):nth-last-child(2) span::before{
-  background-image: url('https://i.imgur.com/6WrBfng.png');
+  background-image: var(--imagemiconerelogio);
   background-size: 12px 12px;
   display: inline-block;
   width: 12px; 
@@ -447,7 +458,7 @@ ytd-two-column-browse-results-renderer[page-subtype="playlist"] #primary{
 }
 /* Nome do canal da playlist na biblioteca*/
 .ytd-grid-playlist-renderer #channel-name #text a:first-child::before, .yt-content-metadata-view-model-wiz__metadata-row span:first-child span[style="font-weight: 400;"] a::before{
-  background-image: url('https://i.imgur.com/l09c79x.png');
+  background-image: var(--imagemusuario);
   background-size: 11px 12px;
   display: inline-block;
   width: 11px; 
