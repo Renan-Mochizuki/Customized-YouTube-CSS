@@ -21,10 +21,24 @@ Obs.: O ícone customizado do YouTube não foi feito por mim.
 - **Mudanças gerais de cor**
 
 <div align="center">
-    <img width="720" src="https://i.imgur.com/VEx5vo1.png">
+    <img width="720" src="https://i.imgur.com/nbVFJEG.png">
 </div>
 
-Ainda há outras mudanças mínimas.
+Ainda há outras mudanças mínimas, como:
+
+- Ocultamento da header quando a tela estiver pequena
+
+- Adição de ícones nos detalhes da playlist na tela de playlist
+
+- Ocultamento dos Shorts da tela de vídeo (para acessar, passe o cursor por cima)
+
+- Adição de brilho nos botões like/dislike e título do vídeo
+
+- Adição de borda enevoada em alguns botões
+
+- Remoção dos chips/temas (ao minimizar a barra lateral, eles voltarão)
+
+- Remoção da cor da caixa de descrição
 
 ## Como usar
 
