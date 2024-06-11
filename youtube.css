@@ -18,6 +18,8 @@
   --imagemiconerelogio: url('https://i.imgur.com/6WrBfng.png');
   --textovershorts: "Passe o cursor para ver Shorts";
   --alturashorts: 330px;
+  --tempofechamentoshorts: 1s;
+  --tempoaberturashorts: 0.1s;
 }
 @keyframes AnimacaoArcoiris{ 
   0%{background-position: 0% 0%}
@@ -33,8 +35,11 @@
   height: 30px;
   margin-left: 5px;
 }
-/* NECESSÁRIO MELHORAR REFERÊNCIA DE EVENTO */
-/* .ytd-topbar-logo-renderer#logo {
+#country-code{
+  display: none;
+}
+/* Apenas mostrar as logos especiais/eventos do youtube ao se abrir a barra lateral */
+#content:has(tp-yt-app-drawer:not([opened])) ytd-topbar-logo-renderer #logo {
   content: url("https://i.imgur.com/9n4AS59.png");
   background-image: none;
   max-width: 47px;
@@ -43,18 +48,14 @@
   height: 30px;
   margin-left: 15px;
   transition: 0.5s all ease;
-} */
-#country-code{
-  display: none;
 }
-/* Apenas mostrar as logos especiais/eventos do youtube ao se abrir a barra lateral */
 #content:has(tp-yt-app-drawer[opened]) ytd-topbar-logo-renderer #logo {
   content: '' !important;
   background-image: none;
   max-width: 47px;
   min-width: 47px;
   height: 30px;
-  /* margin-left: 5px; */
+  margin-left: 5px;
 }
 /* Botão três linhas */
 #guide-button.ytd-app {
@@ -335,13 +336,13 @@ ytd-playlist-panel-renderer#playlist > #container{
   z-index: -5;
   transition-duration: 0.6s;
   transition-property: height, filter,z-index;
-  transition-delay: 1s;
+  transition-delay: var(--tempofechamentoshorts);
 }
 #items ytd-reel-shelf-renderer:hover #contents{
   height: var(--alturashorts);
   filter: opacity(100%);
   z-index: 5;  
-  transition-delay: 0s;
+  transition-delay: var(--tempoaberturashorts);
 }
 #items ytd-reel-shelf-renderer #title-container::after{
   content: var(--textovershorts);
@@ -349,11 +350,11 @@ ytd-playlist-panel-renderer#playlist > #container{
   filter: opacity(100%);
   transition-duration: 0.6s;
   transition-property: filter;
-  transition-delay: 1s;
+  transition-delay: var(--tempofechamentoshorts);
 }
 #items ytd-reel-shelf-renderer:hover #title-container::after{
   filter: opacity(0%);
-  transition-delay: 0s;
+  transition-delay: var(--tempoaberturashorts);
 }
 
 /* Fazer com que a header suma quanto a altura da tela estiver pequena */
