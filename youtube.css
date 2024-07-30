@@ -18,8 +18,8 @@
   --imagemiconerelogio: url('https://i.imgur.com/6WrBfng.png');
   --textovershorts: "Passe o cursor para ver Shorts";
   --alturashorts: 330px;
-  --tempofechamentoshorts: 1s;
-  --tempoaberturashorts: 0.1s;
+  --tempofechamentoshorts: 1.5s;
+  --tempoaberturashorts: 0.2s;
 }
 @keyframes AnimacaoArcoiris{ 
   0%{background-position: 0% 0%}
@@ -387,6 +387,9 @@ ytd-playlist-panel-renderer#playlist > #container{
   #masthead-container:hover ~ tp-yt-app-drawer #guide-content{
     margin-top: 0px !important;
   }
+  #header ytd-feed-filter-chip-bar-renderer{
+    display: none;
+  }
 }
 
 
@@ -430,6 +433,18 @@ ytd-playlist-header-renderer.ytd-browse{
 }
 ytd-two-column-browse-results-renderer[page-subtype="playlist"] #primary{
   margin-top: -20px
+}
+/* Adicionando margem no aviso da playlist */
+ytd-browse[page-subtype="playlist"] ytd-alert-with-button-renderer[is-displayed]{
+  margin-bottom: 10px;
+}
+/* Ocultando as visualizações das playlist Assistir mais tarde e Vídeos com "Gostei" */
+ytd-inline-form-renderer[hidden] ~ .metadata-action-bar .metadata-text-wrapper:has(~ .metadata-buttons-wrapper ytd-button-renderer[hidden]:nth-child(2)) .metadata-stats yt-formatted-string:nth-child(4){
+  display: none;
+}
+/* Garantindo o tamanho correto do nome da playlist Assistir mais tarde */
+yt-dynamic-sizing-formatted-string:not([hidden]) #text{
+  font-size: 2.8em;
 }
 
 
