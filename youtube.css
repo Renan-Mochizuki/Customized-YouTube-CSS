@@ -18,7 +18,7 @@
   --imagemiconerelogio: url('https://i.imgur.com/6WrBfng.png');
   --textovershorts: "Passe o cursor para ver Shorts";
   --alturashorts: 330px;
-  --tempofechamentoshorts: 1.5s;
+  --tempofechamentoshorts: 1s;
   --tempoaberturashorts: 0.2s;
 }
 @keyframes AnimacaoArcoiris{ 
@@ -368,12 +368,11 @@ ytd-playlist-panel-renderer#playlist > #container{
     filter: opacity(100%);
   }
   ytd-page-manager#page-manager{
-    margin-top: 0px !important;
     transition-duration: 0.3s;
     transition-property: margin-top;
   }
-  #masthead-container:hover ~ ytd-page-manager#page-manager{
-    margin-top: 56px !important;
+  #masthead-container:not(:hover) ~ ytd-page-manager#page-manager{
+    margin-top: 0px !important;
   }
   ytd-watch-flexy[flexy] #player-container.ytd-watch-flexy {
     top: -10px !important; 
@@ -388,6 +387,12 @@ ytd-playlist-panel-renderer#playlist > #container{
     margin-top: 0px !important;
   }
   #header ytd-feed-filter-chip-bar-renderer{
+    display: none;
+  } 
+  #masthead-container:not(:hover) ~ ytd-page-manager tp-yt-app-header{
+    --ytd-toolbar-offset: 0px !important;
+  }
+  tp-yt-app-header tp-yt-app-toolbar{
     display: none;
   }
 }
