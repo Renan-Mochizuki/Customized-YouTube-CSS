@@ -17,7 +17,7 @@
   --imagemiconeplaylist: url('https://i.imgur.com/CdZxU8M.png');
   --imagemiconerelogio: url('https://i.imgur.com/6WrBfng.png');
   --textovershorts: "Passe o cursor para ver Shorts";
-  --alturashorts: 330px;
+  --alturashorts: 360px;
   --tempofechamentoshorts: 1s;
   --tempoaberturashorts: 0.2s;
 }
@@ -383,9 +383,9 @@ ytd-playlist-panel-renderer#playlist > #container{
   #masthead-container:not(:hover) ~ ytd-page-manager tp-yt-app-header{
     --ytd-toolbar-offset: 0px !important;
   }
- /*  tp-yt-app-header:not([style="left: 0px; right: 0px; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"]) tp-yt-app-toolbar{
-    display: none;
-  } */
+  ytd-watch-flexy>#columns>#primary{
+    padding-top: 10px !important;
+  }
 }
 
 
