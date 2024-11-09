@@ -1,10 +1,10 @@
 :root {
-  --carregandopagina: linear-gradient(-90deg,rgb(255, 196, 0),red 40%,rgb(41, 0, 123));
+  --carregandopagina: linear-gradient(-90deg, rgb(255, 196, 0), red 40%, rgb(41, 0, 123));
   --volumeesquerda: linear-gradient(45deg, rgb(50, 0, 151), rgb(142, 142, 255));
-  --volumedireita:  linear-gradient(45deg,rgb(168, 168, 255),rgb(50, 0, 151) 10%,rgb(24, 0, 71) 50%);
+  --volumedireita: linear-gradient(45deg, rgb(168, 168, 255), rgb(50, 0, 151) 10%, rgb(24, 0, 71) 50%);
   --progressothumb: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
   --progressovideo: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
-  --arcoiris: linear-gradient(rgba(248,13,27,1) 0%, rgba(255,160,0,1) 11%, rgba(255,227,2,1) 22%, rgba(0,250,34,1) 33%, rgba(0,169,238,1) 44%, rgba(159,0,255,1) 55%, rgba(0,169,238,1) 66%, rgba(0,250,34,1) 77%, rgba(255,227,2,1) 88%,rgba(248,13,27,1) 100%);
+  --arcoiris: linear-gradient(rgba(248, 13, 27, 1) 0%, rgba(255, 160, 0, 1) 11%, rgba(255, 227, 2, 1) 22%, rgba(0, 250, 34, 1) 33%, rgba(0, 169, 238, 1) 44%, rgba(159, 0, 255, 1) 55%, rgba(0, 169, 238, 1) 66%, rgba(0, 250, 34, 1) 77%, rgba(255, 227, 2, 1) 88%, rgba(248, 13, 27, 1) 100%);
   --cursorprogresso: rgb(212, 6, 143);
   --cursorprogressosombra: 0 0 8px 2px rgb(168, 125, 255);
   --sombrabotoes: rgba(245, 245, 245, 0.612);
@@ -17,13 +17,26 @@
   --imagemiconeplaylist: url('https://i.imgur.com/CdZxU8M.png');
   --imagemiconerelogio: url('https://i.imgur.com/6WrBfng.png');
   --textovershorts: "Passe o cursor para ver Shorts";
-  --alturashorts: 360px;
   --tempofechamentoshorts: 1s;
   --tempoaberturashorts: 0.2s;
+  --tempofechamentoheader: 0s;
+  --tempoaberturaheader: 0.3s;
+  /* Caso queira remover a funcionalidade de esconder shorts */
+  /* 0 para esconder shorts e 1 para nunca esconder */
+  --sempremostrarshorts: 0;
+  /* Caso queira remover a funcionalidade de esconder a header quando a tela estiver pequena */
+  /* 0 para esconder header e 1 para nunca esconder */
+  --sempremostrarheader: 0;
 }
-@keyframes AnimacaoArcoiris{ 
-  0%{background-position: 0% 0%}
-  100%{background-position: 0% 230%}
+
+@keyframes AnimacaoArcoiris {
+  0% {
+    background-position: 0% 0%
+  }
+
+  100% {
+    background-position: 0% 230%
+  }
 }
 
 /* HEADER E HOME */
@@ -35,9 +48,11 @@
   height: 30px;
   margin-left: 5px;
 }
-#country-code{
+
+#country-code {
   display: none;
 }
+
 /* Apenas mostrar as logos especiais/eventos do youtube ao se abrir a barra lateral */
 #content:has(tp-yt-app-drawer:not([opened])) ytd-topbar-logo-renderer #logo {
   content: url("https://i.imgur.com/9n4AS59.png");
@@ -49,6 +64,7 @@
   margin-left: 15px;
   transition: 0.5s all ease;
 }
+
 #content:has(tp-yt-app-drawer[opened]) ytd-topbar-logo-renderer #logo {
   content: '' !important;
   background-image: none;
@@ -57,76 +73,94 @@
   height: 30px;
   margin-left: 5px;
 }
+
 /* Botão três linhas */
 #guide-button.ytd-app {
   min-width: 40px;
 }
+
 /* Botão ativar teclado virtual */
-.gsst_a{
+.gsst_a {
   filter: opacity(10%);
   margin-right: 5px;
 }
-.gsst_a:hover{
+
+.gsst_a:hover {
   filter: drop-shadow(0px 0px 1px var(--sombra)) opacity(100%);
   transition: 0.5s all ease;
 }
+
 /* Barra de pesquisa */
-#search form{
+#search form {
   filter: drop-shadow(0px 0px 1px var(--sombra));
 }
+
 /* Botão pesquisar */
-#search-icon-legacy{
+#search-icon-legacy {
   box-shadow: 0px 0px 2px var(--sombra);
   transition: all ease 0.15s;
-  transition-property: transform,filter;
+  transition-property: transform, filter;
 }
-#search-icon-legacy:hover{
+
+#search-icon-legacy:hover {
   transform: scale(1.05) translate(1px);
   filter: drop-shadow(0px 0px 2px var(--sombrabotoes));
 }
+
 /* Tooltip do botão pesquisar */
-#tooltip{
+#tooltip {
   display: none;
 }
+
 /* Botão pesquisa por voz */
-#voice-search-button{
+#voice-search-button {
   filter: opacity(0%);
   transition-duration: .3s;
   transition-property: filter;
 }
-#voice-search-button:hover{
+
+#voice-search-button:hover {
   filter: opacity(100%);
 }
+
 /* Botão limpar pesquisa */
-#search-clear-button .yt-spec-button-shape-next--icon-only-default{
+#search-clear-button .yt-spec-button-shape-next--icon-only-default {
   width: 30px;
   height: 30px;
   margin-right: 8px;
 }
+
 /* Barra de carregamento da página */
 #progress {
   background-image: var(--carregandopagina);
 }
+
 /* Animação botão três linhas */
-#guide-button{
+#guide-button {
   filter: opacity(0%);
   transition-duration: 1s;
   transition-property: filter;
 }
-#start:hover #guide-button, #guide-content #header:hover #guide-button{
+
+#start:hover #guide-button,
+#guide-content #header:hover #guide-button {
   filter: opacity(100%);
 }
-ytd-topbar-logo-renderer{
-  left:-50px;
+
+ytd-topbar-logo-renderer {
+  left: -50px;
   transition-duration: .5s;
   transition-property: left;
   position: relative;
 }
-#start:hover ytd-topbar-logo-renderer, #guide-content #header:hover ytd-topbar-logo-renderer{
+
+#start:hover ytd-topbar-logo-renderer,
+#guide-content #header:hover ytd-topbar-logo-renderer {
   left: 0px;
 }
+
 /* Animação botões perfil */
-ytd-notification-topbar-button-renderer{
+ytd-notification-topbar-button-renderer {
   position: relative;
   display: block;
   left: 58px;
@@ -135,7 +169,8 @@ ytd-notification-topbar-button-renderer{
   filter: opacity(0%);
   z-index: -1;
 }
-ytd-topbar-menu-button-renderer[has-no-text]{
+
+ytd-topbar-menu-button-renderer[has-no-text] {
   position: relative;
   display: block;
   left: 108px;
@@ -144,7 +179,8 @@ ytd-topbar-menu-button-renderer[has-no-text]{
   filter: opacity(0%);
   z-index: -1;
 }
-ytd-notification-topbar-button-renderer:has(.yt-spec-icon-badge-shape__badge) ~ ytd-topbar-menu-button-renderer::after{
+
+ytd-notification-topbar-button-renderer:has(.yt-spec-icon-badge-shape__badge)~ytd-topbar-menu-button-renderer::after {
   content: '';
   position: absolute;
   background-color: var(--notificacao);
@@ -156,33 +192,40 @@ ytd-notification-topbar-button-renderer:has(.yt-spec-icon-badge-shape__badge) ~ 
   top: 6px;
   transition: 0.4s filter;
 }
-#end:hover ytd-notification-topbar-button-renderer{
+
+#end:hover ytd-notification-topbar-button-renderer {
   left: 0px;
   z-index: 1;
   filter: opacity(100%);
 }
-#end:hover ytd-topbar-menu-button-renderer[has-no-text]{
+
+#end:hover ytd-topbar-menu-button-renderer[has-no-text] {
   left: 0px;
   z-index: 1;
   filter: opacity(100%);
 }
-#end:hover ytd-topbar-menu-button-renderer::after{
+
+#end:hover ytd-topbar-menu-button-renderer::after {
   filter: opacity(0%);
 }
+
 /* Vídeos da home */
-ytd-browse[page-subtype="home"] #contents{
+ytd-browse[page-subtype="home"] #contents {
   margin-top: 10px;
 }
+
 /* Remover os chips quando a barra lateral não estiver minimizada */
-tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-renderer{
+tp-yt-app-drawer[opened]~ytd-page-manager #header ytd-feed-filter-chip-bar-renderer {
   display: none;
 }
+
 /* Centralizar vídeos na página de inscrições*/
-ytd-rich-grid-row #contents{
+ytd-rich-grid-row #contents {
   justify-content: center;
 }
+
 /* Arco Íris na lateral */
-ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before{
+ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
   width: 3px;
   height: 100%;
   content: "";
@@ -195,47 +238,56 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before{
 
 /* PLAYER */
 /* Barra de progresso em vídeos */
-.ytp-play-progress{
+.ytp-play-progress {
   background-image: var(--progressovideo);
 }
+
 /* Barra de progresso em thumbs*/
 #progress.ytd-thumbnail-overlay-resume-playback-renderer {
   background-image: var(--progressothumb);
 }
+
 /* Cursor de progresso */
 .ytp-scrubber-button.ytp-swatch-background-color {
   background: var(--cursorprogresso);
   box-shadow: var(--cursorprogressosombra);
 }
+
 /* Barra de volume esquerda*/
 .ytp-volume-slider-handle:before {
   background: var(--volumeesquerda);
   z-index: -1;
 }
+
 /* Barra de volume direita*/
 .ytp-volume-slider-handle:after {
   background: var(--volumedireita);
   z-index: -1;
 }
+
 /* Borda no player */
-#player video{
+#player video {
   border-radius: 10px;
 }
-.html5-video-player.ytp-fit-cover-video{
+
+.html5-video-player.ytp-fit-cover-video {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
 /* Animação icone do canal no canto do player */
-.annotation-type-custom.iv-branding{
+.annotation-type-custom.iv-branding {
   filter: opacity(0%);
   transition-property: filter;
   transition-duration: .3s;
 }
-.annotation-type-custom.iv-branding:hover{
+
+.annotation-type-custom.iv-branding:hover {
   filter: opacity(100%);
 }
+
 /* Tirar a mensagem do icone no canto do player */
-.branding-context-container-inner.ytp-rounded-branding-context{
+.branding-context-container-inner.ytp-rounded-branding-context {
   display: none;
 }
 
@@ -245,106 +297,128 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before{
 h1 yt-formatted-string[force-default-style] {
   text-shadow: 1px 1px 3px var(--sombratexto);
 }
+
 yt-formatted-string[force-default-style]:hover {
   text-shadow: 0px 0px 1px var(--sombra);
   backdrop-filter: blur(10px);
   transition: 0.2s ease-in;
 }
+
 /* Nome do canal em vídeos*/
 #upload-info #channel-name #container #text-container {
   text-shadow: 1px 1px 1px var(--sombratexto);
 }
+
 #text a:hover {
   text-shadow: 0px 0px 1px var(--sombra);
   transition: 0.2s ease-in;
 }
+
 /* Sombra dos botões */
-#menu .ytd-watch-metadata #top-level-buttons-computed .ytd-menu-renderer, #owner #subscribe-button, #flexible-item-buttons ytd-button-renderer{
+#menu .ytd-watch-metadata #top-level-buttons-computed .ytd-menu-renderer,
+#owner #subscribe-button,
+#flexible-item-buttons ytd-button-renderer {
   box-shadow: 0px 0px 2.5px var(--sombrabotoes);
   border-radius: 25px;
   margin-right: 2px;
 }
+
 /* Botão três pontos */
-yt-button-shape[version="modern"].ytd-menu-renderer button{
+yt-button-shape[version="modern"].ytd-menu-renderer button {
   box-shadow: 0px 0px 4px var(--sombrabotoes);
   border-radius: 25px;
 }
+
 /* Garantir que a sombra dos botões em vídeo não cortem */
-#actions-inner #menu .ytd-watch-metadata{
+#actions-inner #menu .ytd-watch-metadata {
   padding: 5px;
 }
+
 /* Efeito brilho botão like e dislike */
-#segmented-like-button,#segmented-dislike-button,.YtLikeButtonViewModelHost,.YtDislikeButtonViewModelHost{
+#segmented-like-button,
+#segmented-dislike-button,
+.YtLikeButtonViewModelHost,
+.YtDislikeButtonViewModelHost {
   filter: drop-shadow(0px 0px 5px var(--sombrabotoes));
 }
+
 /* Ícone do perfil*/
-#avatar{
+#avatar {
   transition-duration: .5s;
   transition-property: transform, filter;
 }
+
 #avatar:hover {
   filter: drop-shadow(0px 0px 1.5px var(--contornocanal));
   transform: scale(1.1);
 }
 
 /* Descrição */
-#bottom-row #description{
+#bottom-row #description {
   background-color: transparent;
 }
+
 /* Texto visualizações na descrição */
-#description-inner #info span{
+#description-inner #info span {
   text-shadow: 1px 1px 3px var(--sombratexto);
 }
+
 /* Texto mostrar mais na descrição */
-#description-inline-expander #expand{
+#description-inline-expander #expand {
   margin-left: -5px;
   text-shadow: 0px 0px 2px var(--sombratexto);
   padding: 2px;
   border-radius: 10px;
 }
+
 /* Texto mostrar menos na descrição */
-#description-inline-expander #collapse{
-  margin-top:-2px;
+#description-inline-expander #collapse {
+  margin-top: -2px;
   text-shadow: 0px 0px 2px var(--sombratexto);
   border-radius: 10px;
   font-size: 16px;
 }
+
 /* Remover shorts da descrição */
-#description #items ytd-reel-shelf-renderer{
+#description #items ytd-reel-shelf-renderer {
   display: none;
 }
 
 /* Tirar os temas da página de vídeo */
-yt-related-chip-cloud-renderer{
+yt-related-chip-cloud-renderer {
   display: none;
 }
-ytd-watch-next-secondary-results-renderer #contents{
+
+ytd-watch-next-secondary-results-renderer #contents {
   margin-top: -8px;
 }
+
 /* Tirar a borda da playlist lateral */
-ytd-playlist-panel-renderer#playlist > #container{
+ytd-playlist-panel-renderer#playlist>#container {
   border: none;
   border-bottom: 1px var(--sombrabotoes) solid;
 }
 
 /* Ocultar os shorts da página de vídeo e mostrar com hover */
-#items ytd-reel-shelf-renderer #contents{
+#items ytd-reel-shelf-renderer #contents {
   position: relative;
   display: block;
-  height: 0px;
-  filter: opacity(0%);
-  z-index: -5;
-  transition-duration: 0.6s;
-  transition-property: height, filter,z-index;
+  max-height: calc(500px * var(--sempremostrarshorts));
+  opacity: var(--sempremostrarshorts);
+  z-index: calc(10 * var(--sempremostrarshorts) - 5);
+  overflow: hidden;
+  transition: max-height 0.6s ease, opacity 0.6s, z-index 0.6s;
   transition-delay: var(--tempofechamentoshorts);
 }
-#items ytd-reel-shelf-renderer:hover #contents{
-  height: var(--alturashorts);
-  filter: opacity(100%);
-  z-index: 5;  
+
+#items ytd-reel-shelf-renderer:hover #contents {
+  max-height: 500px;
+  opacity: 1;
+  z-index: 5;
   transition-delay: var(--tempoaberturashorts);
 }
-#items ytd-reel-shelf-renderer #title-container::after{
+
+#items ytd-reel-shelf-renderer #title-container::after {
   content: var(--textovershorts);
   font-size: 12px;
   filter: opacity(100%);
@@ -352,137 +426,166 @@ ytd-playlist-panel-renderer#playlist > #container{
   transition-property: filter;
   transition-delay: var(--tempofechamentoshorts);
 }
-#items ytd-reel-shelf-renderer:hover #title-container::after{
+
+#items ytd-reel-shelf-renderer:hover #title-container::after {
   filter: opacity(0%);
   transition-delay: var(--tempoaberturashorts);
 }
 
 /* Fazer com que a header suma quanto a altura da tela estiver pequena */
-@media screen and (max-height: 37.5em){
-  #masthead-container{
-    transition-duration: 0.3s;
-    transition-property: filter !important;
+@media screen and (max-height: 37.5em) {
+  #masthead-container {
+    opacity: var(--sempremostrarheader);
+    transition: opacity 0.3s ease var(--tempofechamentoheader);
   }
-  /* Quando a header não tiver com hover e não tiver o searchbox com focus */
-  #masthead-container:not(:has(~ tp-yt-app-drawer[opened])):not(:hover):not(:has(ytd-searchbox[has-focus])){
-    filter: opacity(0%);
+
+  /* Quando a header tiver hover ou foco em searchbox */
+  #masthead-container:hover,
+  #masthead-container:has(ytd-searchbox[has-focus]),
+  #masthead-container:has(~ tp-yt-app-drawer[opened]) {
+    opacity: 1;
+    transition: opacity 0.3s ease var(--tempoaberturaheader);
   }
-  ytd-page-manager#page-manager{
+
+  ytd-page-manager#page-manager {
     transition-duration: 0.3s;
     transition-property: margin-top;
+    transition-delay: var(--tempoaberturaheader);
   }
-  #masthead-container:not(:has(~ tp-yt-app-drawer[opened])):not(:hover):not(:has(ytd-searchbox[has-focus])) ~ ytd-page-manager#page-manager{
-    margin-top: 0px !important;
+
+  #masthead-container:not(:has(~ tp-yt-app-drawer[opened])):not(:hover):not(:has(ytd-searchbox[has-focus]))~ytd-page-manager#page-manager {
+    margin-top: calc(var(--ytd-toolbar-height) * var(--sempremostrarheader)) !important;
+    transition-delay: var(--tempofechamentoheader);
   }
-  ytd-watch-flexy[flexy] #player-container.ytd-watch-flexy {
-    top: -10px !important; 
-  }
-  #header ytd-feed-filter-chip-bar-renderer{
+
+  #header ytd-feed-filter-chip-bar-renderer {
     display: none;
-  } 
-  #masthead-container:not(:hover) ~ ytd-page-manager tp-yt-app-header{
+  }
+
+  #masthead-container:not(:hover)~ytd-page-manager tp-yt-app-header {
     --ytd-toolbar-offset: 0px !important;
   }
-  ytd-watch-flexy>#columns>#primary{
-    padding-top: 10px !important;
+
+  ytd-watch-flexy>#columns>div {
+    padding-top: 5px !important;
   }
 }
 
 
 /* PLAYLIST */
 /* Botões compartilhar e três pontos de playlist */
-.metadata-buttons-wrapper .ytd-playlist-header-renderer yt-button-shape{
+.metadata-buttons-wrapper .ytd-playlist-header-renderer yt-button-shape {
   box-shadow: 0px 0px 5px var(--sombrabotoes);
   border-radius: 25px;
   margin-left: 2px;
 }
+
 /* Título da playlist */
-.ytd-playlist-header-renderer #text, #header-description h3{
+.ytd-playlist-header-renderer #text,
+#header-description h3 {
   font-family: Calibri;
   text-shadow: 0px 0px 2px black;
   filter: drop-shadow(0px 0px 3px var(--sombra));
 }
+
 /* Nome do canal na playlist*/
-.metadata-action-bar .metadata-text-wrapper .metadata-owner #owner-text a::before{
+.metadata-action-bar .metadata-text-wrapper .metadata-owner #owner-text a::before {
   background-image: var(--imagemusuario);
   background-size: 14px 15px;
   display: inline-block;
-  width: 14px; 
+  width: 14px;
   height: 15px;
   content: "";
   margin-right: 5px;
 }
+
 /* Botão editar na página da playlist*/
-.thumbnail-and-metadata-wrapper #edit-button{
+.thumbnail-and-metadata-wrapper #edit-button {
   opacity: 5%;
   transition: .2s;
 }
-.thumbnail-and-metadata-wrapper #edit-button button{
+
+.thumbnail-and-metadata-wrapper #edit-button button {
   background-color: transparent;
 }
-.thumbnail-and-metadata-wrapper #edit-button:hover{
+
+.thumbnail-and-metadata-wrapper #edit-button:hover {
   opacity: 100%;
 }
+
 /* Subir a playlist na página */
-ytd-playlist-header-renderer.ytd-browse{
+ytd-playlist-header-renderer.ytd-browse {
   margin-top: -10px;
 }
-ytd-two-column-browse-results-renderer[page-subtype="playlist"] #primary{
+
+ytd-two-column-browse-results-renderer[page-subtype="playlist"] #primary {
   margin-top: -20px
 }
+
 /* Adicionando margem no aviso da playlist */
-ytd-browse[page-subtype="playlist"] ytd-alert-with-button-renderer[is-displayed]{
+ytd-browse[page-subtype="playlist"] ytd-alert-with-button-renderer[is-displayed] {
   margin-bottom: 10px;
 }
+
 /* Ocultando as visualizações das playlist Assistir mais tarde e Vídeos com "Gostei" */
-ytd-inline-form-renderer[hidden] ~ .metadata-action-bar .metadata-text-wrapper:has(~ .metadata-buttons-wrapper ytd-button-renderer[hidden]:nth-child(2)) .metadata-stats yt-formatted-string:nth-child(4){
+ytd-inline-form-renderer[hidden]~.metadata-action-bar .metadata-text-wrapper:has(~ .metadata-buttons-wrapper ytd-button-renderer[hidden]:nth-child(2)) .metadata-stats yt-formatted-string:nth-child(4) {
   display: none;
 }
+
 /* Garantindo o tamanho correto do nome da playlist Assistir mais tarde */
-yt-dynamic-sizing-formatted-string:not([hidden]) #text{
+yt-dynamic-sizing-formatted-string:not([hidden]) #text {
   font-size: 2.8em;
 }
 
 
 /* BIBLIOTECA */
 /* Título da playlist na biblioteca */
-#video-title.ytd-grid-playlist-renderer, .yt-lockup-metadata-view-model-wiz__title span{
+#video-title.ytd-grid-playlist-renderer,
+.yt-lockup-metadata-view-model-wiz__title span {
   font-family: Calibri;
   text-shadow: 0px 0px 2px black;
   filter: drop-shadow(0px 0px 3px var(--sombra));
   font-size: 18px;
 }
+
 /* Botão ver playlist completa na biblioteca */
-#details #view-more a, .yt-content-metadata-view-model-wiz__metadata-row span[style="font-weight: 500;"] a{
+#details #view-more a,
+.yt-content-metadata-view-model-wiz__metadata-row span[style="font-weight: 500;"] a {
   font-size: 15px;
   margin-top: 5px;
 }
-#details #view-more a::before, .yt-content-metadata-view-model-wiz__metadata-row span[style="font-weight: 500;"] a::before{
+
+#details #view-more a::before,
+.yt-content-metadata-view-model-wiz__metadata-row span[style="font-weight: 500;"] a::before {
   background-image: var(--imagemiconeplaylist);
   background-size: 20px 20px;
   display: inline-block;
-  width: 20px; 
+  width: 20px;
   height: 20px;
   content: "";
   position: relative;
   top: 2px;
 }
+
 /* Mensagem ultima atualização na biblioteca */
-.ytd-grid-playlist-renderer #metadata-line span::before, .yt-content-metadata-view-model-wiz div:nth-child(2):nth-last-child(2) span::before{
+.ytd-grid-playlist-renderer #metadata-line span::before,
+.yt-content-metadata-view-model-wiz div:nth-child(2):nth-last-child(2) span::before {
   background-image: var(--imagemiconerelogio);
   background-size: 12px 12px;
   display: inline-block;
-  width: 12px; 
+  width: 12px;
   height: 12px;
   content: "";
   margin-right: 2px;
 }
+
 /* Nome do canal da playlist na biblioteca*/
-.ytd-grid-playlist-renderer #channel-name #text a:first-child::before, .yt-content-metadata-view-model-wiz__metadata-row span:first-child span[style="font-weight: 400;"] a::before{
+.ytd-grid-playlist-renderer #channel-name #text a:first-child::before,
+.yt-content-metadata-view-model-wiz__metadata-row span:first-child span[style="font-weight: 400;"] a::before {
   background-image: var(--imagemusuario);
   background-size: 11px 12px;
   display: inline-block;
-  width: 11px; 
+  width: 11px;
   height: 12px;
   content: "";
   margin-right: 2px;
