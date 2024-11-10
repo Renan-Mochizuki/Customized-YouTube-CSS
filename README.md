@@ -40,9 +40,9 @@ Para acessar, passe o cursor por cima.
     <img width="720" src="./prints/ocultamentoheader.gif" alt="Ocultamento dos Header">
 </div>
 
-***Caso não queira ocultar***
+**Caso não queira ocultar**
 
-Se não quiser que os Shorts ou a header seja ocultada, basta modificar as váriaveis --sempremostrarshorts e --sempremostrarheader no código CSS na parte do :root.
+Se não quiser que os Shorts ou a header seja ocultada, basta modificar as váriaveis `--sempremostrarshorts` e `--sempremostrarheader` no código CSS na parte do `:root`.
 
 **Outras mudanças mínimas**
 
