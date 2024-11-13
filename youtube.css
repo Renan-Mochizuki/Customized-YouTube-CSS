@@ -1,5 +1,5 @@
 :root {
-  --carregandopagina: linear-gradient(-90deg, rgb(255, 196, 0), red 40%, rgb(41, 0, 123));
+  --carregandopagina: linear-gradient(to left, rgb(255, 196, 0), red 40%, rgb(41, 0, 123));
   --volumeesquerda: linear-gradient(45deg, rgb(50, 0, 151), rgb(142, 142, 255));
   --volumedireita: linear-gradient(45deg, rgb(168, 168, 255), rgb(50, 0, 151) 10%, rgb(24, 0, 71) 50%);
   --progressothumb: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
@@ -49,6 +49,7 @@
   margin-left: 5px;
 }
 
+/* Código do país da logo */
 #country-code {
   display: none;
 }
@@ -79,7 +80,7 @@
   min-width: 40px;
 }
 
-/* Botão ativar teclado virtual */
+/* Botão ativar teclado virtual da barra de pesquisa */
 .gsst_a {
   filter: opacity(10%);
   margin-right: 5px;
@@ -131,8 +132,8 @@
 }
 
 /* Barra de carregamento da página */
-#progress {
-  background-image: var(--carregandopagina);
+yt-page-navigation-progress #progress {
+  background-image: var(--carregandopagina) !important;
 }
 
 /* Animação botão três linhas */

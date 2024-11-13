@@ -32,7 +32,7 @@ Para acessar, passe o cursor por cima.
     <img width="720" src="./prints/ocultamentoshorts.gif" alt="Ocultamento dos Shorts">
 </div>
 
-- **Ocultamento dos Header quando a tela estiver pequena**
+- **Ocultamento da header quando a tela estiver pequena**
 
 Para acessar, passe o cursor por cima.
 
