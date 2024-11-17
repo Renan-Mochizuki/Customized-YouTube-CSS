@@ -407,7 +407,6 @@ ytd-playlist-panel-renderer#playlist>#container {
   max-height: calc(500px * var(--sempremostrarshorts));
   opacity: var(--sempremostrarshorts);
   z-index: calc(10 * var(--sempremostrarshorts) - 5);
-  overflow: hidden;
   transition: max-height 0.6s ease, opacity 0.6s, z-index 0.6s;
   transition-delay: var(--tempofechamentoshorts);
 }
