@@ -316,7 +316,7 @@ yt-formatted-string[force-default-style]:hover {
 }
 
 /* Sombra dos botões */
-#menu .ytd-watch-metadata #top-level-buttons-computed .ytd-menu-renderer,
+#menu .ytd-watch-metadata #top-level-buttons-computed>.ytd-menu-renderer,
 #owner #subscribe-button,
 #flexible-item-buttons ytd-button-renderer {
   box-shadow: 0px 0px 2.5px var(--sombrabotoes);
