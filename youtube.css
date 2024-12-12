@@ -171,7 +171,8 @@ ytd-notification-topbar-button-renderer {
   z-index: -1;
 }
 
-ytd-topbar-menu-button-renderer[has-no-text] {
+ytd-topbar-menu-button-renderer[has-no-text],
+#end #buttons>ytd-button-renderer:first-child {
   position: relative;
   display: block;
   left: 108px;
@@ -200,7 +201,8 @@ ytd-notification-topbar-button-renderer:has(.yt-spec-icon-badge-shape__badge)~yt
   filter: opacity(100%);
 }
 
-#end:hover ytd-topbar-menu-button-renderer[has-no-text] {
+#end:hover ytd-topbar-menu-button-renderer[has-no-text],
+#end:hover #buttons>ytd-button-renderer:first-child {
   left: 0px;
   z-index: 1;
   filter: opacity(100%);
