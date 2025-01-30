@@ -12,6 +12,8 @@
   --sombra: whitesmoke;
   --contornocanal: gold;
   --notificacao: #cc0000;
+  /* Caso queira que não apareça um círculo de notificação no canto de sua foto, mude para 0 */
+  --mostrarcirculonotificacao: 1;
   --imagemlogoyoutube: url("https://i.imgur.com/9n4AS59.png");
   --imagemusuario: url('https://i.imgur.com/l09c79x.png');
   --imagemiconeplaylist: url('https://i.imgur.com/CdZxU8M.png');
@@ -186,12 +188,12 @@ ytd-notification-topbar-button-renderer:has(.yt-spec-icon-badge-shape__badge)~yt
   content: '';
   position: absolute;
   background-color: var(--notificacao);
-  width: 12px;
-  height: 12px;
+  width: calc(var(--mostrarcirculonotificacao) * 9px);
+  height: calc(var(--mostrarcirculonotificacao) * 9px);
   border-radius: 100%;
   border: 1px solid black;
-  right: 23px;
-  top: 6px;
+  right: 27px;
+  top: 9px;
   transition: 0.4s filter;
 }
 
