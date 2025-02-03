@@ -163,7 +163,7 @@ ytd-topbar-logo-renderer {
 }
 
 /* Animação botões perfil */
-#content #masthead-container ytd-notification-topbar-button-renderer {
+ytd-notification-topbar-button-renderer {
   position: relative;
   display: block;
   left: 58px;
@@ -197,20 +197,19 @@ ytd-notification-topbar-button-renderer:has(.yt-spec-icon-badge-shape__badge) ~ 
   transition: 0.4s filter;
 }
 
-#end:hover ytd-notification-topbar-button-renderer {
+#end:hover ytd-notification-topbar-button-renderer, ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden="true"])) #content ytd-notification-topbar-button-renderer {
   left: 0px;
   z-index: 1;
   filter: opacity(100%);
 }
 
-#end:hover ytd-topbar-menu-button-renderer[has-no-text],
-#end:hover #buttons > ytd-button-renderer:first-child {
+#end:hover #buttons > ytd-button-renderer:first-child, ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden="true"])) #content #buttons > ytd-button-renderer:first-child  {
   left: 0px;
   z-index: 1;
   filter: opacity(100%);
 }
 
-#end:hover ytd-topbar-menu-button-renderer::after {
+#end:hover ytd-topbar-menu-button-renderer::after, ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden="true"])) #content ytd-topbar-menu-button-renderer::after  {
   filter: opacity(0%);
 }
 
