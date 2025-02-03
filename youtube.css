@@ -14,11 +14,11 @@
   --notificacao: #cc0000;
   /* Caso queira que não apareça um círculo de notificação no canto de sua foto, mude para 0 */
   --mostrarcirculonotificacao: 1;
-  --imagemlogoyoutube: url("https://i.imgur.com/9n4AS59.png");
+  --imagemlogoyoutube: url('https://i.imgur.com/9n4AS59.png');
   --imagemusuario: url('https://i.imgur.com/l09c79x.png');
   --imagemiconeplaylist: url('https://i.imgur.com/CdZxU8M.png');
   --imagemiconerelogio: url('https://i.imgur.com/6WrBfng.png');
-  --textovershorts: "Passe o cursor para ver Shorts";
+  --textovershorts: 'Passe o cursor para ver Shorts';
   --tempofechamentoshorts: 1s;
   --tempoaberturashorts: 0.2s;
   --tempofechamentoheader: 0s;
@@ -33,11 +33,11 @@
 
 @keyframes AnimacaoArcoiris {
   0% {
-    background-position: 0% 0%
+    background-position: 0% 0%;
   }
 
   100% {
-    background-position: 0% 230%
+    background-position: 0% 230%;
   }
 }
 
@@ -58,7 +58,7 @@
 
 /* Apenas mostrar as logos especiais/eventos do youtube ao se abrir a barra lateral */
 #content:has(tp-yt-app-drawer:not([opened])) ytd-topbar-logo-renderer #logo {
-  content: url("https://i.imgur.com/9n4AS59.png");
+  content: url('https://i.imgur.com/9n4AS59.png');
   background-image: none;
   max-width: 47px;
   width: 47px;
@@ -118,7 +118,7 @@
 /* Botão pesquisa por voz */
 #voice-search-button {
   filter: opacity(0%);
-  transition-duration: .3s;
+  transition-duration: 0.3s;
   transition-property: filter;
 }
 
@@ -152,7 +152,7 @@ yt-page-navigation-progress #progress {
 
 ytd-topbar-logo-renderer {
   left: -50px;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
   transition-property: left;
   position: relative;
 }
@@ -163,28 +163,28 @@ ytd-topbar-logo-renderer {
 }
 
 /* Animação botões perfil */
-ytd-notification-topbar-button-renderer {
+#content #masthead-container ytd-notification-topbar-button-renderer {
   position: relative;
   display: block;
   left: 58px;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
   transition-property: left, z-index, filter;
   filter: opacity(0%);
   z-index: -1;
 }
 
 ytd-topbar-menu-button-renderer[has-no-text],
-#end #buttons>ytd-button-renderer:first-child {
+#end #buttons > ytd-button-renderer:first-child {
   position: relative;
   display: block;
   left: 108px;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
   transition-property: left, z-index, filter;
   filter: opacity(0%);
   z-index: -1;
 }
 
-ytd-notification-topbar-button-renderer:has(.yt-spec-icon-badge-shape__badge)~ytd-topbar-menu-button-renderer::after {
+ytd-notification-topbar-button-renderer:has(.yt-spec-icon-badge-shape__badge) ~ ytd-topbar-menu-button-renderer::after {
   content: '';
   position: absolute;
   background-color: var(--notificacao);
@@ -204,7 +204,7 @@ ytd-notification-topbar-button-renderer:has(.yt-spec-icon-badge-shape__badge)~yt
 }
 
 #end:hover ytd-topbar-menu-button-renderer[has-no-text],
-#end:hover #buttons>ytd-button-renderer:first-child {
+#end:hover #buttons > ytd-button-renderer:first-child {
   left: 0px;
   z-index: 1;
   filter: opacity(100%);
@@ -215,12 +215,12 @@ ytd-notification-topbar-button-renderer:has(.yt-spec-icon-badge-shape__badge)~yt
 }
 
 /* Vídeos da home */
-ytd-browse[page-subtype="home"] #contents {
+ytd-browse[page-subtype='home'] #contents {
   margin-top: 10px;
 }
 
 /* Remover os chips quando a barra lateral não estiver minimizada */
-tp-yt-app-drawer[opened]~ytd-page-manager #header ytd-feed-filter-chip-bar-renderer {
+tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-renderer {
   display: none;
 }
 
@@ -233,7 +233,7 @@ ytd-rich-grid-row #contents {
 ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
   width: 3px;
   height: 100%;
-  content: "";
+  content: '';
   position: fixed;
   z-index: 10000;
   background-image: var(--arcoiris);
@@ -284,7 +284,7 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
 .annotation-type-custom.iv-branding {
   filter: opacity(0%);
   transition-property: filter;
-  transition-duration: .3s;
+  transition-duration: 0.3s;
 }
 
 .annotation-type-custom.iv-branding:hover {
@@ -295,7 +295,6 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
 .branding-context-container-inner.ytp-rounded-branding-context {
   display: none;
 }
-
 
 /* PÁGINA DE VÍDEO */
 /* Título do vídeo */
@@ -320,7 +319,7 @@ yt-formatted-string[force-default-style]:hover {
 }
 
 /* Sombra dos botões */
-#menu .ytd-watch-metadata #top-level-buttons-computed>.ytd-menu-renderer,
+#menu .ytd-watch-metadata #top-level-buttons-computed > .ytd-menu-renderer,
 #owner #subscribe-button,
 #flexible-item-buttons ytd-button-renderer {
   box-shadow: 0px 0px 2.5px var(--sombrabotoes);
@@ -329,7 +328,7 @@ yt-formatted-string[force-default-style]:hover {
 }
 
 /* Botão três pontos */
-yt-button-shape[version="modern"].ytd-menu-renderer button {
+yt-button-shape[version='modern'].ytd-menu-renderer button {
   box-shadow: 0px 0px 4px var(--sombrabotoes);
   border-radius: 25px;
 }
@@ -349,7 +348,7 @@ yt-button-shape[version="modern"].ytd-menu-renderer button {
 
 /* Ícone do perfil*/
 #avatar {
-  transition-duration: .5s;
+  transition-duration: 0.5s;
   transition-property: transform, filter;
 }
 
@@ -399,7 +398,7 @@ ytd-watch-next-secondary-results-renderer #contents {
 }
 
 /* Tirar a borda da playlist lateral */
-ytd-playlist-panel-renderer#playlist>#container {
+ytd-playlist-panel-renderer#playlist > #container {
   border: none;
   border-bottom: 1px var(--sombrabotoes) solid;
 }
@@ -457,7 +456,7 @@ ytd-playlist-panel-renderer#playlist>#container {
     transition-delay: var(--tempoaberturaheader);
   }
 
-  #masthead-container:not(:has(~ tp-yt-app-drawer[opened])):not(:hover):not(:has(ytd-searchbox[has-focus]))~ytd-page-manager#page-manager {
+  #masthead-container:not(:has(~ tp-yt-app-drawer[opened])):not(:hover):not(:has(ytd-searchbox[has-focus])) ~ ytd-page-manager#page-manager {
     margin-top: calc(var(--ytd-toolbar-height) * var(--sempremostrarheader)) !important;
     transition-delay: var(--tempofechamentoheader);
   }
@@ -466,15 +465,14 @@ ytd-playlist-panel-renderer#playlist>#container {
     display: none;
   }
 
-  #masthead-container:not(:hover)~ytd-page-manager tp-yt-app-header {
+  #masthead-container:not(:hover) ~ ytd-page-manager tp-yt-app-header {
     --ytd-toolbar-offset: 0px !important;
   }
 
-  ytd-watch-flexy>#columns>div {
+  ytd-watch-flexy > #columns > div {
     padding-top: 5px !important;
   }
 }
-
 
 /* PLAYLIST */
 /* Botões compartilhar e três pontos de playlist */
@@ -499,14 +497,14 @@ ytd-playlist-panel-renderer#playlist>#container {
   display: inline-block;
   width: 14px;
   height: 15px;
-  content: "";
+  content: '';
   margin-right: 5px;
 }
 
 /* Botão editar na página da playlist*/
 .thumbnail-and-metadata-wrapper #edit-button {
   opacity: 5%;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .thumbnail-and-metadata-wrapper #edit-button button {
@@ -522,17 +520,17 @@ ytd-playlist-header-renderer.ytd-browse {
   margin-top: -10px;
 }
 
-ytd-two-column-browse-results-renderer[page-subtype="playlist"] #primary {
-  margin-top: -20px
+ytd-two-column-browse-results-renderer[page-subtype='playlist'] #primary {
+  margin-top: -20px;
 }
 
 /* Adicionando margem no aviso da playlist */
-ytd-browse[page-subtype="playlist"] ytd-alert-with-button-renderer[is-displayed] {
+ytd-browse[page-subtype='playlist'] ytd-alert-with-button-renderer[is-displayed] {
   margin-bottom: 10px;
 }
 
 /* Ocultando as visualizações das playlist Assistir mais tarde e Vídeos com "Gostei" */
-ytd-inline-form-renderer[hidden]~.metadata-action-bar .metadata-text-wrapper:has(~ .metadata-buttons-wrapper ytd-button-renderer[hidden]:nth-child(2)) .metadata-stats yt-formatted-string:nth-child(4) {
+ytd-inline-form-renderer[hidden] ~ .metadata-action-bar .metadata-text-wrapper:has(~ .metadata-buttons-wrapper ytd-button-renderer[hidden]:nth-child(2)) .metadata-stats yt-formatted-string:nth-child(4) {
   display: none;
 }
 
@@ -540,7 +538,6 @@ ytd-inline-form-renderer[hidden]~.metadata-action-bar .metadata-text-wrapper:has
 yt-dynamic-sizing-formatted-string:not([hidden]) #text {
   font-size: 2.8em;
 }
-
 
 /* BIBLIOTECA */
 /* Título da playlist na biblioteca */
@@ -554,19 +551,19 @@ yt-dynamic-sizing-formatted-string:not([hidden]) #text {
 
 /* Botão ver playlist completa na biblioteca */
 #details #view-more a,
-.yt-content-metadata-view-model-wiz__metadata-row span[style="font-weight: 500;"] a {
+.yt-content-metadata-view-model-wiz__metadata-row span[style='font-weight: 500;'] a {
   font-size: 15px;
   margin-top: 5px;
 }
 
 #details #view-more a::before,
-.yt-content-metadata-view-model-wiz__metadata-row span[style="font-weight: 500;"] a::before {
+.yt-content-metadata-view-model-wiz__metadata-row span[style='font-weight: 500;'] a::before {
   background-image: var(--imagemiconeplaylist);
   background-size: 20px 20px;
   display: inline-block;
   width: 20px;
   height: 20px;
-  content: "";
+  content: '';
   position: relative;
   top: 2px;
 }
@@ -579,18 +576,18 @@ yt-dynamic-sizing-formatted-string:not([hidden]) #text {
   display: inline-block;
   width: 12px;
   height: 12px;
-  content: "";
+  content: '';
   margin-right: 2px;
 }
 
 /* Nome do canal da playlist na biblioteca*/
 .ytd-grid-playlist-renderer #channel-name #text a:first-child::before,
-.yt-content-metadata-view-model-wiz__metadata-row span:first-child span[style="font-weight: 400;"] a::before {
+.yt-content-metadata-view-model-wiz__metadata-row span:first-child span[style='font-weight: 400;'] a::before {
   background-image: var(--imagemusuario);
   background-size: 11px 12px;
   display: inline-block;
   width: 11px;
   height: 12px;
-  content: "";
+  content: '';
   margin-right: 2px;
 }
