@@ -1,37 +1,38 @@
 :root {
-  --carregandopagina: linear-gradient(to left, rgb(255, 196, 0), red 40%, rgb(41, 0, 123));
-  --volumeesquerda: linear-gradient(45deg, rgb(50, 0, 151), rgb(142, 142, 255));
-  --volumedireita: linear-gradient(45deg, rgb(168, 168, 255), rgb(50, 0, 151) 10%, rgb(24, 0, 71) 50%);
-  --progressothumb: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
-  --progressovideo: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
-  --arcoiris: linear-gradient(rgba(248, 13, 27, 1) 0%, rgba(255, 160, 0, 1) 11%, rgba(255, 227, 2, 1) 22%, rgba(0, 250, 34, 1) 33%, rgba(0, 169, 238, 1) 44%, rgba(159, 0, 255, 1) 55%, rgba(0, 169, 238, 1) 66%, rgba(0, 250, 34, 1) 77%, rgba(255, 227, 2, 1) 88%, rgba(248, 13, 27, 1) 100%);
-  --cursorprogresso: rgb(212, 6, 143);
-  --cursorprogressosombra: 0 0 8px 2px rgb(168, 125, 255);
-  --sombrabotoes: rgba(245, 245, 245, 0.612);
-  --sombratexto: violet;
-  --sombra: whitesmoke;
-  --contornocanal: gold;
-  --notificacao: #cc0000;
-  /* Caso queira que não apareça um círculo de notificação no canto de sua foto, mude para 0 */
-  --mostrarcirculonotificacao: 1;
-  --imagemlogoyoutube: url('https://i.imgur.com/9n4AS59.png');
-  --imagemusuario: url('https://i.imgur.com/l09c79x.png');
-  --imagemiconeplaylist: url('https://i.imgur.com/CdZxU8M.png');
-  --imagemiconerelogio: url('https://i.imgur.com/6WrBfng.png');
-  --textovershorts: 'Passe o cursor para ver Shorts';
-  --tempofechamentoshorts: 1s;
-  --tempoaberturashorts: 0.2s;
-  --tempofechamentoheader: 0s;
-  --tempoaberturaheader: 0.3s;
-  /* Caso queira remover a funcionalidade de esconder shorts */
-  /* 0 para esconder shorts e 1 para nunca esconder */
-  --sempremostrarshorts: 0;
-  /* Caso queira remover a funcionalidade de esconder a header quando a tela estiver pequena */
-  /* 0 para esconder header e 1 para nunca esconder */
-  --sempremostrarheader: 0;
+  --colorloadingpageprogress: linear-gradient(to left, rgb(255, 196, 0), red 40%, rgb(41, 0, 123));
+  --colorvolumeleft: linear-gradient(45deg, rgb(50, 0, 151), rgb(142, 142, 255));
+  --colorvolumeright: linear-gradient(45deg, rgb(168, 168, 255), rgb(50, 0, 151) 10%, rgb(24, 0, 71) 50%);
+  --colorthumbprogress: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
+  --colorvideoprogress: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
+  --colorrainbow: linear-gradient(rgba(248, 13, 27, 1) 0%, rgba(255, 160, 0, 1) 11%, rgba(255, 227, 2, 1) 22%, rgba(0, 250, 34, 1) 33%, rgba(0, 169, 238, 1) 44%, rgba(159, 0, 255, 1) 55%, rgba(0, 169, 238, 1) 66%, rgba(0, 250, 34, 1) 77%, rgba(255, 227, 2, 1) 88%, rgba(248, 13, 27, 1) 100%);
+  --colorvideoprogresscursor: rgb(212, 6, 143);
+  --shadowvideoprogresscursor: 0 0 8px 2px rgb(168, 125, 255);
+  --shadowbuttons: rgba(245, 245, 245, 0.612);
+  --shadowtitles: violet;
+  --shadowgeneral: whitesmoke;
+  --circlechannelpicture: gold;
+  --colornotification: #cc0000;
+  --speedrainbowanimation: 6s;
+  --imgyoutubeicon: url('https://i.imgur.com/9n4AS59.png'); /* Unknown Artist */
+  --imguser: url('https://cdn0.iconfinder.com/data/icons/cryptocurrency-137/128/1_profile_user_avatar_account_person-132-1024.png');
+  --imgplaylisticon: url('https://cdn2.iconfinder.com/data/icons/css-vol-2/24/play-list-1024.png');
+  --imgclockicon: url('https://cdn1.iconfinder.com/data/icons/material-core/21/history-1024.png');
+  --timeshortsclosing: 1s;
+  --timeshortsopening: 0.2s;
+  --timeheaderclosing: 0.1s;
+  --timeheaderopening: 0.3s;
+
+  --textshortsreminder: 'Hover to see Shorts';
+
+  /* If you don't want a notification circle at the corner of your profile, change it to 0 */
+  --shownotificationcircle: 1;
+  /* If you don't want Shorts in video page to be hidden, change it to 1 */
+  --neverhideshorts: 0;
+  /* If you don't want the youtube header to be hidden, change it to 1 */
+  --neverhideheader: 0;
 }
 
-@keyframes AnimacaoArcoiris {
+@keyframes animationcolorrainbow {
   0% {
     background-position: 0% 0%;
   }
@@ -41,22 +42,22 @@
   }
 }
 
-/* HEADER E HOME */
-/* Logo do Youtube */
+/* HEADER AND HOME */
+/* Youtube Logo */
 #logo-icon {
-  content: var(--imagemlogoyoutube);
+  content: var(--imgyoutubeicon);
   background-image: none;
   width: 47px;
   height: 30px;
   margin-left: 5px;
 }
 
-/* Código do país da logo */
+/* Removing logo country code */
 #country-code {
   display: none;
 }
 
-/* Apenas mostrar as logos especiais/eventos do youtube ao se abrir a barra lateral */
+/* Only showing youtube special/events logo when side bar is open */
 #content:has(tp-yt-app-drawer:not([opened])) ytd-topbar-logo-renderer #logo {
   content: url('https://i.imgur.com/9n4AS59.png');
   background-image: none;
@@ -67,7 +68,6 @@
   margin-left: 15px;
   transition: 0.5s all ease;
 }
-
 #content:has(tp-yt-app-drawer[opened]) ytd-topbar-logo-renderer #logo {
   content: '' !important;
   background-image: none;
@@ -77,45 +77,43 @@
   margin-left: 5px;
 }
 
-/* Botão três linhas */
+/* Three line button (side bar) */
 #guide-button.ytd-app {
   min-width: 40px;
 }
 
-/* Botão ativar teclado virtual da barra de pesquisa */
+/* Open virtual keyboard button (search bar) */
 .gsst_a {
   filter: opacity(10%);
   margin-right: 5px;
 }
-
 .gsst_a:hover {
-  filter: drop-shadow(0px 0px 1px var(--sombra)) opacity(100%);
+  filter: drop-shadow(0px 0px 1px var(--shadowgeneral)) opacity(100%);
   transition: 0.5s all ease;
 }
 
-/* Barra de pesquisa */
+/* Shadow on search bar */
 #search form {
-  filter: drop-shadow(0px 0px 1px var(--sombra));
+  filter: drop-shadow(0px 0px 1px var(--shadowgeneral));
 }
 
-/* Botão pesquisar */
+/* Search button */
 #search-icon-legacy {
-  box-shadow: 0px 0px 2px var(--sombra);
+  box-shadow: 0px 0px 2px var(--shadowgeneral);
   transition: all ease 0.15s;
   transition-property: transform, filter;
 }
-
 #search-icon-legacy:hover {
   transform: scale(1.05) translate(1px);
-  filter: drop-shadow(0px 0px 2px var(--sombrabotoes));
+  filter: drop-shadow(0px 0px 2px var(--shadowbuttons));
 }
 
-/* Tooltip do botão pesquisar */
+/* Removing search button tooltip  */
 #tooltip {
   display: none;
 }
 
-/* Botão pesquisa por voz */
+/* Voice search button */
 #voice-search-button {
   filter: opacity(0%);
   transition-duration: 0.3s;
@@ -126,43 +124,40 @@
   filter: opacity(100%);
 }
 
-/* Botão limpar pesquisa */
+/* Clear search button */
 #search-clear-button .yt-spec-button-shape-next--icon-only-default {
   width: 30px;
   height: 30px;
   margin-right: 8px;
 }
 
-/* Barra de carregamento da página */
+/* Page loading progress */
 yt-page-navigation-progress #progress {
-  background-image: var(--carregandopagina) !important;
+  background-image: var(--colorloadingpageprogress) !important;
 }
 
-/* Animação botão três linhas */
+/* Three line button animation */
 #guide-button {
   filter: opacity(0%);
   transition-duration: 1s;
   transition-property: filter;
 }
-
 #start:hover #guide-button,
 #guide-content #header:hover #guide-button {
   filter: opacity(100%);
 }
-
 ytd-topbar-logo-renderer {
   left: -50px;
   transition-duration: 0.5s;
   transition-property: left;
   position: relative;
 }
-
 #start:hover ytd-topbar-logo-renderer,
 #guide-content #header:hover ytd-topbar-logo-renderer {
   left: 0px;
 }
 
-/* Animação botões perfil */
+/* Profile buttons animation */
 ytd-notification-topbar-button-renderer {
   position: relative;
   display: block;
@@ -172,7 +167,6 @@ ytd-notification-topbar-button-renderer {
   filter: opacity(0%);
   z-index: -1;
 }
-
 ytd-topbar-menu-button-renderer[has-no-text],
 #end #buttons > ytd-button-renderer:first-child {
   position: relative;
@@ -183,92 +177,93 @@ ytd-topbar-menu-button-renderer[has-no-text],
   filter: opacity(0%);
   z-index: -1;
 }
-
 ytd-notification-topbar-button-renderer:has(.yt-spec-icon-badge-shape__badge) ~ ytd-topbar-menu-button-renderer::after {
   content: '';
   position: absolute;
-  background-color: var(--notificacao);
-  width: calc(var(--mostrarcirculonotificacao) * 9px);
-  height: calc(var(--mostrarcirculonotificacao) * 9px);
+  background-color: var(--colornotification);
+  width: calc(var(--shownotificationcircle) * 9px);
+  height: calc(var(--shownotificationcircle) * 9px);
   border-radius: 100%;
   border: 1px solid black;
   right: 27px;
   top: 9px;
   transition: 0.4s filter;
 }
-
 #end:hover ytd-notification-topbar-button-renderer,
 ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden='true']) #spinner) #content ytd-notification-topbar-button-renderer {
   left: 0px;
   z-index: 1;
   filter: opacity(100%);
 }
-
 #end:hover #buttons > ytd-button-renderer:first-child,
 ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden='true']) #spinner) #content #buttons > ytd-button-renderer:first-child {
   left: 0px;
   z-index: 1;
   filter: opacity(100%);
 }
-
 #end:hover ytd-topbar-menu-button-renderer::after,
 ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden='true']) #spinner) #content ytd-topbar-menu-button-renderer::after {
   filter: opacity(0%);
 }
 
-/* Vídeos da home */
+/* Margin home videos box */
 ytd-browse[page-subtype='home'] #contents {
   margin-top: 10px;
 }
 
-/* Remover os chips quando a barra lateral não estiver minimizada */
+/* Margin home videos box */
+ytd-browse[page-subtype='home'] #contents {
+  margin-top: 10px;
+}
+
+/* Remove chips when the sidebar is not minimized */
 tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-renderer {
   display: none;
 }
 
-/* Centralizar vídeos na página de inscrições*/
+/* Center videos on the subscriptions page */
 ytd-rich-grid-row #contents {
   justify-content: center;
 }
 
-/* Arco Íris na lateral */
+/* Rainbow on the side */
 ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
   width: 3px;
   height: 100%;
   content: '';
   position: fixed;
   z-index: 10000;
-  background-image: var(--arcoiris);
+  background-image: var(--colorrainbow);
   background-size: 3px 180%;
-  animation: AnimacaoArcoiris 5s infinite linear reverse;
+  animation: animationcolorrainbow var(--speedrainbowanimation) infinite linear reverse;
 }
 
 /* PLAYER */
 /* Barra de progresso em vídeos */
 .ytp-play-progress {
-  background-image: var(--progressovideo);
+  background-image: var(--colorvideoprogress);
 }
 
 /* Barra de progresso em thumbs*/
 #progress.ytd-thumbnail-overlay-resume-playback-renderer {
-  background-image: var(--progressothumb);
+  background-image: var(--colorthumbprogress);
 }
 
 /* Cursor de progresso */
 .ytp-scrubber-button.ytp-swatch-background-color {
-  background: var(--cursorprogresso);
-  box-shadow: var(--cursorprogressosombra);
+  background: var(--colorvideoprogresscursor);
+  box-shadow: var(--shadowvideoprogresscursor);
 }
 
 /* Barra de volume esquerda*/
 .ytp-volume-slider-handle:before {
-  background: var(--volumeesquerda);
+  background: var(--colorvolumeleft);
   z-index: -1;
 }
 
 /* Barra de volume direita*/
 .ytp-volume-slider-handle:after {
-  background: var(--volumedireita);
+  background: var(--colorvolumeright);
   z-index: -1;
 }
 
@@ -301,41 +296,41 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
 /* PÁGINA DE VÍDEO */
 /* Título do vídeo */
 h1 yt-formatted-string[force-default-style] {
-  text-shadow: 1px 1px 3px var(--sombratexto);
+  text-shadow: 1px 1px 3px var(--shadowtitles);
 }
 
 yt-formatted-string[force-default-style]:hover {
-  text-shadow: 0px 0px 1px var(--sombra);
+  text-shadow: 0px 0px 1px var(--shadowgeneral);
   backdrop-filter: blur(10px);
   transition: 0.2s ease-in;
 }
 
 /* Nome do canal em vídeos*/
 #upload-info #channel-name #container #text-container {
-  text-shadow: 1px 1px 1px var(--sombratexto);
+  text-shadow: 1px 1px 1px var(--shadowtitles);
 }
 
 #text a:hover {
-  text-shadow: 0px 0px 1px var(--sombra);
+  text-shadow: 0px 0px 1px var(--shadowgeneral);
   transition: 0.2s ease-in;
 }
 
-/* Sombra dos botões */
+/* shadowgeneral dos botões */
 #menu .ytd-watch-metadata #top-level-buttons-computed > .ytd-menu-renderer,
 #owner #subscribe-button,
 #flexible-item-buttons ytd-button-renderer {
-  box-shadow: 0px 0px 2.5px var(--sombrabotoes);
+  box-shadow: 0px 0px 2.5px var(--shadowbuttons);
   border-radius: 25px;
   margin-right: 2px;
 }
 
 /* Botão três pontos */
 yt-button-shape[version='modern'].ytd-menu-renderer button {
-  box-shadow: 0px 0px 4px var(--sombrabotoes);
+  box-shadow: 0px 0px 4px var(--shadowbuttons);
   border-radius: 25px;
 }
 
-/* Garantir que a sombra dos botões em vídeo não cortem */
+/* Garantir que a shadowgeneral dos botões em vídeo não cortem */
 #actions-inner #menu .ytd-watch-metadata {
   padding: 5px;
 }
@@ -345,7 +340,7 @@ yt-button-shape[version='modern'].ytd-menu-renderer button {
 #segmented-dislike-button,
 .YtLikeButtonViewModelHost,
 .YtDislikeButtonViewModelHost {
-  filter: drop-shadow(0px 0px 5px var(--sombrabotoes));
+  filter: drop-shadow(0px 0px 5px var(--shadowbuttons));
 }
 
 /* Ícone do perfil*/
@@ -355,7 +350,7 @@ yt-button-shape[version='modern'].ytd-menu-renderer button {
 }
 
 #avatar:hover {
-  filter: drop-shadow(0px 0px 1.5px var(--contornocanal));
+  filter: drop-shadow(0px 0px 1.5px var(--circlechannelpicture));
   transform: scale(1.1);
 }
 
@@ -366,13 +361,13 @@ yt-button-shape[version='modern'].ytd-menu-renderer button {
 
 /* Texto visualizações na descrição */
 #description-inner #info span {
-  text-shadow: 1px 1px 3px var(--sombratexto);
+  text-shadow: 1px 1px 3px var(--shadowtitles);
 }
 
 /* Texto mostrar mais na descrição */
 #description-inline-expander #expand {
   margin-left: -5px;
-  text-shadow: 0px 0px 2px var(--sombratexto);
+  text-shadow: 0px 0px 2px var(--shadowtitles);
   padding: 2px;
   border-radius: 10px;
 }
@@ -380,7 +375,7 @@ yt-button-shape[version='modern'].ytd-menu-renderer button {
 /* Texto mostrar menos na descrição */
 #description-inline-expander #collapse {
   margin-top: -2px;
-  text-shadow: 0px 0px 2px var(--sombratexto);
+  text-shadow: 0px 0px 2px var(--shadowtitles);
   border-radius: 10px;
   font-size: 16px;
 }
@@ -402,46 +397,46 @@ ytd-watch-next-secondary-results-renderer #contents {
 /* Tirar a borda da playlist lateral */
 ytd-playlist-panel-renderer#playlist > #container {
   border: none;
-  border-bottom: 1px var(--sombrabotoes) solid;
+  border-bottom: 1px var(--shadowbuttons) solid;
 }
 
 /* Ocultar os shorts da página de vídeo e mostrar com hover */
 #items ytd-reel-shelf-renderer #contents {
   position: relative;
   display: block;
-  max-height: calc(500px * var(--sempremostrarshorts));
-  opacity: var(--sempremostrarshorts);
-  z-index: calc(10 * var(--sempremostrarshorts) - 5);
+  max-height: calc(500px * var(--neverhideshorts));
+  opacity: var(--neverhideshorts);
+  z-index: calc(10 * var(--neverhideshorts) - 5);
   transition: max-height 0.6s ease, opacity 0.6s, z-index 0.6s;
-  transition-delay: var(--tempofechamentoshorts);
+  transition-delay: var(--timeshortsclosing);
 }
 
 #items ytd-reel-shelf-renderer:hover #contents {
   max-height: 500px;
   opacity: 1;
   z-index: 5;
-  transition-delay: var(--tempoaberturashorts);
+  transition-delay: var(--timeshortsopening);
 }
 
 #items ytd-reel-shelf-renderer #title-container::after {
-  content: var(--textovershorts);
+  content: var(--textshortsreminder);
   font-size: 12px;
   filter: opacity(100%);
   transition-duration: 0.6s;
   transition-property: filter;
-  transition-delay: var(--tempofechamentoshorts);
+  transition-delay: var(--timeshortsclosing);
 }
 
 #items ytd-reel-shelf-renderer:hover #title-container::after {
   filter: opacity(0%);
-  transition-delay: var(--tempoaberturashorts);
+  transition-delay: var(--timeshortsopening);
 }
 
 /* Fazer com que a header suma quanto a altura da tela estiver pequena */
 @media screen and (max-height: 37.5em) {
   #masthead-container {
-    opacity: var(--sempremostrarheader);
-    transition: opacity 0.3s ease var(--tempofechamentoheader);
+    opacity: var(--neverhideheader);
+    transition: opacity 0.3s ease var(--timeheaderclosing);
   }
 
   /* Quando a header tiver hover ou foco em searchbox */
@@ -449,18 +444,18 @@ ytd-playlist-panel-renderer#playlist > #container {
   #masthead-container:has(ytd-searchbox[has-focus]),
   #masthead-container:has(~ tp-yt-app-drawer[opened]) {
     opacity: 1;
-    transition: opacity 0.3s ease var(--tempoaberturaheader);
+    transition: opacity 0.3s ease var(--timeheaderopening);
   }
 
   ytd-page-manager#page-manager {
     transition-duration: 0.3s;
     transition-property: margin-top;
-    transition-delay: var(--tempoaberturaheader);
+    transition-delay: var(--timeheaderopening);
   }
 
   #masthead-container:not(:has(~ tp-yt-app-drawer[opened])):not(:hover):not(:has(ytd-searchbox[has-focus])) ~ ytd-page-manager#page-manager {
-    margin-top: calc(var(--ytd-toolbar-height) * var(--sempremostrarheader)) !important;
-    transition-delay: var(--tempofechamentoheader);
+    margin-top: calc(var(--ytd-toolbar-height) * var(--neverhideheader)) !important;
+    transition-delay: var(--timeheaderclosing);
   }
 
   #header ytd-feed-filter-chip-bar-renderer {
@@ -479,7 +474,7 @@ ytd-playlist-panel-renderer#playlist > #container {
 /* PLAYLIST */
 /* Botões compartilhar e três pontos de playlist */
 .metadata-buttons-wrapper .ytd-playlist-header-renderer yt-button-shape {
-  box-shadow: 0px 0px 5px var(--sombrabotoes);
+  box-shadow: 0px 0px 5px var(--shadowbuttons);
   border-radius: 25px;
   margin-left: 2px;
 }
@@ -489,12 +484,12 @@ ytd-playlist-panel-renderer#playlist > #container {
 #header-description h3 {
   font-family: Calibri;
   text-shadow: 0px 0px 2px black;
-  filter: drop-shadow(0px 0px 3px var(--sombra));
+  filter: drop-shadow(0px 0px 3px var(--shadowgeneral));
 }
 
 /* Nome do canal na playlist*/
 .metadata-action-bar .metadata-text-wrapper .metadata-owner #owner-text a::before {
-  background-image: var(--imagemusuario);
+  background-image: var(--imguser);
   background-size: 14px 15px;
   display: inline-block;
   width: 14px;
@@ -547,7 +542,7 @@ yt-dynamic-sizing-formatted-string:not([hidden]) #text {
 .yt-lockup-metadata-view-model-wiz__title span {
   font-family: Calibri;
   text-shadow: 0px 0px 2px black;
-  filter: drop-shadow(0px 0px 3px var(--sombra));
+  filter: drop-shadow(0px 0px 3px var(--shadowgeneral));
   font-size: 18px;
 }
 
@@ -560,20 +555,22 @@ yt-dynamic-sizing-formatted-string:not([hidden]) #text {
 
 #details #view-more a::before,
 .yt-content-metadata-view-model-wiz__metadata-row span[style='font-weight: 500;'] a::before {
-  background-image: var(--imagemiconeplaylist);
+  background-image: var(--imgplaylisticon);
+  filter: invert(1);
   background-size: 20px 20px;
   display: inline-block;
   width: 20px;
   height: 20px;
   content: '';
   position: relative;
-  top: 2px;
+  top: 5px;
 }
 
 /* Mensagem ultima atualização na biblioteca */
 .ytd-grid-playlist-renderer #metadata-line span::before,
 .yt-content-metadata-view-model-wiz div:nth-child(2):nth-last-child(2) span::before {
-  background-image: var(--imagemiconerelogio);
+  background-image: var(--imgclockicon);
+  filter: invert(1);
   background-size: 12px 12px;
   display: inline-block;
   width: 12px;
@@ -585,7 +582,8 @@ yt-dynamic-sizing-formatted-string:not([hidden]) #text {
 /* Nome do canal da playlist na biblioteca*/
 .ytd-grid-playlist-renderer #channel-name #text a:first-child::before,
 .yt-content-metadata-view-model-wiz__metadata-row span:first-child span[style='font-weight: 400;'] a::before {
-  background-image: var(--imagemusuario);
+  background-image: var(--imguser);
+  filter: invert(1);
   background-size: 11px 12px;
   display: inline-block;
   width: 11px;
