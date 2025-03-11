@@ -475,6 +475,7 @@ ytd-playlist-panel-renderer#playlist > #container {
 /* Channel name in playlist */
 .metadata-action-bar .metadata-text-wrapper .metadata-owner #owner-text a::before {
   background-image: var(--imguser);
+  filter: invert(1);
   background-size: 14px 15px;
   display: inline-block;
   width: 14px;
