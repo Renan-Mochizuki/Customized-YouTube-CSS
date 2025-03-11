@@ -560,7 +560,7 @@ yt-dynamic-sizing-formatted-string:not([hidden]) #text {
   margin-right: 2px;
 }
 
-/* Channel name of the playlist */
+/* Name of channel */
 .ytd-grid-playlist-renderer #channel-name #text a:first-child::before,
 .yt-content-metadata-view-model-wiz__metadata-row span:first-child span[style='font-weight: 400;'] a::before {
   background-image: var(--imguser);
@@ -570,5 +570,5 @@ yt-dynamic-sizing-formatted-string:not([hidden]) #text {
   width: 11px;
   height: 12px;
   content: '';
-  margin-right: 2px;
+  margin-right: 3px;
 }
