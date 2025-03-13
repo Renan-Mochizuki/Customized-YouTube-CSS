@@ -1,3 +1,7 @@
+/*  
+ * Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
+*/
+
 :root {
   --colorloadingpageprogress: linear-gradient(to left, rgb(255, 196, 0), red 40%, rgb(41, 0, 123));
   --colorvolumeleft: linear-gradient(45deg, rgb(50, 0, 151), rgb(142, 142, 255));

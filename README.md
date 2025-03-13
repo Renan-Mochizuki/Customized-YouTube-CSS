@@ -42,7 +42,7 @@ Para acessar, passe o cursor por cima.
 
 **Caso não queira ocultar**
 
-Se não quiser que os Shorts ou a header seja ocultada, basta modificar as váriaveis `--sempremostrarshorts` e `--sempremostrarheader` no código CSS na parte do `:root`.
+Se não quiser que os Shorts ou a header seja ocultada, basta modificar as váriaveis `--neverhideshorts` e `--neverhideheader` para o valor `1` no código CSS em `:root`.
 
 **Outras mudanças mínimas**
 
@@ -69,10 +69,7 @@ Você pode ligar e desligar a customização clicando no botão **ON/OFF** da te
 Obs.: Talvez seja necessário reiniciar o navegador.
 
 <div align="center">
-
-| <img width="720" src="https://i.imgur.com/3ELWUG8.png"> |
-|:---:|
-
+    <img width="720" src="./prints/printusercss.png" alt="Print User CSS">
 </div>
 
 - [User JavaScript and CSS](https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld)
@@ -84,8 +81,5 @@ Clique no botão 'Save' para salvar as alterações.
 Você pode ligar e desligar a customização clicando no radio button da tela flutuante.
 
 <div align="center">
-
-| <img width="720" src="https://i.imgur.com/mt6Ktu0.png"> |
-|:---:|
-
+    <img width="720" src="./prints/printuserjscss.png" alt="Print User Javascript and CSS">
 </div>
