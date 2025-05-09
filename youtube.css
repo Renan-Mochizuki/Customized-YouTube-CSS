@@ -242,6 +242,11 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
   animation: animationcolorrainbow var(--speedrainbowanimation) infinite linear reverse;
 }
 
+/* Removing weird randow youtube home div */
+#frosted-glass{
+  display: none;
+}
+
 /* PLAYER */
 /* Video progress bar */
 .ytp-play-progress {
@@ -458,6 +463,9 @@ ytd-playlist-panel-renderer#playlist > #container {
   ytd-watch-flexy > #columns > div {
     padding-top: 5px !important;
   }
+  /* #ytd-player video{
+    top: 0px !important;
+  }  */
 }
 
 /* PLAYLIST */
