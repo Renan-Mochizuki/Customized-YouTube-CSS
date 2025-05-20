@@ -8,7 +8,18 @@
   --colorvolumeright: linear-gradient(45deg, rgb(168, 168, 255), rgb(50, 0, 151) 10%, rgb(24, 0, 71) 50%);
   --colorthumbprogress: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
   --colorvideoprogress: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
-  --colorrainbow: linear-gradient(rgba(248, 13, 27, 1) 0%, rgba(255, 160, 0, 1) 11%, rgba(255, 227, 2, 1) 22%, rgba(0, 250, 34, 1) 33%, rgba(0, 169, 238, 1) 44%, rgba(159, 0, 255, 1) 55%, rgba(0, 169, 238, 1) 66%, rgba(0, 250, 34, 1) 77%, rgba(255, 227, 2, 1) 88%, rgba(248, 13, 27, 1) 100%);
+  --colorrainbow: linear-gradient(
+    rgba(248, 13, 27, 1) 0%,
+    rgba(255, 160, 0, 1) 11%,
+    rgba(255, 227, 2, 1) 22%,
+    rgba(0, 250, 34, 1) 33%,
+    rgba(0, 169, 238, 1) 44%,
+    rgba(159, 0, 255, 1) 55%,
+    rgba(0, 169, 238, 1) 66%,
+    rgba(0, 250, 34, 1) 77%,
+    rgba(255, 227, 2, 1) 88%,
+    rgba(248, 13, 27, 1) 100%
+  );
   --colorvideoprogresscursor: rgb(212, 6, 143);
   --shadowvideoprogresscursor: 0 0 8px 2px rgb(168, 125, 255);
   --shadowbuttons: rgba(245, 245, 245, 0.612);
@@ -215,14 +226,14 @@ ytd-browse[page-subtype='home'] #contents {
   margin-top: 10px;
 }
 
-/* Margin home videos box */
-ytd-browse[page-subtype='home'] #contents {
-  margin-top: 10px;
-}
-
 /* Remove chips when the sidebar is not minimized */
 tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-renderer {
   display: none;
+}
+
+/* Remove chips when the sidebar is not minimized */
+#frosted-glass:has(~ tp-yt-app-drawer[opened]) {
+  max-height: 56px;
 }
 
 /* Center videos on the subscriptions page */
@@ -240,11 +251,6 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
   background-image: var(--colorrainbow);
   background-size: 3px 180%;
   animation: animationcolorrainbow var(--speedrainbowanimation) infinite linear reverse;
-}
-
-/* Removing weird randow youtube home div */
-#frosted-glass{
-  display: none;
 }
 
 /* PLAYER */
@@ -466,6 +472,9 @@ ytd-playlist-panel-renderer#playlist > #container {
   /* #ytd-player video{
     top: 0px !important;
   }  */
+  #frosted-glass {
+    display: none;
+  }
 }
 
 /* PLAYLIST */
@@ -522,7 +531,11 @@ ytd-browse[page-subtype='playlist'] ytd-alert-with-button-renderer[is-displayed]
 }
 
 /* Hiding views of Watch Later and Liked Videos playlists */
-ytd-inline-form-renderer[hidden] ~ .metadata-action-bar .metadata-text-wrapper:has(~ .metadata-buttons-wrapper ytd-button-renderer[hidden]:nth-child(2)) .metadata-stats yt-formatted-string:nth-child(4) {
+ytd-inline-form-renderer[hidden]
+  ~ .metadata-action-bar
+  .metadata-text-wrapper:has(~ .metadata-buttons-wrapper ytd-button-renderer[hidden]:nth-child(2))
+  .metadata-stats
+  yt-formatted-string:nth-child(4) {
   display: none;
 }
 
