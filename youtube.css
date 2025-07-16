@@ -528,7 +528,7 @@ ytd-browse[page-subtype='playlist'] ytd-alert-with-button-renderer[is-displayed]
   margin-bottom: 10px;
 }
 
-/* Hiding views of Watch Later and Liked Videos playlists */
+/* Hiding views from Watch Later and Liked Videos playlists */
 ytd-inline-form-renderer[hidden]
   ~ .metadata-action-bar
   .metadata-text-wrapper:has(~ .metadata-buttons-wrapper ytd-button-renderer[hidden]:nth-child(2))
@@ -573,7 +573,7 @@ yt-dynamic-sizing-formatted-string:not([hidden]) #text {
 
 /* Last updated message */
 .ytd-grid-playlist-renderer #metadata-line span::before,
-.yt-content-metadata-view-model-wiz div:nth-child(2):nth-last-child(2) span::before {
+.yt-content-metadata-view-model-wiz.yt-content-metadata-view-model-wiz--medium-text div:nth-child(2):nth-last-child(2) span::before {
   background-image: var(--imgclockicon);
   filter: invert(1);
   background-size: 12px 12px;
