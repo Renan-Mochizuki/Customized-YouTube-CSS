@@ -541,7 +541,7 @@ ytd-inline-form-renderer[hidden]
 /* Playlist title */
 #video-title.ytd-grid-playlist-renderer,
 .yt-lockup-metadata-view-model-wiz__title span,
-ytd-browse:not([page-subtype="home"]) .yt-lockup-view-model--collection-stack-2 .yt-lockup-metadata-view-model__heading-reset span {
+ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .yt-lockup-view-model--collection-stack-2 .yt-lockup-metadata-view-model__heading-reset span {
   font-family: Calibri;
   text-shadow: 0px 0px 2px black;
   filter: drop-shadow(0px 0px 3px var(--shadowgeneral));
@@ -551,13 +551,13 @@ ytd-browse:not([page-subtype="home"]) .yt-lockup-view-model--collection-stack-2 
 /* View full playlist button */
 #details #view-more a,
 .yt-content-metadata-view-model-wiz__metadata-row span[style='font-weight: 500;'] a,
-ytd-browse:not([page-subtype="home"]) .yt-lockup-metadata-view-model__metadata .yt-content-metadata-view-model__metadata-row:last-child > span:first-child a {
+ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .yt-lockup-metadata-view-model__metadata .yt-content-metadata-view-model__metadata-row:last-child > span:first-child a {
   font-size: 15px;
   margin-top: 5px;
 }
 #details #view-more a::before,
 .yt-content-metadata-view-model-wiz__metadata-row span[style='font-weight: 500;'] a::before,
-ytd-browse:not([page-subtype="home"]) .yt-lockup-metadata-view-model__metadata .yt-content-metadata-view-model__metadata-row:last-child > span:first-child a::before {
+ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .yt-lockup-metadata-view-model__metadata .yt-content-metadata-view-model__metadata-row:last-child > span:first-child a::before {
   background-image: var(--imgplaylisticon);
   filter: invert(1);
   background-size: 20px 20px;
@@ -572,7 +572,7 @@ ytd-browse:not([page-subtype="home"]) .yt-lockup-metadata-view-model__metadata .
 /* Last updated message */
 .ytd-grid-playlist-renderer #metadata-line span::before,
 .yt-content-metadata-view-model-wiz.yt-content-metadata-view-model-wiz--medium-text div:nth-child(2):nth-last-child(2):not(:has(.yt-content-metadata-view-model-wiz__delimiter)) span::before,
-ytd-browse:not([page-subtype="home"]) .yt-lockup-metadata-view-model__metadata .yt-content-metadata-view-model__metadata-row:nth-child(2):not(:has(a)) > span:first-child::before {
+ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .yt-lockup-metadata-view-model__metadata .yt-content-metadata-view-model__metadata-row:nth-child(2):not(:has(a)) > span:first-child::before {
   background-image: var(--imgclockicon);
   filter: invert(1);
   background-size: 12px 12px;
@@ -586,7 +586,7 @@ ytd-browse:not([page-subtype="home"]) .yt-lockup-metadata-view-model__metadata .
 /* Name of channel */
 .ytd-grid-playlist-renderer #channel-name #text a:first-child::before,
 .yt-content-metadata-view-model-wiz__metadata-row span:first-child span[style='font-weight: 400;'] a::before,
-ytd-browse:not([page-subtype="home"]) .yt-lockup-metadata-view-model__metadata .yt-content-metadata-view-model__metadata-row:first-child > span:first-child a::before {
+ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .yt-lockup-metadata-view-model__metadata .yt-content-metadata-view-model__metadata-row:first-child > span:first-child a::before {
   background-image: var(--imguser);
   filter: invert(1);
   background-size: 11px 12px;
