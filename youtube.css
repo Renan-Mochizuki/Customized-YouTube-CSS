@@ -548,27 +548,6 @@ ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .yt-lockup
   font-size: 18px;
 }
 
-/* View full playlist button */
-#details #view-more a,
-.yt-content-metadata-view-model-wiz__metadata-row span[style='font-weight: 500;'] a,
-ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .yt-lockup-metadata-view-model__metadata .yt-content-metadata-view-model__metadata-row:last-child > span:first-child a {
-  font-size: 15px;
-  margin-top: 5px;
-}
-#details #view-more a::before,
-.yt-content-metadata-view-model-wiz__metadata-row span[style='font-weight: 500;'] a::before,
-ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .yt-lockup-metadata-view-model__metadata .yt-content-metadata-view-model__metadata-row:last-child > span:first-child a::before {
-  background-image: var(--imgplaylisticon);
-  filter: invert(1);
-  background-size: 20px 20px;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  content: '';
-  position: relative;
-  top: 5px;
-}
-
 /* Last updated message */
 .ytd-grid-playlist-renderer #metadata-line span::before,
 .yt-content-metadata-view-model-wiz.yt-content-metadata-view-model-wiz--medium-text div:nth-child(2):nth-last-child(2):not(:has(.yt-content-metadata-view-model-wiz__delimiter)) span::before,
@@ -595,4 +574,25 @@ ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .yt-lockup
   height: 12px;
   content: '';
   margin-right: 3px;
+}
+
+/* View full playlist button */
+#details #view-more a,
+.yt-content-metadata-view-model-wiz__metadata-row span[style='font-weight: 500;'] a,
+ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .yt-lockup-metadata-view-model__metadata .yt-content-metadata-view-model__metadata-row:last-child > span:first-child a {
+  font-size: 15px;
+  margin-top: 5px;
+}
+#details #view-more a::before,
+.yt-content-metadata-view-model-wiz__metadata-row span[style='font-weight: 500;'] a::before,
+ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .yt-lockup-metadata-view-model__metadata .yt-content-metadata-view-model__metadata-row:last-child > span:first-child a::before {
+  background-image: var(--imgplaylisticon);
+  filter: invert(1);
+  background-size: 20px 20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  content: '';
+  position: relative;
+  top: 5px;
 }
