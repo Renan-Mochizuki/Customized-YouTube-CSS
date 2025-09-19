@@ -423,6 +423,11 @@ ytd-playlist-panel-renderer#playlist > #container {
   z-index: 5;
   transition-delay: var(--timeshortsopening);
 }
+#items ytd-reel-shelf-renderer #title-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 #items ytd-reel-shelf-renderer #title-container::after {
   content: var(--textshortsreminder);
   font-size: 12px;
