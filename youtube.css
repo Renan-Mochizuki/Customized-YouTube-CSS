@@ -414,7 +414,10 @@ ytd-playlist-panel-renderer#playlist > #container {
   max-height: calc(500px * var(--neverhideshorts));
   opacity: var(--neverhideshorts);
   z-index: calc(10 * var(--neverhideshorts) - 5);
-  transition: max-height 0.6s ease, opacity 0.6s, z-index 0.6s;
+  transition:
+    max-height 0.6s ease,
+    opacity 0.6s,
+    z-index 0.6s;
   transition-delay: var(--timeshortsclosing);
 }
 #items ytd-reel-shelf-renderer:hover #contents {
@@ -443,38 +446,38 @@ ytd-playlist-panel-renderer#playlist > #container {
 
 /* Hide header when the screen height is small */
 @media screen and (max-height: 37.5em) {
-  #masthead-container {
+  ytd-app > #content:not(:has(ytd-shorts)) #masthead-container {
     opacity: var(--neverhideheader);
     transition: opacity 0.3s ease var(--timeheaderclosing);
-  }
-  /* When the header has hover or focus on searchbox */
-  #masthead-container:hover,
-  #masthead-container:has(ytd-searchbox[has-focus]),
-  #masthead-container:has(~ tp-yt-app-drawer[opened]) {
-    opacity: 1;
-    transition: opacity 0.3s ease var(--timeheaderopening);
   }
   ytd-page-manager#page-manager {
     transition-duration: 0.3s;
     transition-property: margin-top;
     transition-delay: var(--timeheaderopening);
   }
-  #masthead-container:not(:has(~ tp-yt-app-drawer[opened])):not(:hover):not(:has(ytd-searchbox[has-focus])) ~ ytd-page-manager#page-manager {
+  /* When the header has hover or focus on searchbox */
+  ytd-app > #content:not(:has(ytd-shorts)) #masthead-container:hover,
+  ytd-app > #content:not(:has(ytd-shorts)) #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused),
+  ytd-app > #content:not(:has(ytd-shorts)) #masthead-container:has(~ tp-yt-app-drawer[opened]) {
+    opacity: 1;
+    transition: opacity 0.3s ease var(--timeheaderopening);
+  }
+  ytd-app
+    > #content:not(:has(ytd-shorts))
+    #masthead-container:not(:has(~ tp-yt-app-drawer[opened])):not(:hover):not(:has(yt-searchbox.ytSearchboxComponentHostIsFocused))
+    ~ ytd-page-manager#page-manager {
     margin-top: calc(var(--ytd-toolbar-height) * var(--neverhideheader)) !important;
     transition-delay: var(--timeheaderclosing);
   }
-  #header ytd-feed-filter-chip-bar-renderer {
-    display: none;
-  }
-  #masthead-container:not(:hover) ~ ytd-page-manager tp-yt-app-header {
+  ytd-app > #content:not(:has(ytd-shorts)) #masthead-container:not(:hover) ~ ytd-page-manager tp-yt-app-header {
     --ytd-toolbar-offset: 0px !important;
   }
   ytd-watch-flexy > #columns > div {
     padding-top: 5px !important;
   }
-  /* #ytd-player video{
-    top: 0px !important;
-  }  */
+  #header ytd-feed-filter-chip-bar-renderer {
+    display: none;
+  }
   #frosted-glass {
     display: none;
   }
@@ -556,7 +559,10 @@ ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .yt-lockup
 /* Last updated message */
 .ytd-grid-playlist-renderer #metadata-line span::before,
 .yt-content-metadata-view-model-wiz.yt-content-metadata-view-model-wiz--medium-text div:nth-child(2):nth-last-child(2):not(:has(.yt-content-metadata-view-model-wiz__delimiter)) span::before,
-ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .yt-lockup-metadata-view-model__metadata .yt-content-metadata-view-model__metadata-row:nth-child(2):not(:has(a)) > span:first-child::before {
+ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions'])
+  .yt-lockup-metadata-view-model__metadata
+  .yt-content-metadata-view-model__metadata-row:nth-child(2):not(:has(a))
+  > span:first-child::before {
   background-image: var(--imgclockicon);
   filter: invert(1);
   background-size: 12px 12px;
