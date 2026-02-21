@@ -449,7 +449,7 @@ ytd-playlist-panel-renderer#playlist > #container {
   height: calc(25px - 25px * var(--neverhideshorts));
   line-height: 25px;
   filter: opacity(calc(100% - 100% * var(--neverhideshorts)));
-  transition-duration: 0.6s;
+  transition-duration: 0.8s;
   transition-property: filter, height;
   transition-delay: var(--timeshortsclosing);
   box-shadow:
@@ -516,6 +516,9 @@ ytd-playlist-panel-renderer#playlist > #container {
     display: none;
   }
   #frosted-glass {
+    display: none;
+  }
+  ytd-item-section-renderer[exp-fix-playlist-header] chip-bar-view-model {
     display: none;
   }
 }
