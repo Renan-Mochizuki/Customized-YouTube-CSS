@@ -1,6 +1,6 @@
 /*  
- * Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
-*/
+  * Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
+  */
 
 :root {
   --textshortsreminder: 'Hover to see Shorts';
@@ -11,6 +11,8 @@
   --neverhideshorts: 0;
   /* If you don't want the youtube header to be hidden, change it to 1 */
   --neverhideheader: 0;
+  /* If you don't want to remove chips from video page, change it to 1 */
+  --keepchipsfromvideopage: 0;
 
   --colorloadingpageprogress: linear-gradient(to left, rgb(255, 196, 0), red 40%, rgb(41, 0, 123));
   --colorvolumeleft: linear-gradient(45deg, rgb(50, 0, 151), rgb(142, 142, 255));
@@ -32,6 +34,7 @@
   --colorvideoprogresscursor: rgb(212, 6, 143);
   --shadowvideoprogresscursor: 0 0 8px 2px rgb(168, 125, 255);
   --shadowbuttons: rgba(245, 245, 245, 0.612);
+  --shadowhovertoseeshorts: rgba(160, 160, 160, 0.5);
   --shadowtitles: violet;
   --shadowgeneral: whitesmoke;
   --circlechannelpicture: gold;
@@ -41,6 +44,7 @@
   --imguser: url('https://cdn0.iconfinder.com/data/icons/cryptocurrency-137/128/1_profile_user_avatar_account_person-132-1024.png');
   --imgplaylisticon: url('https://cdn2.iconfinder.com/data/icons/css-vol-2/24/play-list-1024.png');
   --imgclockicon: url('https://cdn1.iconfinder.com/data/icons/material-core/21/history-1024.png');
+  --imgshorts: url('https://upload.wikimedia.org/wikipedia/commons/f/fc/Youtube_shorts_icon.svg');
   --timeshortsclosing: 1s;
   --timeshortsopening: 0.2s;
   --timeheaderclosing: 0.1s;
@@ -393,12 +397,14 @@ yt-button-shape[version='modern'].ytd-menu-renderer button {
   display: none;
 }
 
-/* Remove themes from the video page */
+/* Remove chips from the video page */
 yt-related-chip-cloud-renderer {
-  display: none;
+  /* display: none; */
+  max-height: calc(var(--keepchipsfromvideopage) * 55px);
+  opacity: var(--keepchipsfromvideopage);
 }
 ytd-watch-next-secondary-results-renderer #contents {
-  margin-top: -8px;
+  margin-top: calc(-8px + 8px * var(--keepchipsfromvideopage));
 }
 
 /* Remove the border from the side playlist */
@@ -417,32 +423,63 @@ ytd-playlist-panel-renderer#playlist > #container {
   transition:
     max-height 0.6s ease,
     opacity 0.6s,
-    z-index 0.6s;
+    z-index 0.6s,
+    margin-bottom 0.5s;
   transition-delay: var(--timeshortsclosing);
 }
 #items ytd-reel-shelf-renderer:hover #contents {
   max-height: 500px;
   opacity: 1;
   z-index: 5;
+  margin-bottom: calc(10px - 10px * var(--neverhideshorts));
   transition-delay: var(--timeshortsopening);
 }
-#items ytd-reel-shelf-renderer #title-container {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-#items ytd-reel-shelf-renderer #title-container::after {
+#items ytd-reel-shelf-renderer::before {
   content: var(--textshortsreminder);
+  background-image: var(--imgshorts);
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+  background-position: left center;
+  padding-left: 32px;
+  padding-top: calc(10px - 10px * var(--neverhideshorts));
+  padding-bottom: calc(10px - 10px * var(--neverhideshorts));
+  color: whitesmoke;
   font-size: 12px;
-  filter: opacity(calc(100% + -100% * var(--neverhideshorts)));
+  display: inline-block;
+  height: calc(25px - 25px * var(--neverhideshorts));
+  line-height: 25px;
+  filter: opacity(calc(100% - 100% * var(--neverhideshorts)));
   transition-duration: 0.6s;
-  transition-property: filter;
+  transition-property: filter, height;
   transition-delay: var(--timeshortsclosing);
+  box-shadow:
+    0 -2.5px 2.5px -2.5px var(--shadowhovertoseeshorts),
+    0 2.5px 2.5px -2.5px var(--shadowhovertoseeshorts);
 }
-#items ytd-reel-shelf-renderer:hover #title-container::after {
+#items ytd-reel-shelf-renderer:hover::before {
   filter: opacity(0%);
   transition-delay: var(--timeshortsopening);
+  height: 0px;
 }
+
+/* Youtube changed Shorts in Video Page */
+/* #items ytd-reel-shelf-renderer #title-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  #items ytd-reel-shelf-renderer #title-container::after {
+    content: var(--textshortsreminder);
+    font-size: 12px;
+    filter: opacity(calc(100% + -100% * var(--neverhideshorts)));
+    transition-duration: 0.6s;
+    transition-property: filter;
+    transition-delay: var(--timeshortsclosing);
+  }
+  #items ytd-reel-shelf-renderer:hover #title-container::after {
+    filter: opacity(0%);
+    transition-delay: var(--timeshortsopening);
+  } */
 
 /* Hide header when the screen height is small */
 @media screen and (max-height: 37.5em) {
