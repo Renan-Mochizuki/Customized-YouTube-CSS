@@ -1,6 +1,6 @@
 /*  
-  * Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
-  */
+Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
+*/
 
 :root {
   --textshortsreminder: 'Hover to see Shorts';
@@ -8,7 +8,7 @@
   /* If you don't want a notification circle at the corner of your profile, change it to 0 */
   --shownotificationcircle: 1;
   /* If you don't want Shorts in video page to be hidden, change it to 1 */
-  --neverhideshorts: 0;
+  --neverhideshorts: 1;
   /* If you don't want the youtube header to be hidden, change it to 1 */
   --neverhideheader: 0;
 
@@ -430,7 +430,32 @@ ytd-playlist-panel-renderer#playlist > #container {
   margin-bottom: calc(10px - 10px * var(--neverhideshorts));
   transition-delay: var(--timeshortsopening);
 }
-#items ytd-reel-shelf-renderer::before {
+/* Original Shorts header */
+#items ytd-reel-shelf-renderer #header {
+  display: flex !important;
+  margin-bottom: 20px !important;
+}
+#items ytd-reel-shelf-renderer #title-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#items ytd-reel-shelf-renderer #title-container::after {
+  content: var(--textshortsreminder);
+  font-size: 12px;
+  height: calc(14px - 14px * var(--neverhideshorts));
+  filter: opacity(calc(100% + -100% * var(--neverhideshorts)));
+  transition-duration: 0.6s;
+  transition-property: filter, height;
+  transition-delay: var(--timeshortsclosing);
+}
+#items ytd-reel-shelf-renderer:hover #title-container::after {
+  filter: opacity(0%);
+  transition-delay: var(--timeshortsopening);
+  height: 0px;
+}
+/* Alternative Shorts header*/
+/* #items ytd-reel-shelf-renderer::before {
   content: var(--textshortsreminder);
   background-image: var(--imgshorts);
   background-repeat: no-repeat;
@@ -456,26 +481,7 @@ ytd-playlist-panel-renderer#playlist > #container {
   filter: opacity(0%);
   transition-delay: var(--timeshortsopening);
   height: 0px;
-}
-
-/* Youtube changed Shorts in Video Page */
-/* #items ytd-reel-shelf-renderer #title-container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-  #items ytd-reel-shelf-renderer #title-container::after {
-    content: var(--textshortsreminder);
-    font-size: 12px;
-    filter: opacity(calc(100% + -100% * var(--neverhideshorts)));
-    transition-duration: 0.6s;
-    transition-property: filter;
-    transition-delay: var(--timeshortsclosing);
-  }
-  #items ytd-reel-shelf-renderer:hover #title-container::after {
-    filter: opacity(0%);
-    transition-delay: var(--timeshortsopening);
-  } */
+} */
 
 /* Hide header when the screen height is small */
 @media screen and (max-height: 37.5em) {
