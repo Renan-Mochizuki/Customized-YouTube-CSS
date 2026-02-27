@@ -11,8 +11,6 @@
   --neverhideshorts: 0;
   /* If you don't want the youtube header to be hidden, change it to 1 */
   --neverhideheader: 0;
-  /* If you don't want to remove chips from video page, change it to 1 */
-  --keepchipsfromvideopage: 0;
 
   --colorloadingpageprogress: linear-gradient(to left, rgb(255, 196, 0), red 40%, rgb(41, 0, 123));
   --colorvolumeleft: linear-gradient(45deg, rgb(50, 0, 151), rgb(142, 142, 255));
@@ -398,13 +396,11 @@ yt-button-shape[version='modern'].ytd-menu-renderer button {
 }
 
 /* Remove chips from the video page */
-yt-related-chip-cloud-renderer {
-  /* display: none; */
-  max-height: calc(var(--keepchipsfromvideopage) * 55px);
-  opacity: var(--keepchipsfromvideopage);
+#columns:not(:has(#primary #description ytd-watch-info-text[detailed])) #secondary yt-related-chip-cloud-renderer {
+  display: none;
 }
-ytd-watch-next-secondary-results-renderer #contents {
-  margin-top: calc(-8px + 8px * var(--keepchipsfromvideopage));
+#columns:not(:has(#primary #description ytd-watch-info-text[detailed])) #secondary ytd-watch-next-secondary-results-renderer #contents {
+  margin-top: -8px;
 }
 
 /* Remove the border from the side playlist */

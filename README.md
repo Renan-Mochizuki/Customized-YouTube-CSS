@@ -26,7 +26,7 @@ Obs.: O ícone customizado do YouTube não foi feito por mim.
 
 - **Ocultamento dos Shorts da tela de vídeo**
 
-Para acessar, passe o cursor por cima.
+Para ver os Shorts passe o cursor por cima.
 
 <div align="center">
     <img width="720" src="./prints/ocultamentoshorts.gif" alt="Ocultamento dos Shorts">
@@ -34,7 +34,7 @@ Para acessar, passe o cursor por cima.
 
 - **Ocultamento da header quando a tela estiver pequena**
 
-Para acessar, passe o cursor por cima.
+Para acessar passe o cursor na parte superior da página.
 
 <div align="center">
     <img width="720" src="./prints/ocultamentoheader.gif" alt="Ocultamento dos Header">
@@ -52,9 +52,11 @@ Se não quiser que os Shorts ou a header seja ocultada, basta modificar as vári
 
 - Adição de borda enevoada em alguns botões;
 
-- Remoção dos chips/temas (Para acessar, minimize a barra lateral);
+- Remoção dos chips/temas da Home (Para acessar minimize a barra lateral);
 
-- Remoção da cor da caixa de descrição.
+- Remoção dos chips/temas da página de vídeo (Para acessar abra/expanda a descrição do vídeo)
+
+- Caixa de descrição transparente.
 
 ## Como usar
 
