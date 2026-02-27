@@ -8,7 +8,7 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   /* If you don't want a notification circle at the corner of your profile, change it to 0 */
   --shownotificationcircle: 1;
   /* If you don't want Shorts in video page to be hidden, change it to 1 */
-  --neverhideshorts: 1;
+  --neverhideshorts: 0;
   /* If you don't want the youtube header to be hidden, change it to 1 */
   --neverhideheader: 0;
 
@@ -494,7 +494,7 @@ ytd-playlist-panel-renderer#playlist > #container {
     transition-property: margin-top;
     transition-delay: var(--timeheaderopening);
   }
-  /* When the header has hover or focus on searchbox */
+  /* The header will not be hidden when searchbox has hover/focus or when sidebar is open */
   ytd-app > #content:not(:has(ytd-shorts)) #masthead-container:hover,
   ytd-app > #content:not(:has(ytd-shorts)) #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused),
   ytd-app > #content:not(:has(ytd-shorts)) #masthead-container:has(~ tp-yt-app-drawer[opened]) {
@@ -514,10 +514,20 @@ ytd-playlist-panel-renderer#playlist > #container {
   ytd-watch-flexy > #columns > div {
     padding-top: 5px !important;
   }
-  #header ytd-feed-filter-chip-bar-renderer {
-    display: none;
-  }
+  /* Frosted-glass (header background on Home) */
   #frosted-glass {
+    max-height: var(--ytd-toolbar-height) !important;
+    opacity: var(--neverhideheader);
+    transition-delay: var(--timeheaderclosing);
+  }
+  ytd-app > #content:has(#masthead-container:hover) #frosted-glass,
+  ytd-app > #content:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) #frosted-glass,
+  ytd-app > #content:has(tp-yt-app-drawer[opened]) #frosted-glass {
+    opacity: 1;
+    transition: opacity 0.3s ease var(--timeheaderopening);
+  }
+  /* Removing chips */
+  #header ytd-feed-filter-chip-bar-renderer {
     display: none;
   }
   ytd-item-section-renderer[exp-fix-playlist-header] chip-bar-view-model {
