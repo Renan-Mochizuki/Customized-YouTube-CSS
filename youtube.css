@@ -194,7 +194,7 @@ ytd-topbar-menu-button-renderer[has-no-text],
   filter: opacity(0%);
   z-index: -1;
 }
-ytd-notification-topbar-button-renderer:has(.yt-spec-icon-badge-shape__badge) ~ ytd-topbar-menu-button-renderer::after {
+ytd-notification-topbar-button-renderer:has(.ytSpecIconBadgeShapeBadge) ~ ytd-topbar-menu-button-renderer::after {
   content: '';
   position: absolute;
   background-color: var(--colornotification);
@@ -202,7 +202,7 @@ ytd-notification-topbar-button-renderer:has(.yt-spec-icon-badge-shape__badge) ~ 
   height: calc(var(--shownotificationcircle) * 9px);
   border-radius: 100%;
   border: 1px solid black;
-  right: 27px;
+  right: 20px;
   top: 9px;
   transition: 0.4s filter;
 }
