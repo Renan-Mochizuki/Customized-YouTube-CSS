@@ -45,8 +45,8 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   --imgshorts: url('https://upload.wikimedia.org/wikipedia/commons/f/fc/Youtube_shorts_icon.svg');
   --timeshortsclosing: 1s;
   --timeshortsopening: 0.2s;
-  --timeheaderclosing: 0.1s;
-  --timeheaderopening: 0.4s;
+  --timeheaderclosing: 1s;
+  --timeheaderopening: 0.2s;
 }
 
 @keyframes animationcolorrainbow {
@@ -457,15 +457,23 @@ ytd-playlist-panel-renderer#playlist > #container {
 /* Header will not be hidden when searchbox has hover/focus or when sidebar is open */
 @media screen and (max-height: 37.5em) {
   /* - General - */
+  /* Increasing height of side bar to match header height */
+  ytd-mini-guide-renderer {
+    margin-top: -56px !important;
+    padding-top: 56px !important;
+  }
   /* Hiding header container */
   ytd-app > #content #masthead-container {
+    z-index: -10;
     opacity: var(--neverhideheader);
     transition: opacity 0.3s ease var(--timeheaderclosing);
   }
   /* Showing header container */
   ytd-app > #content #masthead-container:hover,
   ytd-app > #content #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused),
-  ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]) {
+  ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]),
+  ytd-app > #content:has(ytd-mini-guide-renderer:hover) #masthead-container {
+    z-index: 10;
     opacity: 1;
     transition: opacity 0.3s ease var(--timeheaderopening);
   }
@@ -477,7 +485,8 @@ ytd-playlist-panel-renderer#playlist > #container {
   /* Moving page back */
   ytd-app > #content #masthead-container:hover ~ ytd-page-manager,
   ytd-app > #content #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused) ~ ytd-page-manager,
-  ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]) ~ ytd-page-manager {
+  ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]) ~ ytd-page-manager,
+  ytd-app > #content:has(ytd-mini-guide-renderer:hover) #masthead-container ~ ytd-page-manager {
     margin-top: var(--ytd-toolbar-height) !important;
     transition: margin-top 0.3s ease var(--timeheaderopening) !important;
   }
@@ -490,7 +499,8 @@ ytd-playlist-panel-renderer#playlist > #container {
   /* Moving page back */
   ytd-app > #content #masthead-container:hover ~ ytd-page-manager tp-yt-app-header,
   ytd-app > #content #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused) ~ ytd-page-manager tp-yt-app-header,
-  ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]) ~ ytd-page-manager tp-yt-app-header {
+  ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]) ~ ytd-page-manager tp-yt-app-header,
+  ytd-app > #content:has(ytd-mini-guide-renderer:hover) #masthead-container ~ ytd-page-manager tp-yt-app-header {
     margin-top: var(--ytd-toolbar-height) !important;
     transition: margin-top 0.3s ease var(--timeheaderopening) !important;
   }
@@ -505,7 +515,8 @@ ytd-playlist-panel-renderer#playlist > #container {
   /* Showing header container */
   ytd-app > #content:has(#masthead-container:hover) #frosted-glass,
   ytd-app > #content:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) #frosted-glass,
-  ytd-app > #content:has(tp-yt-app-drawer[opened]) #frosted-glass {
+  ytd-app > #content:has(tp-yt-app-drawer[opened]) #frosted-glass,
+  ytd-app > #content:has(ytd-mini-guide-renderer:hover) #frosted-glass {
     opacity: 1;
     transition: opacity 0.3s ease var(--timeheaderopening) !important;
   }
