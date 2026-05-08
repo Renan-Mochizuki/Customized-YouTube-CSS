@@ -400,7 +400,7 @@ yt-button-shape[version='modern'].ytd-menu-renderer button {
   display: none;
 }
 
-/* Remove the border from the side playlist */
+/* Remove the border from the sides of playlist box */
 ytd-playlist-panel-renderer#playlist > #container {
   border: none;
   border-bottom: 1px var(--shadowbuttons) solid;
@@ -522,6 +522,10 @@ ytd-playlist-panel-renderer#playlist > #container {
   ytd-item-section-renderer[exp-fix-playlist-header] chip-bar-view-model {
     display: none;
   }
+  /* Fixing margin on Playlist Page */
+  ytd-two-column-browse-results-renderer[page-subtype='playlist'] #primary {
+    margin-top: 0px !important;
+  }
 }
 
 /* PLAYLIST PAGE */
@@ -555,10 +559,11 @@ ytd-playlist-panel-renderer#playlist > #container {
   margin-right: 5px;
 }
 
-/* Move the playlist up on the page */
+/* Moving the playlist up on the page */
 ytd-playlist-header-renderer.ytd-browse {
   margin-top: -10px;
 }
+/* Moving playlist content up on the page */
 ytd-two-column-browse-results-renderer[page-subtype='playlist'] #primary {
   margin-top: -20px;
 }
