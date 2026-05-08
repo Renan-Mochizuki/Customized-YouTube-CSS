@@ -454,14 +454,15 @@ ytd-playlist-panel-renderer#playlist > #container {
 
 /* Hide header when the screen height is small, header won't be hidden on Shorts Page */
 /* Hover on header to reveal it */
+/* Header will not be hidden when searchbox has hover/focus or when sidebar is open */
 @media screen and (max-height: 37.5em) {
+  /* - General - */
   /* Hiding header container */
-  ytd-app > #content #masthead-container{
+  ytd-app > #content #masthead-container {
     opacity: var(--neverhideheader);
     transition: opacity 0.3s ease var(--timeheaderclosing);
   }
   /* Showing header container */
-  /* Header will not be hidden when searchbox has hover/focus or when sidebar is open */
   ytd-app > #content #masthead-container:hover,
   ytd-app > #content #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused),
   ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]) {
@@ -469,39 +470,50 @@ ytd-playlist-panel-renderer#playlist > #container {
     transition: opacity 0.3s ease var(--timeheaderopening);
   }
   /* Moving page higher */
-  ytd-app > #content ytd-page-manager#page-manager {
+  ytd-app > #content ytd-page-manager {
     margin-top: calc(var(--ytd-toolbar-height) * var(--neverhideheader)) !important;
-    transition: margin-top 0.3s ease var(--timeheaderclosing);
+    transition: margin-top 0.3s ease var(--timeheaderclosing) !important;
   }
   /* Moving page back */
-  /* Header will not be hidden when searchbox has hover/focus or when sidebar is open */
-  ytd-app > #content #masthead-container:hover ~ ytd-page-manager#page-manager,
-  ytd-app > #content #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused) ~ ytd-page-manager#page-manager,
-  ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]) ~ ytd-page-manager#page-manager {
+  ytd-app > #content #masthead-container:hover ~ ytd-page-manager,
+  ytd-app > #content #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused) ~ ytd-page-manager,
+  ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]) ~ ytd-page-manager {
     margin-top: var(--ytd-toolbar-height) !important;
-    transition: margin-top 0.3s ease var(--timeheaderopening);
+    transition: margin-top 0.3s ease var(--timeheaderopening) !important;
   }
-
-  /* Channel */
-  /* ytd-app > #content:not(:has(ytd-shorts)) #masthead-container:not(:hover) ~ ytd-page-manager tp-yt-app-header {
-    --ytd-toolbar-offset: 0px !important;
-  } */
-  ytd-watch-flexy > #columns > div {
-    padding-top: 5px !important;
+  /* - Channel Page - */
+  /* Moving page higher */
+  ytd-app > #content #masthead-container ~ ytd-page-manager tp-yt-app-header {
+    margin-top: calc(var(--ytd-toolbar-height) * var(--neverhideheader)) !important;
+    transition: margin-top 0.3s ease var(--timeheaderclosing) !important;
   }
-  /* Frosted-glass (header background on Home) */
+  /* Moving page back */
+  ytd-app > #content #masthead-container:hover ~ ytd-page-manager tp-yt-app-header,
+  ytd-app > #content #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused) ~ ytd-page-manager tp-yt-app-header,
+  ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]) ~ ytd-page-manager tp-yt-app-header {
+    margin-top: var(--ytd-toolbar-height) !important;
+    transition: margin-top 0.3s ease var(--timeheaderopening) !important;
+  }
+  /* - Home - */
+  /* Frosted-glass (header background) */
+  /* Hiding header container */
   #frosted-glass {
     max-height: var(--ytd-toolbar-height) !important;
     opacity: var(--neverhideheader);
-    transition-delay: var(--timeheaderclosing);
+    transition: opacity 0.3s ease var(--timeheaderclosing) !important;
   }
+  /* Showing header container */
   ytd-app > #content:has(#masthead-container:hover) #frosted-glass,
   ytd-app > #content:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) #frosted-glass,
   ytd-app > #content:has(tp-yt-app-drawer[opened]) #frosted-glass {
     opacity: 1;
-    transition: opacity 0.3s ease var(--timeheaderopening);
+    transition: opacity 0.3s ease var(--timeheaderopening) !important;
   }
-
+  /* - Extras - */
+  /* Removing padding from watch page */
+  ytd-watch-flexy > #columns > div {
+    padding-top: 5px !important;
+  }
   /* Removing chips from Home */
   #header ytd-feed-filter-chip-bar-renderer {
     display: none;
