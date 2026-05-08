@@ -46,7 +46,7 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   --imgeye: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-eye-512.png');
   --timeshortsclosing: 1s;
   --timeshortsopening: 0.2s;
-  --timeheaderclosing: 1s;
+  --timeheaderclosing: 0.7s;
   --timeheaderopening: 0.2s;
 }
 
@@ -462,14 +462,25 @@ ytd-playlist-panel-renderer#playlist > #container {
   /* Hiding header container */
   ytd-app > #content #masthead-container {
     opacity: var(--neverhideheader) !important;
-    pointer-events: none;
     transition: opacity 0.3s ease var(--timeheaderclosing);
+  }
+  ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])) {
+    opacity: var(--neverhideheader) !important;
+    transition: opacity 0.3s ease var(--timeheaderclosing);
+    pointer-events: none;
   }
   /* Showing header container */
   ytd-app > #content #masthead-container:hover,
   ytd-app > #content #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused),
   ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]),
   ytd-app > #content:has(ytd-mini-guide-renderer:hover) #masthead-container {
+    opacity: 1 !important;
+    transition: opacity 0.3s ease var(--timeheaderopening);
+  }
+  ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])):hover,
+  ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])):has(yt-searchbox.ytSearchboxComponentHostIsFocused),
+  ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])):has(~ tp-yt-app-drawer[opened]),
+  ytd-app > #content:has(ytd-mini-guide-renderer:hover) #masthead-container:not(:has(#masthead[is-watch-page])) {
     opacity: 1 !important;
     pointer-events: auto;
     transition: opacity 0.3s ease var(--timeheaderopening);
