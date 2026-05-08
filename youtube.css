@@ -46,7 +46,7 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   --timeshortsclosing: 1s;
   --timeshortsopening: 0.2s;
   --timeheaderclosing: 0.1s;
-  --timeheaderopening: 0.3s;
+  --timeheaderopening: 0.4s;
 }
 
 @keyframes animationcolorrainbow {
@@ -399,9 +399,6 @@ yt-button-shape[version='modern'].ytd-menu-renderer button {
 #columns:not(:has(#primary #description ytd-watch-info-text[detailed])) #secondary yt-related-chip-cloud-renderer {
   display: none;
 }
-#columns:not(:has(#primary #description ytd-watch-info-text[detailed])) #secondary ytd-watch-next-secondary-results-renderer #contents {
-  margin-top: -8px;
-}
 
 /* Remove the border from the side playlist */
 ytd-playlist-panel-renderer#playlist > #container {
@@ -454,63 +451,41 @@ ytd-playlist-panel-renderer#playlist > #container {
   transition-delay: var(--timeshortsopening);
   height: 0px;
 }
-/* Alternative Shorts header*/
-/* #items ytd-reel-shelf-renderer::before {
-  content: var(--textshortsreminder);
-  background-image: var(--imgshorts);
-  background-repeat: no-repeat;
-  background-size: 25px 25px;
-  background-position: left center;
-  padding-left: 32px;
-  padding-top: calc(10px - 10px * var(--neverhideshorts));
-  padding-bottom: calc(10px - 10px * var(--neverhideshorts));
-  color: whitesmoke;
-  font-size: 12px;
-  display: inline-block;
-  height: calc(25px - 25px * var(--neverhideshorts));
-  line-height: 25px;
-  filter: opacity(calc(100% - 100% * var(--neverhideshorts)));
-  transition-duration: 0.8s;
-  transition-property: filter, height;
-  transition-delay: var(--timeshortsclosing);
-  box-shadow:
-    0 -2.5px 2.5px -2.5px var(--shadowhovertoseeshorts),
-    0 2.5px 2.5px -2.5px var(--shadowhovertoseeshorts);
-}
-#items ytd-reel-shelf-renderer:hover::before {
-  filter: opacity(0%);
-  transition-delay: var(--timeshortsopening);
-  height: 0px;
-} */
 
-/* Hide header when the screen height is small */
+/* Hide header when the screen height is small, header won't be hidden on Shorts Page */
+/* Hover on header to reveal it */
 @media screen and (max-height: 37.5em) {
-  ytd-app > #content:not(:has(ytd-shorts)) #masthead-container {
+  /* Hiding header container */
+  ytd-app > #content #masthead-container{
     opacity: var(--neverhideheader);
     transition: opacity 0.3s ease var(--timeheaderclosing);
   }
-  ytd-page-manager#page-manager {
-    transition-duration: 0.3s;
-    transition-property: margin-top;
-    transition-delay: var(--timeheaderopening);
-  }
-  /* The header will not be hidden when searchbox has hover/focus or when sidebar is open */
-  ytd-app > #content:not(:has(ytd-shorts)) #masthead-container:hover,
-  ytd-app > #content:not(:has(ytd-shorts)) #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused),
-  ytd-app > #content:not(:has(ytd-shorts)) #masthead-container:has(~ tp-yt-app-drawer[opened]) {
+  /* Showing header container */
+  /* Header will not be hidden when searchbox has hover/focus or when sidebar is open */
+  ytd-app > #content #masthead-container:hover,
+  ytd-app > #content #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused),
+  ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]) {
     opacity: 1;
     transition: opacity 0.3s ease var(--timeheaderopening);
   }
-  ytd-app
-    > #content:not(:has(ytd-shorts))
-    #masthead-container:not(:has(~ tp-yt-app-drawer[opened])):not(:hover):not(:has(yt-searchbox.ytSearchboxComponentHostIsFocused))
-    ~ ytd-page-manager#page-manager {
+  /* Moving page higher */
+  ytd-app > #content ytd-page-manager#page-manager {
     margin-top: calc(var(--ytd-toolbar-height) * var(--neverhideheader)) !important;
-    transition-delay: var(--timeheaderclosing);
+    transition: margin-top 0.3s ease var(--timeheaderclosing);
   }
-  ytd-app > #content:not(:has(ytd-shorts)) #masthead-container:not(:hover) ~ ytd-page-manager tp-yt-app-header {
+  /* Moving page back */
+  /* Header will not be hidden when searchbox has hover/focus or when sidebar is open */
+  ytd-app > #content #masthead-container:hover ~ ytd-page-manager#page-manager,
+  ytd-app > #content #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused) ~ ytd-page-manager#page-manager,
+  ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]) ~ ytd-page-manager#page-manager {
+    margin-top: var(--ytd-toolbar-height) !important;
+    transition: margin-top 0.3s ease var(--timeheaderopening);
+  }
+
+  /* Channel */
+  /* ytd-app > #content:not(:has(ytd-shorts)) #masthead-container:not(:hover) ~ ytd-page-manager tp-yt-app-header {
     --ytd-toolbar-offset: 0px !important;
-  }
+  } */
   ytd-watch-flexy > #columns > div {
     padding-top: 5px !important;
   }
@@ -526,17 +501,20 @@ ytd-playlist-panel-renderer#playlist > #container {
     opacity: 1;
     transition: opacity 0.3s ease var(--timeheaderopening);
   }
-  /* Removing chips */
+
+  /* Removing chips from Home */
   #header ytd-feed-filter-chip-bar-renderer {
     display: none;
   }
+  /* Removing chip (sort playlist) from Playlist Page */
   ytd-item-section-renderer[exp-fix-playlist-header] chip-bar-view-model {
     display: none;
   }
 }
 
-/* PLAYLIST */
+/* PLAYLIST PAGE */
 /* Share and three dots buttons in playlist */
+/* Glow effect */
 .metadata-buttons-wrapper .ytd-playlist-header-renderer yt-button-shape {
   box-shadow: 0px 0px 5px var(--shadowbuttons);
   border-radius: 25px;
@@ -544,6 +522,7 @@ ytd-playlist-panel-renderer#playlist > #container {
 }
 
 /* Playlist title */
+/* Glow effect */
 .ytd-playlist-header-renderer #text,
 #header-description h3 {
   font-family: Calibri;
@@ -552,6 +531,7 @@ ytd-playlist-panel-renderer#playlist > #container {
 }
 
 /* Channel name in playlist */
+/* User icon */
 .metadata-action-bar .metadata-text-wrapper .metadata-owner #owner-text a::before {
   background-image: var(--imguser);
   filter: invert(1);
@@ -561,18 +541,6 @@ ytd-playlist-panel-renderer#playlist > #container {
   height: 15px;
   content: '';
   margin-right: 5px;
-}
-
-/* Edit button on the playlist page */
-.thumbnail-and-metadata-wrapper #edit-button {
-  opacity: 5%;
-  transition: 0.2s;
-}
-.thumbnail-and-metadata-wrapper #edit-button button {
-  background-color: transparent;
-}
-.thumbnail-and-metadata-wrapper #edit-button:hover {
-  opacity: 100%;
 }
 
 /* Move the playlist up on the page */
@@ -597,8 +565,9 @@ ytd-inline-form-renderer[hidden]
   display: none;
 }
 
-/* LIBRARY */
+/* LIBRARY/PLAYLISTS PAGE */
 /* Playlist title */
+/* Glow effect */
 ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .ytLockupViewModelMetadata .ytLockupMetadataViewModelHeadingReset span {
   font-family: Calibri;
   text-shadow: 0px 0px 2px black;
@@ -607,6 +576,7 @@ ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .ytLockupV
 }
 
 /* Last updated message */
+/* Clock icon */
 ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions'])
   .ytLockupViewModelMetadata
   .ytContentMetadataViewModelMetadataRow:nth-child(2):not(:has(a), :has(.ytContentMetadataViewModelDelimiter))
@@ -622,6 +592,7 @@ ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions'])
 }
 
 /* Name of channel */
+/* User icon */
 ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:first-child > span:first-child a::before {
   background-image: var(--imguser);
   filter: invert(1);
@@ -634,10 +605,12 @@ ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .ytLockupV
 }
 
 /* View full playlist button */
+/* Increased size of 'View full playlist' text */
 ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:last-child > span:first-child a {
   font-size: 15px;
   margin-top: 5px;
 }
+/* Playlist icon */
 ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:last-child > span:first-child a::before {
   background-image: var(--imgplaylisticon);
   filter: invert(1);
