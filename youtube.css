@@ -330,10 +330,12 @@ yt-formatted-string[force-default-style]:hover {
   transition: 0.2s ease-in;
 }
 
-/* General shadow for buttons */
-#menu .ytd-watch-metadata #top-level-buttons-computed > .ytd-menu-renderer,
-#owner #subscribe-button,
-#flexible-item-buttons ytd-button-renderer {
+/* Video page buttons (like/dislike, etc.) */
+/* Shadow */
+#above-the-fold #top-level-buttons-computed > .ytd-menu-renderer,
+#flexible-item-buttons button-view-model,
+#flexible-item-buttons ytd-button-renderer,
+#button-shape > button {
   box-shadow: 0px 0px 2.5px var(--shadowbuttons);
   border-radius: 25px;
   margin-right: 2px;
@@ -659,7 +661,7 @@ ytd-inline-form-renderer[hidden]
 /* LIBRARY/PLAYLISTS PAGE */
 /* Playlist title */
 /* Glow effect */
-ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .ytLockupViewModelMetadata .ytLockupMetadataViewModelHeadingReset span {
+ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .ytLockupViewModelMetadata .ytLockupMetadataViewModelHeadingReset:not(:has(.ytLockupMetadataViewModelTitle[aria-label])) span {
   font-family: Calibri;
   text-shadow: 0px 0px 2px black;
   filter: drop-shadow(0px 0px 3px var(--shadowgeneral));

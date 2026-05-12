@@ -34,7 +34,8 @@ Para ver os Shorts passe o cursor por cima.
 
 - **Ocultamento da header quando a tela estiver pequena**
 
-Para acessar passe o cursor na parte superior da página.
+Para acessar, na página de vídeo, passe o cursor na parte superior da página.
+Em outras páginas como Home e Shorts, passe o cursor por cima do ícone de olho.
 
 <div align="center">
     <img width="720" src="./prints/ocultamentoheader.gif" alt="Ocultamento dos Header">
