@@ -288,8 +288,8 @@ h1 yt-formatted-string[force-default-style] {
 }
 
 /* Video page buttons (like/dislike, etc.) */
-#top-level-buttons-computed > .ytd-menu-renderer,
-#owner #subscribe-button,
+/* Shadow */
+#above-the-fold #top-level-buttons-computed > .ytd-menu-renderer,
 #flexible-item-buttons button-view-model,
 #flexible-item-buttons ytd-button-renderer,
 #button-shape > button {
