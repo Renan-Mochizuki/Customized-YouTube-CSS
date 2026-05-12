@@ -9,9 +9,11 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   --shownotificationcircle: 1;
   /* If you don't want Shorts in video page to be hidden, change it to 1 */
   --neverhideshorts: 0;
-  /* If you don't want the youtube header to be hidden, 
-  change --neverhideheader to 1 and --neverhideheaderpointerevents to auto */
+  /* If you don't want the youtube header to be hidden, change it to 1 */
   --neverhideheader: 0;
+
+  /* If you want to toggle the hide header method, 0 for hover eye method and 1 for screen top hover method */
+  --hideheadermethod: 0;
 
   --colorloadingpageprogress: linear-gradient(to left, rgb(255, 196, 0), red 40%, rgb(41, 0, 123));
   --colorvolumeleft: linear-gradient(45deg, rgb(50, 0, 151), rgb(142, 142, 255));
@@ -457,14 +459,16 @@ ytd-playlist-panel-renderer#playlist > #container {
 /* Hide header when the screen height is small, header won't be hidden on Shorts Page */
 /* Hover on header to reveal it */
 /* Header will not be hidden when searchbox has hover/focus or when sidebar is open */
-/* TODO: Verify if moving header is better than pointer-events */
-/* TODO: Header with three line button already shown */
 @media screen and (max-height: 37.5em) {
   /* - General - */
   /* Hiding header container */
   ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])) {
-    margin-top: calc(-1 * var(--ytd-toolbar-height) + var(--ytd-toolbar-height) * var(--neverhideheader)) !important;
-    transition: margin-top 0.3s ease var(--timeheaderclosing);
+    margin-top: calc(-1 * var(--ytd-toolbar-height) * (1 - var(--neverhideheader)) * (1 - var(--hideheadermethod))) !important;
+    transition:
+      margin-top 0.3s ease var(--timeheaderclosing),
+      opacity 0.3s ease var(--timeheaderclosing) !important;
+    /* Other method */
+    opacity: calc(1 - (1 - var(--neverhideheader)) * var(--hideheadermethod)) !important;
   }
   /* Hiding header container (video page) */
   ytd-app > #content #masthead-container:has(#masthead[is-watch-page]) {
@@ -477,7 +481,10 @@ ytd-playlist-panel-renderer#playlist > #container {
   ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])):has(~ tp-yt-app-drawer[opened]),
   ytd-app > #content:has(ytd-mini-guide-renderer:hover) #masthead-container:not(:has(#masthead[is-watch-page])) {
     margin-top: 0px !important;
-    transition: margin-top 0.3s ease var(--timeheaderopening);
+    transition:
+      margin-top 0.3s ease var(--timeheaderopening),
+      opacity 0.3s ease var(--timeheaderopening) !important;
+    opacity: 1 !important;
   }
   /* Showing header container (video page) */
   ytd-app > #content #masthead-container:has(#masthead[is-watch-page]):hover,
@@ -485,7 +492,7 @@ ytd-playlist-panel-renderer#playlist > #container {
   ytd-app > #content #masthead-container:has(#masthead[is-watch-page]):has(~ tp-yt-app-drawer[opened]),
   ytd-app > #content:has(ytd-mini-guide-renderer:hover) #masthead-container:has(#masthead[is-watch-page]) {
     opacity: 1 !important;
-    transition: opacity 0.3s ease var(--timeheaderopening);
+    transition: opacity 0.3s ease var(--timeheaderopening) !important;
   }
   /* Moving page higher */
   ytd-app > #content ytd-page-manager {
@@ -563,8 +570,12 @@ ytd-playlist-panel-renderer#playlist > #container {
   /* Hiding header container */
   #frosted-glass {
     max-height: var(--ytd-toolbar-height) !important;
-    margin-top: calc(-1 * var(--ytd-toolbar-height) + var(--ytd-toolbar-height) * var(--neverhideheader)) !important;
-    transition: margin-top 0.3s ease var(--timeheaderclosing) !important;
+    margin-top: calc(-1 * var(--ytd-toolbar-height) * (1 - var(--neverhideheader)) * (1 - var(--hideheadermethod))) !important;
+    transition:
+      margin-top 0.3s ease var(--timeheaderclosing),
+      opacity 0.3s ease var(--timeheaderclosing) !important;
+    /* Other method */
+    opacity: calc(1 - (1 - var(--neverhideheader)) * var(--hideheadermethod)) !important;
   }
   /* Showing header container */
   ytd-app > #content:has(#masthead-container:hover) #frosted-glass,
@@ -572,7 +583,10 @@ ytd-playlist-panel-renderer#playlist > #container {
   ytd-app > #content:has(tp-yt-app-drawer[opened]) #frosted-glass,
   ytd-app > #content:has(ytd-mini-guide-renderer:hover) #frosted-glass {
     margin-top: 0px !important;
-    transition: margin-top 0.3s ease var(--timeheaderopening) !important;
+    transition:
+      margin-top 0.3s ease var(--timeheaderopening),
+      opacity 0.3s ease var(--timeheaderopening) !important;
+    opacity: 1 !important;
   }
   /* - Extras - */
   /* Removing padding from watch page */
