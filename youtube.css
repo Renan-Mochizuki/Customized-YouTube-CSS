@@ -406,6 +406,7 @@ ytd-playlist-panel-renderer#playlist > #container {
   /* Showing header container */
   ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])):hover,
   ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])):has(yt-searchbox.ytSearchboxComponentHostIsFocused),
+  ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])):has(.ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)),
   ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])):has(~ tp-yt-app-drawer[opened]),
   ytd-app > #content:has(ytd-mini-guide-renderer:hover) #masthead-container:not(:has(#masthead[is-watch-page])) {
     margin-top: 0px !important;
@@ -417,6 +418,7 @@ ytd-playlist-panel-renderer#playlist > #container {
   /* Showing header container (video page) */
   ytd-app > #content #masthead-container:has(#masthead[is-watch-page]):hover,
   ytd-app > #content #masthead-container:has(#masthead[is-watch-page]):has(yt-searchbox.ytSearchboxComponentHostIsFocused),
+  ytd-app > #content #masthead-container:has(#masthead[is-watch-page]):has(.ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)),
   ytd-app > #content #masthead-container:has(#masthead[is-watch-page]):has(~ tp-yt-app-drawer[opened]),
   ytd-app > #content:has(ytd-mini-guide-renderer:hover) #masthead-container:has(#masthead[is-watch-page]) {
     opacity: 1 !important;
@@ -430,6 +432,7 @@ ytd-playlist-panel-renderer#playlist > #container {
   /* Moving page back */
   ytd-app > #content #masthead-container:hover ~ ytd-page-manager,
   ytd-app > #content #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused) ~ ytd-page-manager,
+  ytd-app > #content #masthead-container:has(.ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) ~ ytd-page-manager,
   ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]) ~ ytd-page-manager,
   ytd-app > #content:has(ytd-mini-guide-renderer:hover) ytd-page-manager {
     margin-top: var(--ytd-toolbar-height) !important;
@@ -447,6 +450,7 @@ ytd-playlist-panel-renderer#playlist > #container {
   /* Decrease side bar height to make header clickable */
   ytd-app > #content:has(#masthead-container:hover) ytd-mini-guide-renderer,
   ytd-app > #content:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) ytd-mini-guide-renderer,
+  ytd-app > #content:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) ytd-mini-guide-renderer,
   ytd-app > #content:has(#masthead-container ~ tp-yt-app-drawer[opened]) ytd-mini-guide-renderer,
   ytd-app > #content:has(ytd-mini-guide-renderer:hover) ytd-mini-guide-renderer {
     margin-top: 0px !important;
@@ -473,6 +477,7 @@ ytd-playlist-panel-renderer#playlist > #container {
   /* Hiding hidden header icon */
   ytd-app > #content:has(#masthead-container:hover) ytd-mini-guide-renderer:before,
   ytd-app > #content:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) ytd-mini-guide-renderer:before,
+  ytd-app > #content:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) ytd-mini-guide-renderer:before,
   ytd-app > #content:has(#masthead-container ~ tp-yt-app-drawer[opened]) ytd-mini-guide-renderer:before,
   ytd-app > #content:has(ytd-mini-guide-renderer:hover) ytd-mini-guide-renderer:before {
     opacity: 0 !important;
@@ -488,6 +493,7 @@ ytd-playlist-panel-renderer#playlist > #container {
   /* Moving page back */
   ytd-app > #content #masthead-container:hover ~ ytd-page-manager tp-yt-app-header,
   ytd-app > #content #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused) ~ ytd-page-manager tp-yt-app-header,
+  ytd-app > #content:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) ~ ytd-page-manager tp-yt-app-header,
   ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]) ~ ytd-page-manager tp-yt-app-header,
   ytd-app > #content:has(ytd-mini-guide-renderer:hover) ytd-page-manager tp-yt-app-header {
     margin-top: var(--ytd-toolbar-height) !important;
@@ -508,6 +514,7 @@ ytd-playlist-panel-renderer#playlist > #container {
   /* Showing header container */
   ytd-app > #content:has(#masthead-container:hover) #frosted-glass,
   ytd-app > #content:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) #frosted-glass,
+  ytd-app > #content:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) #frosted-glass,
   ytd-app > #content:has(tp-yt-app-drawer[opened]) #frosted-glass,
   ytd-app > #content:has(ytd-mini-guide-renderer:hover) #frosted-glass {
     margin-top: 0px !important;
