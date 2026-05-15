@@ -8,9 +8,9 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   /* If you don't want a notification circle at the corner of your profile, change it to 0 */
   --shownotificationcircle: 1;
   /* If you don't want Shorts in video page to be hidden, change it to 1 */
-  --neverhideshorts: 0;
+  --keepshorts: 0;
   /* If you don't want the youtube header to be hidden, change it to 1 */
-  --neverhideheader: 0;
+  --keepheader: 0;
 
   /* If you want to toggle the hide header method, 0 for hover eye method and 1 for screen top hover method */
   --hideheadermethod: 0;
@@ -63,8 +63,20 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   }
 }
 
-/* HEADER AND HOME */
-/* Youtube Logo */
+/* Rainbow/RGB on the side */
+ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
+  width: 3px;
+  height: 100%;
+  content: '';
+  position: fixed;
+  z-index: 10000;
+  background-image: var(--colorrainbow);
+  background-size: 3px 180%;
+  animation: animationcolorrainbow var(--speedrainbowanimation) infinite linear reverse;
+}
+
+/* HEADER */
+/* YouTube Logo */
 #logo-icon {
   content: var(--imgyoutubeicon);
   background-image: none;
@@ -78,32 +90,108 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   display: none;
 }
 
-/* Only showing youtube special/events logo when side bar is open */
-#content:has(tp-yt-app-drawer:not([opened])) ytd-topbar-logo-renderer #logo {
-  content: url('https://i.imgur.com/9n4AS59.png');
-  background-image: none;
-  max-width: 47px;
-  width: 47px;
-  min-width: 47px;
-  height: 30px;
-  margin-left: 15px;
-  transition: 0.5s all ease;
-}
-#content:has(tp-yt-app-drawer[opened]) ytd-topbar-logo-renderer #logo {
-  content: '' !important;
-  background-image: none;
-  max-width: 47px;
-  min-width: 47px;
-  height: 30px;
-  margin-left: 5px;
+/* Page loading progress */
+yt-page-navigation-progress #progress {
+  background-image: var(--colorloadingpageprogress) !important;
 }
 
-/* Three line button (side bar) */
-#guide-button.ytd-app {
-  min-width: 40px;
+/* - Hide three-line button animation - */
+/* Opacity of three-line button */
+#guide-button {
+  filter: opacity(0%);
+  transition-duration: 1s;
+  transition-property: filter;
+}
+#start:hover #guide-button,
+#guide-content #header:hover #guide-button {
+  filter: opacity(100%);
+}
+/* Moving logo */
+ytd-topbar-logo-renderer {
+  left: -50px;
+  transition-duration: 0.5s;
+  transition-property: left;
+  position: relative;
+}
+#start:hover ytd-topbar-logo-renderer,
+#guide-content #header:hover ytd-topbar-logo-renderer {
+  left: 0px;
 }
 
-/* Open virtual keyboard button (search bar) */
+/* - Hide profile buttons animation - */
+/* Notifications button */
+ytd-notification-topbar-button-renderer {
+  position: relative;
+  display: block;
+  left: 58px;
+  transition-duration: 0.5s;
+  transition-property: left, z-index, filter;
+  filter: opacity(0%);
+  z-index: -1;
+}
+#end:hover ytd-notification-topbar-button-renderer,
+ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden='true']) #spinner) #content ytd-notification-topbar-button-renderer {
+  left: 0px;
+  z-index: 1;
+  filter: opacity(100%);
+}
+/* Create button */
+ytd-topbar-menu-button-renderer[has-no-text],
+#end #buttons > ytd-button-renderer:first-child {
+  position: relative;
+  display: block;
+  left: 108px;
+  transition-duration: 0.5s;
+  transition-property: left, z-index, filter;
+  filter: opacity(0%);
+  z-index: -1;
+}
+#end:hover #buttons > ytd-button-renderer:first-child,
+ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden='true']) #spinner) #content #buttons > ytd-button-renderer:first-child {
+  left: 0px;
+  z-index: 1;
+  filter: opacity(100%);
+}
+/* Notification circle */
+ytd-notification-topbar-button-renderer:has(.ytSpecIconBadgeShapeBadge) ~ ytd-topbar-menu-button-renderer::after {
+  content: '';
+  position: absolute;
+  background-color: var(--colornotification);
+  width: calc(var(--shownotificationcircle) * 9px);
+  height: calc(var(--shownotificationcircle) * 9px);
+  border-radius: 100%;
+  border: 1px solid black;
+  right: 20px;
+  top: 9px;
+  transition: 0.4s filter;
+}
+#end:hover ytd-topbar-menu-button-renderer::after,
+ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden='true']) #spinner) #content ytd-topbar-menu-button-renderer::after {
+  filter: opacity(0%);
+}
+
+/* HOME */
+/* Margin home videos box */
+ytd-browse[page-subtype='home'] #contents {
+  margin-top: 10px;
+}
+
+/* Remove chips when the sidebar is not minimized */
+tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-renderer:not(:has(yt-dropdown-menu)) {
+  display: none;
+}
+/* Fix frosted glass size */
+#frosted-glass:has(~ tp-yt-app-drawer[opened]) {
+  max-height: 56px;
+}
+
+/* Center videos on the subscriptions page */
+ytd-rich-grid-row #contents {
+  justify-content: center;
+}
+
+/* SEARCH BAR */
+/* Reducing opacity of open virtual keyboard button */
 .gsst_a {
   filter: opacity(10%);
   margin-right: 5px;
@@ -118,23 +206,12 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   filter: drop-shadow(0px 0px 1px var(--shadowgeneral));
 }
 
-/* Search button */
-#search-icon-legacy {
-  box-shadow: 0px 0px 2px var(--shadowgeneral);
-  transition: all ease 0.15s;
-  transition-property: transform, filter;
-}
-#search-icon-legacy:hover {
-  transform: scale(1.05) translate(1px);
-  filter: drop-shadow(0px 0px 2px var(--shadowbuttons));
-}
-
 /* Removing search button tooltip  */
 #tooltip {
   display: none;
 }
 
-/* Voice search button */
+/* Hiding voice search button */
 #voice-search-button {
   filter: opacity(0%);
   transition-duration: 0.3s;
@@ -150,111 +227,6 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   width: 30px;
   height: 30px;
   margin-right: 8px;
-}
-
-/* Page loading progress */
-yt-page-navigation-progress #progress {
-  background-image: var(--colorloadingpageprogress) !important;
-}
-
-/* Three line button animation */
-#guide-button {
-  filter: opacity(0%);
-  transition-duration: 1s;
-  transition-property: filter;
-}
-#start:hover #guide-button,
-#guide-content #header:hover #guide-button {
-  filter: opacity(100%);
-}
-ytd-topbar-logo-renderer {
-  left: -50px;
-  transition-duration: 0.5s;
-  transition-property: left;
-  position: relative;
-}
-#start:hover ytd-topbar-logo-renderer,
-#guide-content #header:hover ytd-topbar-logo-renderer {
-  left: 0px;
-}
-
-/* Profile buttons animation */
-ytd-notification-topbar-button-renderer {
-  position: relative;
-  display: block;
-  left: 58px;
-  transition-duration: 0.5s;
-  transition-property: left, z-index, filter;
-  filter: opacity(0%);
-  z-index: -1;
-}
-ytd-topbar-menu-button-renderer[has-no-text],
-#end #buttons > ytd-button-renderer:first-child {
-  position: relative;
-  display: block;
-  left: 108px;
-  transition-duration: 0.5s;
-  transition-property: left, z-index, filter;
-  filter: opacity(0%);
-  z-index: -1;
-}
-ytd-notification-topbar-button-renderer:has(.ytSpecIconBadgeShapeBadge) ~ ytd-topbar-menu-button-renderer::after {
-  content: '';
-  position: absolute;
-  background-color: var(--colornotification);
-  width: calc(var(--shownotificationcircle) * 9px);
-  height: calc(var(--shownotificationcircle) * 9px);
-  border-radius: 100%;
-  border: 1px solid black;
-  right: 20px;
-  top: 9px;
-  transition: 0.4s filter;
-}
-#end:hover ytd-notification-topbar-button-renderer,
-ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden='true']) #spinner) #content ytd-notification-topbar-button-renderer {
-  left: 0px;
-  z-index: 1;
-  filter: opacity(100%);
-}
-#end:hover #buttons > ytd-button-renderer:first-child,
-ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden='true']) #spinner) #content #buttons > ytd-button-renderer:first-child {
-  left: 0px;
-  z-index: 1;
-  filter: opacity(100%);
-}
-#end:hover ytd-topbar-menu-button-renderer::after,
-ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden='true']) #spinner) #content ytd-topbar-menu-button-renderer::after {
-  filter: opacity(0%);
-}
-
-/* Margin home videos box */
-ytd-browse[page-subtype='home'] #contents {
-  margin-top: 10px;
-}
-
-/* Remove chips when the sidebar is not minimized */
-tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-renderer:not(:has(yt-dropdown-menu)) {
-  display: none;
-}
-#frosted-glass:has(~ tp-yt-app-drawer[opened]) {
-  max-height: 56px;
-}
-
-/* Center videos on the subscriptions page */
-ytd-rich-grid-row #contents {
-  justify-content: center;
-}
-
-/* Rainbow on the side */
-ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
-  width: 3px;
-  height: 100%;
-  content: '';
-  position: fixed;
-  z-index: 10000;
-  background-image: var(--colorrainbow);
-  background-size: 3px 180%;
-  animation: animationcolorrainbow var(--speedrainbowanimation) infinite linear reverse;
 }
 
 /* PLAYER */
@@ -275,27 +247,18 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
 }
 
 /* Left volume bar */
-.ytp-volume-slider-handle:before {
+/* .ytp-volume-slider-handle:before {
   background: var(--colorvolumeleft);
   z-index: -1;
-}
+} */
 
 /* Right volume bar */
-.ytp-volume-slider-handle:after {
+/* .ytp-volume-slider-handle:after {
   background: var(--colorvolumeright);
   z-index: -1;
-}
+} */
 
-/* Player border */
-#player video {
-  border-radius: 10px;
-}
-.html5-video-player.ytp-fit-cover-video {
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-/* Channel icon animation in the corner of the player */
+/* Hide channel icon animation in the corner of the player */
 .annotation-type-custom.iv-branding {
   filter: opacity(0%);
   transition-property: filter;
@@ -312,22 +275,15 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
 
 /* VIDEO PAGE */
 /* Video title */
+/* Shadow */
 h1 yt-formatted-string[force-default-style] {
-  text-shadow: 1px 1px 3px var(--shadowtitles);
-}
-yt-formatted-string[force-default-style]:hover {
-  text-shadow: 0px 0px 1px var(--shadowgeneral);
-  backdrop-filter: blur(10px);
-  transition: 0.2s ease-in;
+  text-shadow: calc(var(--showshadowtitle) * 1px) calc(var(--showshadowtitle) * 1px) calc(var(--showshadowtitle) * 3px) var(--shadowtitles);
 }
 
-/* Channel name in videos */
+/* Channel name */
+/* Shadow */
 #upload-info #channel-name #container #text-container {
-  text-shadow: 1px 1px 1px var(--shadowtitles);
-}
-#text a:hover {
-  text-shadow: 0px 0px 1px var(--shadowgeneral);
-  transition: 0.2s ease-in;
+  text-shadow: calc(var(--showshadowtitle) * 1px) calc(var(--showshadowtitle) * 1px) calc(var(--showshadowtitle) * 3px) var(--shadowtitles);
 }
 
 /* Video page buttons (like/dislike, etc.) */
@@ -341,26 +297,18 @@ yt-formatted-string[force-default-style]:hover {
   margin-right: 2px;
 }
 
-/* Three dots button */
-yt-button-shape[version='modern'].ytd-menu-renderer button {
-  box-shadow: 0px 0px 4px var(--shadowbuttons);
-  border-radius: 25px;
-}
-
-/* Ensure the general shadow of video buttons is not cut off */
+/* Ensure the shadow of video buttons is not cut off */
 #actions-inner #menu .ytd-watch-metadata {
   padding: 5px;
 }
 
-/* Glow effect on like and dislike buttons */
-#segmented-like-button,
-#segmented-dislike-button,
-.YtLikeButtonViewModelHost,
-.YtDislikeButtonViewModelHost {
+/* Like and dislike buttons */
+/* Glow effect */
+segmented-like-dislike-button-view-model {
   filter: drop-shadow(0px 0px 5px var(--shadowbuttons));
 }
 
-/* Profile icon */
+/* Profile icon hover animation */
 #avatar {
   transition-duration: 0.5s;
   transition-property: transform, filter;
@@ -370,7 +318,7 @@ yt-button-shape[version='modern'].ytd-menu-renderer button {
   transform: scale(1.1);
 }
 
-/* Description */
+/* Removing background color from description */
 #bottom-row #description {
   background-color: transparent;
 }
@@ -380,19 +328,15 @@ yt-button-shape[version='modern'].ytd-menu-renderer button {
   text-shadow: 1px 1px 3px var(--shadowtitles);
 }
 
-/* Show more text in the description */
+/* "Show more" text in description */
 #description-inline-expander #expand {
-  margin-left: -5px;
   text-shadow: 0px 0px 2px var(--shadowtitles);
-  padding: 2px;
-  border-radius: 10px;
 }
 
-/* Show less text in the description */
+/* "Show less" text in description */
 #description-inline-expander #collapse {
   margin-top: -2px;
   text-shadow: 0px 0px 2px var(--shadowtitles);
-  border-radius: 10px;
   font-size: 16px;
 }
 
@@ -401,12 +345,12 @@ yt-button-shape[version='modern'].ytd-menu-renderer button {
   display: none;
 }
 
-/* Remove chips from the video page */
+/* Remove chips from the video page when description box is not expanded */
 #columns:not(:has(#primary #description ytd-watch-info-text[detailed])) #secondary yt-related-chip-cloud-renderer {
   display: none;
 }
 
-/* Remove the border from the side playlist */
+/* Remove the border from the sides of playlist box */
 ytd-playlist-panel-renderer#playlist > #container {
   border: none;
   border-bottom: 1px var(--shadowbuttons) solid;
@@ -416,9 +360,9 @@ ytd-playlist-panel-renderer#playlist > #container {
 #items ytd-reel-shelf-renderer #contents {
   position: relative;
   display: block;
-  max-height: calc(500px * var(--neverhideshorts));
-  opacity: var(--neverhideshorts);
-  z-index: calc(10 * var(--neverhideshorts) - 5);
+  max-height: calc(500px * var(--keepshorts));
+  opacity: var(--keepshorts);
+  z-index: calc(10 * var(--keepshorts) - 5);
   transition:
     max-height 0.6s ease,
     opacity 0.6s,
@@ -430,7 +374,7 @@ ytd-playlist-panel-renderer#playlist > #container {
   max-height: 500px;
   opacity: 1;
   z-index: 5;
-  margin-bottom: calc(10px - 10px * var(--neverhideshorts));
+  margin-bottom: calc(10px - 10px * var(--keepshorts));
   transition-delay: var(--timeshortsopening);
 }
 /* Original Shorts header */
@@ -446,8 +390,8 @@ ytd-playlist-panel-renderer#playlist > #container {
 #items ytd-reel-shelf-renderer #title-container::after {
   content: var(--textshortsreminder);
   font-size: 12px;
-  height: calc(14px - 14px * var(--neverhideshorts));
-  filter: opacity(calc(100% + -100% * var(--neverhideshorts)));
+  height: calc(14px - 14px * var(--keepshorts));
+  filter: opacity(calc(100% + -100% * var(--keepshorts)));
   transition-duration: 0.6s;
   transition-property: filter, height;
   transition-delay: var(--timeshortsclosing);
@@ -465,16 +409,16 @@ ytd-playlist-panel-renderer#playlist > #container {
   /* - General - */
   /* Hiding header container */
   ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])) {
-    margin-top: calc(-1 * var(--ytd-toolbar-height) * (1 - var(--neverhideheader)) * (1 - var(--hideheadermethod))) !important;
+    margin-top: calc(-1 * var(--ytd-toolbar-height) * (1 - var(--keepheader)) * (1 - var(--hideheadermethod))) !important;
     transition:
       margin-top 0.3s ease var(--timeheaderclosing),
       opacity 0.3s ease var(--timeheaderclosing) !important;
     /* Other method */
-    opacity: calc(1 - (1 - var(--neverhideheader)) * var(--hideheadermethod)) !important;
+    opacity: calc(1 - (1 - var(--keepheader)) * var(--hideheadermethod)) !important;
   }
   /* Hiding header container (video page) */
   ytd-app > #content #masthead-container:has(#masthead[is-watch-page]) {
-    opacity: var(--neverhideheader) !important;
+    opacity: var(--keepheader) !important;
     transition: opacity 0.3s ease var(--timeheaderclosing);
   }
   /* Showing header container */
@@ -498,7 +442,7 @@ ytd-playlist-panel-renderer#playlist > #container {
   }
   /* Moving page higher */
   ytd-app > #content ytd-page-manager {
-    margin-top: calc(var(--ytd-toolbar-height) * var(--neverhideheader)) !important;
+    margin-top: calc(var(--ytd-toolbar-height) * var(--keepheader)) !important;
     transition: margin-top 0.3s ease var(--timeheaderclosing) !important;
   }
   /* Moving page back */
@@ -540,8 +484,8 @@ ytd-playlist-panel-renderer#playlist > #container {
     content: '';
     position: fixed;
     top: 10px;
-    left: calc(18px - 118px * var(--neverhideheader));
-    opacity: calc(1 - var(--neverhideheader)) !important;
+    left: calc(18px - 118px * var(--keepheader));
+    opacity: calc(1 - var(--keepheader)) !important;
     transition: opacity 0.3s ease var(--timeheaderclosing);
   }
   /* Hiding hidden header icon */
@@ -556,7 +500,7 @@ ytd-playlist-panel-renderer#playlist > #container {
   /* - Channel Page - */
   /* Moving page higher */
   ytd-app > #content #masthead-container ~ ytd-page-manager tp-yt-app-header {
-    margin-top: calc(var(--ytd-toolbar-height) * var(--neverhideheader)) !important;
+    margin-top: calc(var(--ytd-toolbar-height) * var(--keepheader)) !important;
     transition: margin-top 0.3s ease var(--timeheaderclosing) !important;
   }
   /* Moving page back */
@@ -572,12 +516,12 @@ ytd-playlist-panel-renderer#playlist > #container {
   /* Hiding header container */
   #frosted-glass {
     max-height: var(--ytd-toolbar-height) !important;
-    margin-top: calc(-1 * var(--ytd-toolbar-height) * (1 - var(--neverhideheader)) * (1 - var(--hideheadermethod))) !important;
+    margin-top: calc(-1 * var(--ytd-toolbar-height) * (1 - var(--keepheader)) * (1 - var(--hideheadermethod))) !important;
     transition:
       margin-top 0.3s ease var(--timeheaderclosing),
       opacity 0.3s ease var(--timeheaderclosing) !important;
     /* Other method */
-    opacity: calc(1 - (1 - var(--neverhideheader)) * var(--hideheadermethod)) !important;
+    opacity: calc(1 - (1 - var(--keepheader)) * var(--hideheadermethod)) !important;
   }
   /* Showing header container */
   ytd-app > #content:has(#masthead-container:hover) #frosted-glass,
@@ -636,10 +580,11 @@ ytd-playlist-panel-renderer#playlist > #container {
   margin-right: 5px;
 }
 
-/* Move the playlist up on the page */
+/* Moving the playlist up on the page */
 ytd-playlist-header-renderer.ytd-browse {
   margin-top: -10px;
 }
+/* Moving playlist content up on the page */
 ytd-two-column-browse-results-renderer[page-subtype='playlist'] #primary {
   margin-top: -20px;
 }
