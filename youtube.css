@@ -75,6 +75,26 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
   animation: animationcolorrainbow var(--speedrainbowanimation) infinite linear reverse;
 }
 
+/* HOME */
+/* Margin home videos box */
+ytd-browse[page-subtype='home'] #contents {
+  margin-top: 10px;
+}
+
+/* Remove chips when the sidebar is not minimized */
+tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-renderer:not(:has(yt-dropdown-menu)) {
+  display: none;
+}
+/* Fix frosted glass size */
+#frosted-glass:has(~ tp-yt-app-drawer[opened]) {
+  max-height: 56px;
+}
+
+/* Center videos on the subscriptions page */
+ytd-rich-grid-row #contents {
+  justify-content: center;
+}
+
 /* HEADER */
 /* YouTube Logo */
 #logo-icon {
@@ -170,45 +190,15 @@ ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden='true']) #s
   filter: opacity(0%);
 }
 
-/* HOME */
-/* Margin home videos box */
-ytd-browse[page-subtype='home'] #contents {
-  margin-top: 10px;
-}
-
-/* Remove chips when the sidebar is not minimized */
-tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-renderer:not(:has(yt-dropdown-menu)) {
-  display: none;
-}
-/* Fix frosted glass size */
-#frosted-glass:has(~ tp-yt-app-drawer[opened]) {
-  max-height: 56px;
-}
-
-/* Center videos on the subscriptions page */
-ytd-rich-grid-row #contents {
-  justify-content: center;
-}
-
 /* SEARCH BAR */
 /* Reducing opacity of open virtual keyboard button */
-.gsst_a {
+yt-searchbox ytd-text-input-assistant {
   filter: opacity(10%);
   margin-right: 5px;
 }
-.gsst_a:hover {
+yt-searchbox ytd-text-input-assistant:hover {
   filter: drop-shadow(0px 0px 1px var(--shadowgeneral)) opacity(100%);
   transition: 0.5s all ease;
-}
-
-/* Shadow on search bar */
-#search form {
-  filter: drop-shadow(0px 0px 1px var(--shadowgeneral));
-}
-
-/* Removing search button tooltip  */
-#tooltip {
-  display: none;
 }
 
 /* Hiding voice search button */
@@ -217,16 +207,8 @@ ytd-rich-grid-row #contents {
   transition-duration: 0.3s;
   transition-property: filter;
 }
-
 #voice-search-button:hover {
   filter: opacity(100%);
-}
-
-/* Clear search button */
-#search-clear-button .yt-spec-button-shape-next--icon-only-default {
-  width: 30px;
-  height: 30px;
-  margin-right: 8px;
 }
 
 /* PLAYER */
