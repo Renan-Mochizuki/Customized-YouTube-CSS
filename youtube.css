@@ -607,7 +607,7 @@ ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .ytLockupV
 ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions'])
   .ytLockupViewModelMetadata
   .ytContentMetadataViewModelMetadataRow:nth-child(2):not(:has(a), :has(.ytContentMetadataViewModelDelimiter))
-  > span:first-child::before {
+  > span:not(.ytContentMetadataViewModelMetadataTextMaxLines2):first-child::before {
   background-image: var(--imgclockicon);
   filter: invert(1);
   background-size: 12px 12px;
