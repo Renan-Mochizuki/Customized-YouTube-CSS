@@ -15,9 +15,12 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   /* If you want to toggle the hide header method, 0 for hover eye method and 1 for screen top hover method */
   --hideheadermethod: 0;
 
+  /* If you don't want shadow effect on titles, change it to 0 */
+  --showshadowtitle: 1;
+
   --colorloadingpageprogress: linear-gradient(to left, rgb(255, 196, 0), red 40%, rgb(41, 0, 123));
   --colorvolumeleft: linear-gradient(45deg, rgb(50, 0, 151), rgb(142, 142, 255));
-  --colorvolumeright: linear-gradient(45deg, rgb(168, 168, 255), rgb(50, 0, 151) 10%, rgb(24, 0, 71) 50%);
+  --colorvolumeright: linear-gradient(45deg, rgb(50, 0, 151), rgb(24, 0, 71));
   --colorthumbprogress: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
   --colorvideoprogress: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
   --colorrainbow: linear-gradient(
@@ -229,16 +232,16 @@ yt-searchbox ytd-text-input-assistant:hover {
 }
 
 /* Left volume bar */
-/* .ytp-volume-slider-handle:before {
+.ytp-volume-slider-handle:before {
   background: var(--colorvolumeleft);
-  z-index: -1;
-} */
+  left: -64px !important;
+}
 
 /* Right volume bar */
-/* .ytp-volume-slider-handle:after {
+.ytp-volume-slider-handle:after {
   background: var(--colorvolumeright);
-  z-index: -1;
-} */
+  left: 12px !important;
+}
 
 /* Hide channel icon animation in the corner of the player */
 .annotation-type-custom.iv-branding {
@@ -307,18 +310,18 @@ segmented-like-dislike-button-view-model {
 
 /* View count text in the description */
 #description-inner #info span {
-  text-shadow: 1px 1px 3px var(--shadowtitles);
+  text-shadow: calc(var(--showshadowtitle) * 1px) calc(var(--showshadowtitle) * 1px) calc(var(--showshadowtitle) * 3px) var(--shadowtitles);
 }
 
 /* "Show more" text in description */
 #description-inline-expander #expand {
-  text-shadow: 0px 0px 2px var(--shadowtitles);
+  text-shadow: 0px 0px calc(var(--showshadowtitle) * 2px) var(--shadowtitles);
 }
 
 /* "Show less" text in description */
 #description-inline-expander #collapse {
   margin-top: -2px;
-  text-shadow: 0px 0px 2px var(--shadowtitles);
+  text-shadow: 0px 0px calc(var(--showshadowtitle) * 2px) var(--shadowtitles);
   font-size: 16px;
 }
 
