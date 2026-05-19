@@ -341,7 +341,10 @@ ytd-playlist-panel-renderer#playlist > #container {
   border-bottom: 1px var(--shadowbuttons) solid;
 }
 
-/* Hide shorts on the video page and show on hover */
+/* HIDE SHORTS */
+/* Hide Shorts on the video page and show on hover */
+/* - Contents - */
+/* Hiding Shorts contents */
 #items ytd-reel-shelf-renderer #contents {
   position: relative;
   display: block;
@@ -355,6 +358,7 @@ ytd-playlist-panel-renderer#playlist > #container {
     margin-bottom 0.5s;
   transition-delay: var(--timeshortsclosing);
 }
+/* Showing Shorts contents on hover */
 #items ytd-reel-shelf-renderer:hover #contents {
   max-height: 500px;
   opacity: 1;
@@ -362,16 +366,19 @@ ytd-playlist-panel-renderer#playlist > #container {
   margin-bottom: calc(10px - 10px * var(--keepshorts));
   transition-delay: var(--timeshortsopening);
 }
-/* Original Shorts header */
+/* - Header - */
+/* Restoring now disabled Shorts header */
 #items ytd-reel-shelf-renderer #header {
   display: flex !important;
   margin-bottom: 20px !important;
 }
+/* Making sure reminder text has enough space */
 #items ytd-reel-shelf-renderer #title-container {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
+/* Shorts reminder text */
 #items ytd-reel-shelf-renderer #title-container::after {
   content: var(--textshortsreminder);
   font-size: 12px;
@@ -381,15 +388,17 @@ ytd-playlist-panel-renderer#playlist > #container {
   transition-property: filter, height;
   transition-delay: var(--timeshortsclosing);
 }
+/* Hiding Shorts reminder text when hovering */
 #items ytd-reel-shelf-renderer:hover #title-container::after {
   filter: opacity(0%);
   transition-delay: var(--timeshortsopening);
   height: 0px;
 }
 
+/* HIDE HEADER */
 /* Hide header when the screen height is small, header won't be hidden on Shorts Page */
 /* Hover on header to reveal it */
-/* Header will not be hidden when searchbox has hover/focus or when sidebar is open */
+/* Header will stay still when sidebar is open or when searchbox has hover, focus or any text written */
 @media screen and (max-height: 37.5em) {
   /* - General - */
   /* Hiding header container */
