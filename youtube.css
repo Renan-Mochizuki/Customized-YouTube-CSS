@@ -19,8 +19,8 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   --showshadowtitle: 1;
 
   --colorloadingpageprogress: linear-gradient(to left, rgb(255, 196, 0), red 40%, rgb(41, 0, 123));
-  --colorvolumeleft: linear-gradient(45deg, rgb(50, 0, 151), rgb(142, 142, 255));
-  --colorvolumeright: linear-gradient(45deg, rgb(50, 0, 151), rgb(24, 0, 71));
+  --colorvolumeleft: linear-gradient(to right, rgb(50, 0, 151) 40%, rgb(142, 142, 255));
+  --colorvolumeright: linear-gradient(to right, rgb(76, 12, 204), rgb(24, 0, 71) 40%);
   --colorthumbprogress: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
   --colorvideoprogress: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
   --colorrainbow: linear-gradient(
