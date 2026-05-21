@@ -552,10 +552,8 @@ ytd-playlist-panel-renderer#playlist > #container {
 
 /* PLAYLIST PAGE */
 /* Share and three dots buttons in playlist */
-/* Glow effect */
+/* Ensuring the shadow effect is not cut off */
 .metadata-buttons-wrapper .ytd-playlist-header-renderer yt-button-shape {
-  box-shadow: 0px 0px 5px var(--shadowbuttons);
-  border-radius: 25px;
   margin-left: 2px;
 }
 
