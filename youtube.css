@@ -399,6 +399,9 @@ ytd-playlist-panel-renderer#playlist > #container {
 /* Hide header when the screen height is small, header won't be hidden on Shorts Page */
 /* Hover on header to reveal it */
 /* Header will stay still when sidebar is open or when searchbox has hover, focus or any text written */
+/* TODO: adicionar fallback para --ytd-toolbar-height */
+/* TODO: avaliar mudar width */
+/* TODO: verificar quando o secondary panel expande */
 @media screen and (max-height: 37.5em) {
   /* - General - */
   /* Hiding header container */
@@ -413,7 +416,10 @@ ytd-playlist-panel-renderer#playlist > #container {
   /* Hiding header container (video page) */
   ytd-app > #content #masthead-container:has(#masthead[is-watch-page]) {
     opacity: var(--keepheader) !important;
-    transition: opacity 0.3s ease var(--timeheaderclosing);
+    right: var(--ytd-watch-flexy-sidebar-width, 434px) !important;
+    transition:
+      opacity 0.3s ease var(--timeheaderclosing),
+      right 0s linear calc(var(--timeheaderclosing) + 1s) !important;
   }
   /* Showing header container */
   ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])):hover,
@@ -434,7 +440,10 @@ ytd-playlist-panel-renderer#playlist > #container {
   ytd-app > #content #masthead-container:has(#masthead[is-watch-page]):has(~ tp-yt-app-drawer[opened]),
   ytd-app > #content:has(ytd-mini-guide-renderer:hover) #masthead-container:has(#masthead[is-watch-page]) {
     opacity: 1 !important;
-    transition: opacity 0.3s ease var(--timeheaderopening) !important;
+    right: 0 !important;
+    transition:
+      opacity 0.3s ease var(--timeheaderopening),
+      right 0s linear 0s !important;
   }
   /* Moving page higher */
   ytd-app > #content ytd-page-manager {
