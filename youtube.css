@@ -86,8 +86,9 @@ ytd-browse[page-subtype='home'] #contents {
 
 /* Remove chips when the sidebar is not minimized */
 tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-renderer:not(:has(yt-dropdown-menu)) {
-  display: none;
+  display: none !important;
 }
+
 /* Fix frosted glass size */
 #frosted-glass:has(~ tp-yt-app-drawer[opened]) {
   max-height: 56px;
@@ -103,9 +104,9 @@ ytd-rich-grid-row #contents {
 #logo-icon {
   content: var(--imgyoutubeicon);
   background-image: none;
-  width: 47px;
-  height: 30px;
-  margin-left: 5px;
+  width: 47px !important;
+  height: 30px !important;
+  margin-left: 5px !important;
 }
 
 /* Removing logo country code */
@@ -217,29 +218,29 @@ yt-searchbox ytd-text-input-assistant:hover {
 /* PLAYER */
 /* Video progress bar */
 .ytp-play-progress {
-  background-image: var(--colorvideoprogress);
+  background-image: var(--colorvideoprogress) !important;
 }
 
 /* Thumbnail progress bar */
 #progress.ytd-thumbnail-overlay-resume-playback-renderer {
-  background-image: var(--colorthumbprogress);
+  background-image: var(--colorthumbprogress) !important;
 }
 
 /* Progress cursor */
 .ytp-scrubber-button.ytp-swatch-background-color {
-  background: var(--colorvideoprogresscursor);
-  box-shadow: var(--shadowvideoprogresscursor);
+  background: var(--colorvideoprogresscursor) !important;
+  box-shadow: var(--shadowvideoprogresscursor) !important;
 }
 
 /* Left volume bar */
 .ytp-volume-slider-handle:before {
-  background: var(--colorvolumeleft);
+  background: var(--colorvolumeleft) !important;
   left: -64px !important;
 }
 
 /* Right volume bar */
 .ytp-volume-slider-handle:after {
-  background: var(--colorvolumeright);
+  background: var(--colorvolumeright) !important;
   left: 12px !important;
 }
 
@@ -295,8 +296,8 @@ segmented-like-dislike-button-view-model {
 
 /* Profile icon hover animation */
 #avatar {
-  transition-duration: 0.5s;
-  transition-property: transform, filter;
+  transition-duration: 0.5s !important;
+  transition-property: transform, filter !important;
 }
 #avatar:hover {
   filter: drop-shadow(0px 0px 1.5px var(--circlechannelpicture));
@@ -305,7 +306,7 @@ segmented-like-dislike-button-view-model {
 
 /* Removing background color from description */
 #bottom-row #description {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 /* View count text in the description */
@@ -332,12 +333,12 @@ segmented-like-dislike-button-view-model {
 
 /* Remove chips from the video page when description box is not expanded */
 #columns:not(:has(#primary #description ytd-watch-info-text[detailed])) #secondary yt-related-chip-cloud-renderer {
-  display: none;
+  display: none !important;
 }
 
 /* Remove the border from the sides of playlist box */
 ytd-playlist-panel-renderer#playlist > #container {
-  border: none;
+  border: none !important;
   border-bottom: 1px var(--shadowbuttons) solid;
 }
 
@@ -394,6 +395,34 @@ ytd-playlist-panel-renderer#playlist > #container {
   transition-delay: var(--timeshortsopening);
   height: 0px;
 }
+/* Alternative Shorts header*/
+/* #items ytd-reel-shelf-renderer::before {
+  content: var(--textshortsreminder);
+  background-image: var(--imgshorts);
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+  background-position: left center;
+  padding-left: 32px;
+  padding-top: calc(10px - 10px * var(--neverhideshorts));
+  padding-bottom: calc(10px - 10px * var(--neverhideshorts));
+  color: whitesmoke;
+  font-size: 12px;
+  display: inline-block;
+  height: calc(25px - 25px * var(--neverhideshorts));
+  line-height: 25px;
+  filter: opacity(calc(100% - 100% * var(--neverhideshorts)));
+  transition-duration: 0.8s;
+  transition-property: filter, height;
+  transition-delay: var(--timeshortsclosing);
+  box-shadow:
+    0 -2.5px 2.5px -2.5px var(--shadowhovertoseeshorts),
+    0 2.5px 2.5px -2.5px var(--shadowhovertoseeshorts);
+}
+#items ytd-reel-shelf-renderer:hover::before {
+  filter: opacity(0%);
+  transition-delay: var(--timeshortsopening);
+  height: 0px;
+} */
 
 /* HIDE HEADER */
 /* Hide header when the screen height is small, header won't be hidden on Shorts Page */
@@ -581,16 +610,17 @@ ytd-playlist-panel-renderer#playlist > #container {
 
 /* Moving the playlist up on the page */
 ytd-playlist-header-renderer.ytd-browse {
-  margin-top: -10px;
+  margin-top: -10px !important;
 }
+
 /* Moving playlist content up on the page */
 ytd-two-column-browse-results-renderer[page-subtype='playlist'] #primary {
-  margin-top: -20px;
+  margin-top: -20px !important;
 }
 
 /* Adding margin to the playlist warning */
 ytd-browse[page-subtype='playlist'] ytd-alert-with-button-renderer[is-displayed] {
-  margin-bottom: 10px;
+  margin-bottom: 10px !important;
 }
 
 /* Hiding views from Watch Later and Liked Videos playlists */
