@@ -571,11 +571,11 @@ ytd-playlist-panel-renderer#playlist > #container {
   }
   /* Removing chips from Home */
   #header ytd-feed-filter-chip-bar-renderer {
-    display: none;
+    display: none !important;
   }
   /* Removing chip (sort playlist) from Playlist Page */
   ytd-item-section-renderer[exp-fix-playlist-header] chip-bar-view-model {
-    display: none;
+    display: none !important;
   }
 }
 
