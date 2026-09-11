@@ -3,7 +3,8 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
 */
 
 :root {
-  --textshortsreminder: 'Hover to see Shorts';
+  --textshortsreminderen: 'Hover to see Shorts';
+  --textshortsreminderpt: 'Passe para ver Shorts';
 
   /* If you don't want a notification circle at the corner of your profile, change it to 0 */
   --shownotificationcircle: 1;
@@ -380,8 +381,13 @@ ytd-playlist-panel-renderer#playlist > #container {
   justify-content: space-between;
 }
 /* Shorts reminder text */
+html[lang="pt-BR"] #items ytd-reel-shelf-renderer #title-container::after {
+  content: var(--textshortsreminderpt);
+}
+html[lang="en"] #items ytd-reel-shelf-renderer #title-container::after {
+  content: var(--textshortsreminderen);
+}
 #items ytd-reel-shelf-renderer #title-container::after {
-  content: var(--textshortsreminder);
   font-size: 12px;
   height: calc(14px - 14px * var(--keepshorts));
   filter: opacity(calc(100% + -100% * var(--keepshorts)));
@@ -611,11 +617,6 @@ ytd-playlist-panel-renderer#playlist > #container {
 /* Moving the playlist up on the page */
 ytd-playlist-header-renderer.ytd-browse {
   margin-top: -10px !important;
-}
-
-/* Moving playlist content up on the page */
-ytd-two-column-browse-results-renderer[page-subtype='playlist'] #primary {
-  margin-top: -20px !important;
 }
 
 /* Adding margin to the playlist warning */
