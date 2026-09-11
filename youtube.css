@@ -3,9 +3,6 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
 */
 
 :root {
-  --textshortsreminderen: 'Hover to see Shorts';
-  --textshortsreminderpt: 'Passe para ver Shorts';
-
   /* If you don't want a notification circle at the corner of your profile, change it to 0 */
   --shownotificationcircle: 1;
   /* If you don't want Shorts in video page to be hidden, change it to 1 */
@@ -18,6 +15,21 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
 
   /* If you don't want shadow effect on titles, change it to 0 */
   --showshadowtitle: 1;
+
+  /* Text for the Shorts reminder */
+  --textshortsreminderen: 'Hover to see Shorts';
+  --textshortsreminderpt: 'Passe para ver Shorts';
+  --textshortsreminderes: 'Pasa el cursor para ver Shorts';
+  --textshortsreminderfr: 'Survolez pour voir les Shorts';
+  --textshortsreminderde: 'Bewegen Sie den Mauszeiger, um Shorts zu sehen';
+  --textshortsreminderit: 'Passa il cursore per vedere gli Shorts';
+  --textshortsreminderja: 'カーソルを合わせるとショートが表示されます';
+  --textshortsreminderzh: '将鼠标悬停以查看 Shorts';
+  --textshortsreminderko: '마우스를 올려 Shorts 보기';
+  --textshortsreminderru: 'Наведите курсор, чтобы посмотреть Shorts';
+  --textshortsreminderhi: 'Shorts देखने के लिए कर्सर रखें';
+  --textshortsreminderar: 'مرّر المؤشر لرؤية Shorts';
+  --current-shorts-reminder: var(--textshortsreminderen);
 
   --colorloadingpageprogress: linear-gradient(to left, rgb(255, 196, 0), red 40%, rgb(41, 0, 123));
   --colorvolumeleft: linear-gradient(to right, rgb(50, 0, 151) 40%, rgb(142, 142, 255));
@@ -381,11 +393,44 @@ ytd-playlist-panel-renderer#playlist > #container {
   justify-content: space-between;
 }
 /* Shorts reminder text */
-html[lang="pt-BR"] #items ytd-reel-shelf-renderer #title-container::after {
-  content: var(--textshortsreminderpt);
+html[lang^='pt'] {
+  --current-shorts-reminder: var(--textshortsreminderpt);
 }
-html[lang="en"] #items ytd-reel-shelf-renderer #title-container::after {
-  content: var(--textshortsreminderen);
+html[lang^='en'] {
+  --current-shorts-reminder: var(--textshortsreminderen);
+}
+html[lang^='es'] {
+  --current-shorts-reminder: var(--textshortsreminderes);
+}
+html[lang^='fr'] {
+  --current-shorts-reminder: var(--textshortsreminderfr);
+}
+html[lang^='de'] {
+  --current-shorts-reminder: var(--textshortsreminderde);
+}
+html[lang^='it'] {
+  --current-shorts-reminder: var(--textshortsreminderit);
+}
+html[lang^='ja'] {
+  --current-shorts-reminder: var(--textshortsreminderja);
+}
+html[lang^='zh'] {
+  --current-shorts-reminder: var(--textshortsreminderzh);
+}
+html[lang^='ko'] {
+  --current-shorts-reminder: var(--textshortsreminderko);
+}
+html[lang^='ru'] {
+  --current-shorts-reminder: var(--textshortsreminderru);
+}
+html[lang^='hi'] {
+  --current-shorts-reminder: var(--textshortsreminderhi);
+}
+html[lang^='ar'] {
+  --current-shorts-reminder: var(--textshortsreminderar);
+}
+#items ytd-reel-shelf-renderer #title-container::after {
+  content: var(--current-shorts-reminder);
 }
 #items ytd-reel-shelf-renderer #title-container::after {
   font-size: 12px;
