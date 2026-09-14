@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build": "sass src/style.scss youtube.css",
+    "watch": "sass --watch src/style.scss youtube.css"
+  },
+  "devDependencies": {
+    "sass": "^1.104.1"
+  }
+}
