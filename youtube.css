@@ -301,7 +301,7 @@ h1 yt-formatted-string[force-default-style] {
 
 /* Ensure the shadow of video buttons is not cut off */
 #actions-inner #menu .ytd-watch-metadata {
-  padding: 5px;
+  padding: 5px !important;
 }
 
 /* Like and dislike buttons */
