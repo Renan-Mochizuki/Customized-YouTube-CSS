@@ -1,0 +1,28 @@
+/* Alternative Shorts header*/
+#items ytd-reel-shelf-renderer::before {
+  content: var(--textshortsreminder);
+  background-image: var(--imgshorts);
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+  background-position: left center;
+  padding-left: 32px;
+  padding-top: calc(10px - 10px * var(--neverhideshorts));
+  padding-bottom: calc(10px - 10px * var(--neverhideshorts));
+  color: whitesmoke;
+  font-size: 12px;
+  display: inline-block;
+  height: calc(25px - 25px * var(--neverhideshorts));
+  line-height: 25px;
+  filter: opacity(calc(100% - 100% * var(--neverhideshorts)));
+  transition-duration: 0.8s;
+  transition-property: filter, height;
+  transition-delay: var(--timeshortsclosing);
+  box-shadow:
+    0 -2.5px 2.5px -2.5px var(--shadowhovertoseeshorts),
+    0 2.5px 2.5px -2.5px var(--shadowhovertoseeshorts);
+}
+#items ytd-reel-shelf-renderer:hover::before {
+  filter: opacity(0%);
+  transition-delay: var(--timeshortsopening);
+  height: 0px;
+}
