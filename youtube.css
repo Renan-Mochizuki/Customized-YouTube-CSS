@@ -414,17 +414,23 @@ ytd-inline-form-renderer[hidden] ~ .metadata-action-bar .metadata-text-wrapper:h
 }
 
 /* LIBRARY/PLAYLISTS PAGE */
-/* Playlist title */
-/* Glow effect */
+ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata {
+  /* Playlist title */
+  /* Glow effect */
+}
 ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytLockupMetadataViewModelHeadingReset:not(:has(.ytLockupMetadataViewModelTitle[aria-label])) span {
   font-family: Calibri;
   text-shadow: 0px 0px 2px black;
   filter: drop-shadow(0px 0px 3px var(--shadowgeneral));
   font-size: 18px;
 }
-
-/* Last updated message */
-/* Clock icon */
+ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata {
+  /* Playlist description */
+}
+ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow {
+  /* Last updated message */
+  /* Clock icon */
+}
 ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:nth-child(2):not(:has(a), :has(.ytContentMetadataViewModelDelimiter)) > span:not(.ytContentMetadataViewModelMetadataTextMaxLines2):first-child::before {
   background-image: var(--imgclockicon);
   filter: invert(1);
@@ -435,9 +441,10 @@ ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewM
   content: "";
   margin-right: 2px;
 }
-
-/* Name of channel */
-/* User icon */
+ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow {
+  /* Name of channel */
+  /* User icon */
+}
 ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:first-child > span:first-child a::before {
   background-image: var(--imguser);
   filter: invert(1);
@@ -448,15 +455,17 @@ ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewM
   content: "";
   margin-right: 3px;
 }
-
-/* View full playlist button */
-/* Increased size of 'View full playlist' text */
+ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow {
+  /* View full playlist button */
+  /* Increased size of 'View full playlist' text */
+}
 ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:last-child > span:first-child a {
   font-size: 15px;
   margin-top: 5px;
 }
-
-/* Playlist icon */
+ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow {
+  /* Playlist icon */
+}
 ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:last-child > span:first-child a::before {
   background-image: var(--imgplaylisticon);
   filter: invert(1);
