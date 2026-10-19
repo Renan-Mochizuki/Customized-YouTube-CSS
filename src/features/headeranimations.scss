@@ -1,0 +1,74 @@
+/* - Hide three-line button animation - */
+/* Opacity of three-line button */
+#guide-button {
+  filter: opacity(0%);
+  transition-duration: 1s;
+  transition-property: filter;
+}
+#start:hover #guide-button,
+#guide-content #header:hover #guide-button {
+  filter: opacity(100%);
+}
+/* Moving logo */
+ytd-topbar-logo-renderer {
+  left: -50px;
+  transition-duration: 0.5s;
+  transition-property: left;
+  position: relative;
+}
+#start:hover ytd-topbar-logo-renderer,
+#guide-content #header:hover ytd-topbar-logo-renderer {
+  left: 0px;
+}
+
+/* - Hide profile buttons animation - */
+/* Notifications button */
+ytd-notification-topbar-button-renderer {
+  position: relative;
+  display: block;
+  left: 58px;
+  transition-duration: 0.5s;
+  transition-property: left, z-index, filter;
+  filter: opacity(0%);
+  z-index: -1;
+}
+#end:hover ytd-notification-topbar-button-renderer,
+ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden='true']) #spinner) #content ytd-notification-topbar-button-renderer {
+  left: 0px;
+  z-index: 1;
+  filter: opacity(100%);
+}
+/* Create button */
+ytd-topbar-menu-button-renderer[has-no-text],
+#end #buttons > ytd-button-renderer:first-child {
+  position: relative;
+  display: block;
+  left: 108px;
+  transition-duration: 0.5s;
+  transition-property: left, z-index, filter;
+  filter: opacity(0%);
+  z-index: -1;
+}
+#end:hover #buttons > ytd-button-renderer:first-child,
+ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden='true']) #spinner) #content #buttons > ytd-button-renderer:first-child {
+  left: 0px;
+  z-index: 1;
+  filter: opacity(100%);
+}
+/* Notification circle */
+ytd-notification-topbar-button-renderer:has(.ytSpecIconBadgeShapeBadge) ~ ytd-topbar-menu-button-renderer::after {
+  content: '';
+  position: absolute;
+  background-color: var(--colornotification);
+  width: calc(var(--shownotificationcircle) * 9px);
+  height: calc(var(--shownotificationcircle) * 9px);
+  border-radius: 100%;
+  border: 1px solid black;
+  right: 20px;
+  top: 9px;
+  transition: 0.4s filter;
+}
+#end:hover ytd-topbar-menu-button-renderer::after,
+ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden='true']) #spinner) #content ytd-topbar-menu-button-renderer::after {
+  filter: opacity(0%);
+}

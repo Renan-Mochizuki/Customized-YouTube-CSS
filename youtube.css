@@ -20,7 +20,7 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   --colorloadingpageprogress: linear-gradient(to left, rgb(255, 196, 0), red 40%, rgb(41, 0, 123));
   --colorvolumeleft: linear-gradient(to right, rgb(50, 0, 151) 40%, rgb(142, 142, 255));
   --colorvolumeright: linear-gradient(to right, rgb(76, 12, 204), rgb(24, 0, 71) 40%);
-  --colorthumbprogress: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
+  --colorthumbprogress: linear-gradient(to right, rgb(86, 0, 30), red 45%, rgb(212, 6, 143));
   --colorvideoprogress: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
   --colorvideoprogresscursor: rgb(212, 6, 143);
   --shadowvideoprogresscursor: 0 0 8px 2px rgb(168, 125, 255);
@@ -113,89 +113,6 @@ yt-page-navigation-progress #progress {
   background-image: var(--colorloadingpageprogress) !important;
 }
 
-/* - Hide three-line button animation - */
-/* Opacity of three-line button */
-#guide-button {
-  filter: opacity(0%);
-  transition-duration: 1s;
-  transition-property: filter;
-}
-
-#start:hover #guide-button,
-#guide-content #header:hover #guide-button {
-  filter: opacity(100%);
-}
-
-/* Moving logo */
-ytd-topbar-logo-renderer {
-  left: -50px;
-  transition-duration: 0.5s;
-  transition-property: left;
-  position: relative;
-}
-
-#start:hover ytd-topbar-logo-renderer,
-#guide-content #header:hover ytd-topbar-logo-renderer {
-  left: 0px;
-}
-
-/* - Hide profile buttons animation - */
-/* Notifications button */
-ytd-notification-topbar-button-renderer {
-  position: relative;
-  display: block;
-  left: 58px;
-  transition-duration: 0.5s;
-  transition-property: left, z-index, filter;
-  filter: opacity(0%);
-  z-index: -1;
-}
-
-#end:hover ytd-notification-topbar-button-renderer,
-ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden=true]) #spinner) #content ytd-notification-topbar-button-renderer {
-  left: 0px;
-  z-index: 1;
-  filter: opacity(100%);
-}
-
-/* Create button */
-ytd-topbar-menu-button-renderer[has-no-text],
-#end #buttons > ytd-button-renderer:first-child {
-  position: relative;
-  display: block;
-  left: 108px;
-  transition-duration: 0.5s;
-  transition-property: left, z-index, filter;
-  filter: opacity(0%);
-  z-index: -1;
-}
-
-#end:hover #buttons > ytd-button-renderer:first-child,
-ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden=true]) #spinner) #content #buttons > ytd-button-renderer:first-child {
-  left: 0px;
-  z-index: 1;
-  filter: opacity(100%);
-}
-
-/* Notification circle */
-ytd-notification-topbar-button-renderer:has(.ytSpecIconBadgeShapeBadge) ~ ytd-topbar-menu-button-renderer::after {
-  content: "";
-  position: absolute;
-  background-color: var(--colornotification);
-  width: calc(var(--shownotificationcircle) * 9px);
-  height: calc(var(--shownotificationcircle) * 9px);
-  border-radius: 100%;
-  border: 1px solid black;
-  right: 20px;
-  top: 9px;
-  transition: 0.4s filter;
-}
-
-#end:hover ytd-topbar-menu-button-renderer::after,
-ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden=true]) #spinner) #content ytd-topbar-menu-button-renderer::after {
-  filter: opacity(0%);
-}
-
 /* SEARCH BAR */
 /* Reducing opacity of open virtual keyboard button */
 yt-searchbox ytd-text-input-assistant {
@@ -275,14 +192,9 @@ tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-ren
   display: none !important;
 }
 
-/* Fix frosted glass size */
+/* Fix frosted glass size without chips */
 #frosted-glass:has(~ tp-yt-app-drawer[opened]) {
   max-height: 56px;
-}
-
-/* Center videos on the subscriptions page */
-ytd-rich-grid-row #contents {
-  justify-content: center;
 }
 
 /* VIDEO PAGE */
@@ -370,19 +282,11 @@ ytd-playlist-panel-renderer#playlist > #container {
 }
 
 /* PLAYLIST PAGE */
-/* Share and three dots buttons in playlist */
-/* Ensuring the shadow effect is not cut off */
-.metadata-buttons-wrapper .ytd-playlist-header-renderer yt-button-shape {
-  margin-left: 2px;
-}
-
 /* Playlist title */
-/* Glow effect */
 .ytd-playlist-header-renderer #text,
-#header-description h3 {
-  font-family: Calibri;
-  text-shadow: 0px 0px 2px black;
-  filter: drop-shadow(0px 0px 3px var(--shadowgeneral));
+#header-description h3,
+ytd-browse[page-subtype=playlist] .page-header-sidebar h1 span {
+  font-size: 28px !important;
 }
 
 /* Channel name in playlist */
@@ -464,6 +368,7 @@ ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewM
   margin-top: 5px;
 }
 ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow {
+  /* View full playlist button */
   /* Playlist icon */
 }
 ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:last-child > span:first-child a::before {
@@ -476,6 +381,89 @@ ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewM
   content: "";
   position: relative;
   top: 5px;
+}
+
+/* - Hide three-line button animation - */
+/* Opacity of three-line button */
+#guide-button {
+  filter: opacity(0%);
+  transition-duration: 1s;
+  transition-property: filter;
+}
+
+#start:hover #guide-button,
+#guide-content #header:hover #guide-button {
+  filter: opacity(100%);
+}
+
+/* Moving logo */
+ytd-topbar-logo-renderer {
+  left: -50px;
+  transition-duration: 0.5s;
+  transition-property: left;
+  position: relative;
+}
+
+#start:hover ytd-topbar-logo-renderer,
+#guide-content #header:hover ytd-topbar-logo-renderer {
+  left: 0px;
+}
+
+/* - Hide profile buttons animation - */
+/* Notifications button */
+ytd-notification-topbar-button-renderer {
+  position: relative;
+  display: block;
+  left: 58px;
+  transition-duration: 0.5s;
+  transition-property: left, z-index, filter;
+  filter: opacity(0%);
+  z-index: -1;
+}
+
+#end:hover ytd-notification-topbar-button-renderer,
+ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden=true]) #spinner) #content ytd-notification-topbar-button-renderer {
+  left: 0px;
+  z-index: 1;
+  filter: opacity(100%);
+}
+
+/* Create button */
+ytd-topbar-menu-button-renderer[has-no-text],
+#end #buttons > ytd-button-renderer:first-child {
+  position: relative;
+  display: block;
+  left: 108px;
+  transition-duration: 0.5s;
+  transition-property: left, z-index, filter;
+  filter: opacity(0%);
+  z-index: -1;
+}
+
+#end:hover #buttons > ytd-button-renderer:first-child,
+ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden=true]) #spinner) #content #buttons > ytd-button-renderer:first-child {
+  left: 0px;
+  z-index: 1;
+  filter: opacity(100%);
+}
+
+/* Notification circle */
+ytd-notification-topbar-button-renderer:has(.ytSpecIconBadgeShapeBadge) ~ ytd-topbar-menu-button-renderer::after {
+  content: "";
+  position: absolute;
+  background-color: var(--colornotification);
+  width: calc(var(--shownotificationcircle) * 9px);
+  height: calc(var(--shownotificationcircle) * 9px);
+  border-radius: 100%;
+  border: 1px solid black;
+  right: 20px;
+  top: 9px;
+  transition: 0.4s filter;
+}
+
+#end:hover ytd-topbar-menu-button-renderer::after,
+ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden=true]) #spinner) #content ytd-topbar-menu-button-renderer::after {
+  filter: opacity(0%);
 }
 
 :root {
@@ -511,6 +499,7 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
   z-index: 10000;
   background-image: var(--colorrainbow);
   background-size: 3px 180%;
+  background-repeat: repeat;
   animation: animationcolorrainbow var(--speedrainbowanimation) infinite linear var(--rainbowdirection);
 }
 
@@ -559,6 +548,9 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+#items ytd-reel-shelf-renderer {
+  /* Reminder text */
 }
 #items ytd-reel-shelf-renderer #title-container::after {
   content: var(--current-shorts-reminder);

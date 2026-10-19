@@ -33,5 +33,6 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
   z-index: 10000;
   background-image: var(--colorrainbow);
   background-size: 3px 180%;
+  background-repeat: repeat;
   animation: animationcolorrainbow var(--speedrainbowanimation) infinite linear var(--rainbowdirection);
 }

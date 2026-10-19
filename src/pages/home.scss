@@ -9,12 +9,7 @@ tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-ren
   display: none !important;
 }
 
-/* Fix frosted glass size */
+/* Fix frosted glass size without chips */
 #frosted-glass:has(~ tp-yt-app-drawer[opened]) {
   max-height: 56px;
-}
-
-/* Center videos on the subscriptions page */
-ytd-rich-grid-row #contents {
-  justify-content: center;
 }
