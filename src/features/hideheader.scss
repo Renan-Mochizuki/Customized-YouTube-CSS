@@ -10,30 +10,38 @@
 @media (max-height: 37.5em) {
   /* - Mixins - */
 
-  /* Header will be blocked when is hovered, search bar is focused, search bar has text or the side drawer is opened */
+  /* Selectors to block the header */
   @mixin blocked-header($target: null) {
     $suffix: if(
       sass($target): ' #{$target}' ; else: '',
     );
 
+    // Header hover
     &:hover#{$suffix},
+    // Searchbox focus
     &:has(yt-searchbox.ytSearchboxComponentHostIsFocused)#{$suffix},
+    // Searchbox has text
     &:has(.ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown))#{$suffix},
+    // Side drawer opened
     &:has(~ tp-yt-app-drawer[opened])#{$suffix} {
       @content;
     }
   }
 
-  /* Header will be blocked when is hovered, search bar is focused, search bar has text, the side drawer is opened or the side drawer is hovered */
   @mixin has-blocked-header($target: null) {
     $suffix: if(
       sass($target): ' #{$target}' ; else: '',
     );
 
+    // Header hover
     &:has(#masthead-container:hover)#{$suffix},
+    // Searchbox focus
     &:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused)#{$suffix},
+    // Searchbox has text
     &:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown))#{$suffix},
+    // Side drawer opened
     &:has(#masthead-container ~ tp-yt-app-drawer[opened])#{$suffix},
+    // Side drawer hover
     &:has(ytd-mini-guide-renderer:hover)#{$suffix} {
       @content;
     }
@@ -155,18 +163,16 @@
   }
 
   /* - Channel Page - */
-  ytd-app > #content {
-    /* Moving page higher */
-    #masthead-container ~ ytd-page-manager tp-yt-app-header {
-      margin-top: calc(var(--ytd-toolbar-height) * var(--keepheader)) !important;
-      transition: margin-top 0.3s ease var(--timeheaderclosing) !important;
-    }
+  /* Moving page higher */
+  ytd-browse[page-subtype='channels'] tp-yt-app-header#header {
+    margin-top: calc(var(--ytd-toolbar-height) * var(--keepheader)) !important;
+    transition: margin-top 0.3s ease var(--timeheaderclosing) !important;
+  }
 
-    /* Moving page back */
-    @include has-blocked-header('~ ytd-page-manager tp-yt-app-header') {
-      margin-top: var(--ytd-toolbar-height) !important;
-      transition: margin-top 0.3s ease var(--timeheaderopening) !important;
-    }
+  /* Moving page back */
+  @include has-blocked-header('ytd-browse[page-subtype="channels"] tp-yt-app-header#header') {
+    margin-top: var(--ytd-toolbar-height) !important;
+    transition: margin-top 0.3s ease var(--timeheaderopening) !important;
   }
 
   /* - Home - */
@@ -181,16 +187,13 @@
     /* Other method */
     opacity: calc(1 - (1 - var(--keepheader)) * var(--hideheadermethod)) !important;
   }
-
-  ytd-app > #content {
-    /* Showing header container */
-    @include has-blocked-header('#frosted-glass') {
-      margin-top: 0px !important;
-      transition:
-        margin-top 0.3s ease var(--timeheaderopening),
-        opacity 0.3s ease var(--timeheaderopening) !important;
-      opacity: 1 !important;
-    }
+  /* Showing header container */
+  @include has-blocked-header('#frosted-glass') {
+    margin-top: 0px !important;
+    transition:
+      margin-top 0.3s ease var(--timeheaderopening),
+      opacity 0.3s ease var(--timeheaderopening) !important;
+    opacity: 1 !important;
   }
 
   /* - Extras - */

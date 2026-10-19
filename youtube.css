@@ -573,8 +573,7 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
 /* Header will stay still when sidebar is open or when searchbox has hover, focus or any text written */
 @media (max-height: 37.5em) {
   /* - Mixins - */
-  /* Header will be blocked when is hovered, search bar is focused, search bar has text or the side drawer is opened */
-  /* Header will be blocked when is hovered, search bar is focused, search bar has text, the side drawer is opened or the side drawer is hovered */
+  /* Selectors to block the header */
   /* - General - */
   /* - Side bar management and icon - */
   /* Increasing side bar height to match header height */
@@ -685,17 +684,17 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
     transition: opacity 0.3s ease var(--timeheaderopening);
   }
   /* - Channel Page - */
-  ytd-app > #content {
-    /* Moving page higher */
-  }
-  ytd-app > #content #masthead-container ~ ytd-page-manager tp-yt-app-header {
+  /* Moving page higher */
+  ytd-browse[page-subtype=channels] tp-yt-app-header#header {
     margin-top: calc(var(--ytd-toolbar-height) * var(--keepheader)) !important;
     transition: margin-top 0.3s ease var(--timeheaderclosing) !important;
   }
-  ytd-app > #content {
-    /* Moving page back */
-  }
-  ytd-app > #content:has(#masthead-container:hover) ~ ytd-page-manager tp-yt-app-header, ytd-app > #content:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) ~ ytd-page-manager tp-yt-app-header, ytd-app > #content:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) ~ ytd-page-manager tp-yt-app-header, ytd-app > #content:has(#masthead-container ~ tp-yt-app-drawer[opened]) ~ ytd-page-manager tp-yt-app-header, ytd-app > #content:has(ytd-mini-guide-renderer:hover) ~ ytd-page-manager tp-yt-app-header {
+  /* Moving page back */
+  &:has(#masthead-container:hover) ytd-browse[page-subtype=channels] tp-yt-app-header#header,
+  &:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) ytd-browse[page-subtype=channels] tp-yt-app-header#header,
+  &:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) ytd-browse[page-subtype=channels] tp-yt-app-header#header,
+  &:has(#masthead-container ~ tp-yt-app-drawer[opened]) ytd-browse[page-subtype=channels] tp-yt-app-header#header,
+  &:has(ytd-mini-guide-renderer:hover) ytd-browse[page-subtype=channels] tp-yt-app-header#header {
     margin-top: var(--ytd-toolbar-height) !important;
     transition: margin-top 0.3s ease var(--timeheaderopening) !important;
   }
@@ -709,10 +708,12 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
     /* Other method */
     opacity: calc(1 - (1 - var(--keepheader)) * var(--hideheadermethod)) !important;
   }
-  ytd-app > #content {
-    /* Showing header container */
-  }
-  ytd-app > #content:has(#masthead-container:hover) #frosted-glass, ytd-app > #content:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) #frosted-glass, ytd-app > #content:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) #frosted-glass, ytd-app > #content:has(#masthead-container ~ tp-yt-app-drawer[opened]) #frosted-glass, ytd-app > #content:has(ytd-mini-guide-renderer:hover) #frosted-glass {
+  /* Showing header container */
+  &:has(#masthead-container:hover) #frosted-glass,
+  &:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) #frosted-glass,
+  &:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) #frosted-glass,
+  &:has(#masthead-container ~ tp-yt-app-drawer[opened]) #frosted-glass,
+  &:has(ytd-mini-guide-renderer:hover) #frosted-glass {
     margin-top: 0px !important;
     transition: margin-top 0.3s ease var(--timeheaderopening), opacity 0.3s ease var(--timeheaderopening) !important;
     opacity: 1 !important;
