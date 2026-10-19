@@ -1,0 +1,82 @@
+/* VIDEO PAGE */
+/* Video title */
+/* Shadow */
+h1 yt-formatted-string[force-default-style] {
+  text-shadow: calc(var(--showshadowtitle) * 1px) calc(var(--showshadowtitle) * 1px) calc(var(--showshadowtitle) * 3px) var(--shadowtitles);
+}
+
+/* Channel name */
+/* Shadow */
+#upload-info #channel-name #container #text-container {
+  text-shadow: calc(var(--showshadowtitle) * 1px) calc(var(--showshadowtitle) * 1px) calc(var(--showshadowtitle) * 3px) var(--shadowtitles);
+}
+
+/* Video page buttons (like/dislike, etc.) */
+/* Shadow */
+#above-the-fold #top-level-buttons-computed > .ytd-menu-renderer,
+#flexible-item-buttons button-view-model,
+#flexible-item-buttons ytd-button-renderer,
+#button-shape > button {
+  box-shadow: 0px 0px 2.5px var(--shadowbuttons);
+  border-radius: 25px;
+  margin-right: 2px;
+}
+
+/* Ensure the shadow of video buttons is not cut off */
+#actions-inner #menu .ytd-watch-metadata {
+  padding: 5px !important;
+}
+
+/* Like and dislike buttons */
+/* Glow effect */
+segmented-like-dislike-button-view-model {
+  filter: drop-shadow(0px 0px 5px var(--shadowbuttons));
+}
+
+/* Profile icon hover animation */
+#avatar {
+  transition-duration: 0.5s !important;
+  transition-property: transform, filter !important;
+}
+#avatar:hover {
+  filter: drop-shadow(0px 0px 1.5px var(--circlechannelpicture));
+  transform: scale(1.1);
+}
+
+/* Removing background color from description */
+#bottom-row #description {
+  background-color: transparent !important;
+}
+
+/* View count text in the description */
+#description-inner #info span {
+  text-shadow: calc(var(--showshadowtitle) * 1px) calc(var(--showshadowtitle) * 1px) calc(var(--showshadowtitle) * 3px) var(--shadowtitles);
+}
+
+/* "Show more" text in description */
+#description-inline-expander #expand {
+  text-shadow: 0px 0px calc(var(--showshadowtitle) * 2px) var(--shadowtitles);
+}
+
+/* "Show less" text in description */
+#description-inline-expander #collapse {
+  margin-top: -2px;
+  text-shadow: 0px 0px calc(var(--showshadowtitle) * 2px) var(--shadowtitles);
+  font-size: 16px;
+}
+
+/* Remove shorts from the description */
+#description #items ytd-reel-shelf-renderer {
+  display: none;
+}
+
+/* Remove chips from the video page when description box is not expanded */
+#columns:not(:has(#primary #description ytd-watch-info-text[detailed])) #secondary yt-related-chip-cloud-renderer {
+  display: none !important;
+}
+
+/* Remove the border from the sides of playlist box */
+ytd-playlist-panel-renderer#playlist > #container {
+  border: none !important;
+  border-bottom: 1px var(--shadowbuttons) solid;
+}

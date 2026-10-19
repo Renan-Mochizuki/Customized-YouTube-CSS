@@ -1,0 +1,20 @@
+/* HOME */
+/* Margin home videos box */
+ytd-browse[page-subtype='home'] #contents {
+  margin-top: 10px;
+}
+
+/* Remove chips when the sidebar is not minimized */
+tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-renderer:not(:has(yt-dropdown-menu)) {
+  display: none !important;
+}
+
+/* Fix frosted glass size */
+#frosted-glass:has(~ tp-yt-app-drawer[opened]) {
+  max-height: 56px;
+}
+
+/* Center videos on the subscriptions page */
+ytd-rich-grid-row #contents {
+  justify-content: center;
+}

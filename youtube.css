@@ -1,56 +1,27 @@
+@charset "UTF-8";
 /*  
 Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
 */
-
 :root {
+  /* CONFIGS */
   /* If you don't want a notification circle at the corner of your profile, change it to 0 */
   --shownotificationcircle: 1;
   /* If you don't want Shorts in video page to be hidden, change it to 1 */
   --keepshorts: 0;
   /* If you don't want the youtube header to be hidden, change it to 1 */
   --keepheader: 0;
-
   /* If you want to toggle the hide header method, 0 for hover eye method and 1 for screen top hover method */
   --hideheadermethod: 0;
-
   /* If you don't want shadow effect on titles, change it to 0 */
   --showshadowtitle: 1;
-  
   /* If you want to change the direction of the rainbow animation, change it to 'normal' or 'reverse' */
   --rainbowdirection: reverse;
-  
-  /* Text for the Shorts reminder */
-  --textshortsreminderen: 'Hover to see Shorts';
-  --textshortsreminderpt: 'Passe para ver Shorts';
-  --textshortsreminderes: 'Pasa el cursor para ver Shorts';
-  --textshortsreminderfr: 'Survolez pour voir les Shorts';
-  --textshortsreminderde: 'Bewegen Sie den Mauszeiger, um Shorts zu sehen';
-  --textshortsreminderit: 'Passa il cursore per vedere gli Shorts';
-  --textshortsreminderja: 'カーソルを合わせるとショートが表示されます';
-  --textshortsreminderzh: '将鼠标悬停以查看 Shorts';
-  --textshortsreminderko: '마우스를 올려 Shorts 보기';
-  --textshortsreminderru: 'Наведите курсор, чтобы посмотреть Shorts';
-  --textshortsreminderhi: 'Shorts देखने के लिए कर्सर रखें';
-  --textshortsreminderar: 'مرّر المؤشر لرؤية Shorts';
-  --current-shorts-reminder: var(--textshortsreminderen);
-  
+  /* ---------------------------------- */
   --colorloadingpageprogress: linear-gradient(to left, rgb(255, 196, 0), red 40%, rgb(41, 0, 123));
   --colorvolumeleft: linear-gradient(to right, rgb(50, 0, 151) 40%, rgb(142, 142, 255));
   --colorvolumeright: linear-gradient(to right, rgb(76, 12, 204), rgb(24, 0, 71) 40%);
   --colorthumbprogress: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
   --colorvideoprogress: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
-  --colorrainbow: linear-gradient(
-    rgba(248, 13, 27, 1) 0%,
-    rgba(255, 160, 0, 1) 11%,
-    rgba(255, 227, 2, 1) 22%,
-    rgba(0, 250, 34, 1) 33%,
-    rgba(0, 169, 238, 1) 44%,
-    rgba(159, 0, 255, 1) 55%,
-    rgba(0, 169, 238, 1) 66%,
-    rgba(0, 250, 34, 1) 77%,
-    rgba(255, 227, 2, 1) 88%,
-    rgba(248, 13, 27, 1) 100%
-  );
   --colorvideoprogresscursor: rgb(212, 6, 143);
   --shadowvideoprogresscursor: 0 0 8px 2px rgb(168, 125, 255);
   --shadowbuttons: rgba(245, 245, 245, 0.612);
@@ -59,60 +30,67 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   --shadowgeneral: whitesmoke;
   --circlechannelpicture: gold;
   --colornotification: #cc0000;
-  --speedrainbowanimation: 6s;
   --imgyoutubeicon: url('https://i.imgur.com/9n4AS59.png'); /* Unknown Artist */
   --imguser: url('https://cdn0.iconfinder.com/data/icons/cryptocurrency-137/128/1_profile_user_avatar_account_person-132-1024.png');
   --imgplaylisticon: url('https://cdn2.iconfinder.com/data/icons/css-vol-2/24/play-list-1024.png');
   --imgclockicon: url('https://cdn1.iconfinder.com/data/icons/material-core/21/history-1024.png');
   --imgshorts: url('https://upload.wikimedia.org/wikipedia/commons/f/fc/Youtube_shorts_icon.svg');
   --imgeye: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-eye-512.png');
-  --timeshortsclosing: 1s;
-  --timeshortsopening: 0.2s;
-  --timeheaderclosing: 1s;
-  --timeheaderopening: 0.2s;
 }
 
-@keyframes animationcolorrainbow {
-  0% {
-    background-position: 0% 0%;
-  }
-
-  100% {
-    background-position: 0% 230%;
-  }
+/* Text for the Shorts reminder */
+:root {
+  /* Default value */
+  --current-shorts-reminder: "Hover to see Shorts";
 }
 
-/* Rainbow/RGB on the side */
-ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
-  width: 3px;
-  height: 100%;
-  content: '';
-  position: fixed;
-  z-index: 10000;
-  background-image: var(--colorrainbow);
-  background-size: 3px 180%;
-  animation: animationcolorrainbow var(--speedrainbowanimation) infinite linear var(--rainbowdirection);
+/* Loop through each language to create the selector */
+html[lang^=en] {
+  --current-shorts-reminder: 'Hover to see Shorts';
 }
 
-/* HOME */
-/* Margin home videos box */
-ytd-browse[page-subtype='home'] #contents {
-  margin-top: 10px;
+html[lang^=pt] {
+  --current-shorts-reminder: 'Passe para ver Shorts';
 }
 
-/* Remove chips when the sidebar is not minimized */
-tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-renderer:not(:has(yt-dropdown-menu)) {
-  display: none !important;
+html[lang^=es] {
+  --current-shorts-reminder: 'Pasa el cursor para ver Shorts';
 }
 
-/* Fix frosted glass size */
-#frosted-glass:has(~ tp-yt-app-drawer[opened]) {
-  max-height: 56px;
+html[lang^=fr] {
+  --current-shorts-reminder: 'Survolez pour voir les Shorts';
 }
 
-/* Center videos on the subscriptions page */
-ytd-rich-grid-row #contents {
-  justify-content: center;
+html[lang^=de] {
+  --current-shorts-reminder: 'Bewegen Sie den Mauszeiger, um Shorts zu sehen';
+}
+
+html[lang^=it] {
+  --current-shorts-reminder: 'Passa il cursore per vedere gli Shorts';
+}
+
+html[lang^=ja] {
+  --current-shorts-reminder: 'カーソルを合わせるとショートが表示されます';
+}
+
+html[lang^=zh] {
+  --current-shorts-reminder: '将鼠标悬停以查看 Shorts';
+}
+
+html[lang^=ko] {
+  --current-shorts-reminder: '마우스를 올려 Shorts 보기';
+}
+
+html[lang^=ru] {
+  --current-shorts-reminder: 'Наведите курсор, чтобы посмотреть Shorts';
+}
+
+html[lang^=hi] {
+  --current-shorts-reminder: 'Shorts देखने के लिए कर्सर रखें';
+}
+
+html[lang^=ar] {
+  --current-shorts-reminder: 'مرّر المؤشر لرؤية Shorts';
 }
 
 /* HEADER */
@@ -142,10 +120,12 @@ yt-page-navigation-progress #progress {
   transition-duration: 1s;
   transition-property: filter;
 }
+
 #start:hover #guide-button,
 #guide-content #header:hover #guide-button {
   filter: opacity(100%);
 }
+
 /* Moving logo */
 ytd-topbar-logo-renderer {
   left: -50px;
@@ -153,6 +133,7 @@ ytd-topbar-logo-renderer {
   transition-property: left;
   position: relative;
 }
+
 #start:hover ytd-topbar-logo-renderer,
 #guide-content #header:hover ytd-topbar-logo-renderer {
   left: 0px;
@@ -169,12 +150,14 @@ ytd-notification-topbar-button-renderer {
   filter: opacity(0%);
   z-index: -1;
 }
+
 #end:hover ytd-notification-topbar-button-renderer,
-ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden='true']) #spinner) #content ytd-notification-topbar-button-renderer {
+ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden=true]) #spinner) #content ytd-notification-topbar-button-renderer {
   left: 0px;
   z-index: 1;
   filter: opacity(100%);
 }
+
 /* Create button */
 ytd-topbar-menu-button-renderer[has-no-text],
 #end #buttons > ytd-button-renderer:first-child {
@@ -186,15 +169,17 @@ ytd-topbar-menu-button-renderer[has-no-text],
   filter: opacity(0%);
   z-index: -1;
 }
+
 #end:hover #buttons > ytd-button-renderer:first-child,
-ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden='true']) #spinner) #content #buttons > ytd-button-renderer:first-child {
+ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden=true]) #spinner) #content #buttons > ytd-button-renderer:first-child {
   left: 0px;
   z-index: 1;
   filter: opacity(100%);
 }
+
 /* Notification circle */
 ytd-notification-topbar-button-renderer:has(.ytSpecIconBadgeShapeBadge) ~ ytd-topbar-menu-button-renderer::after {
-  content: '';
+  content: "";
   position: absolute;
   background-color: var(--colornotification);
   width: calc(var(--shownotificationcircle) * 9px);
@@ -205,8 +190,9 @@ ytd-notification-topbar-button-renderer:has(.ytSpecIconBadgeShapeBadge) ~ ytd-to
   top: 9px;
   transition: 0.4s filter;
 }
+
 #end:hover ytd-topbar-menu-button-renderer::after,
-ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden='true']) #spinner) #content ytd-topbar-menu-button-renderer::after {
+ytd-app:has(ytd-popup-container tp-yt-iron-dropdown:not([aria-hidden=true]) #spinner) #content ytd-topbar-menu-button-renderer::after {
   filter: opacity(0%);
 }
 
@@ -216,6 +202,7 @@ yt-searchbox ytd-text-input-assistant {
   filter: opacity(10%);
   margin-right: 5px;
 }
+
 yt-searchbox ytd-text-input-assistant:hover {
   filter: drop-shadow(0px 0px 1px var(--shadowgeneral)) opacity(100%);
   transition: 0.5s all ease;
@@ -227,6 +214,7 @@ yt-searchbox ytd-text-input-assistant:hover {
   transition-duration: 0.3s;
   transition-property: filter;
 }
+
 #voice-search-button:hover {
   filter: opacity(100%);
 }
@@ -266,6 +254,7 @@ yt-searchbox ytd-text-input-assistant:hover {
   transition-property: filter;
   transition-duration: 0.3s;
 }
+
 .annotation-type-custom.iv-branding:hover {
   filter: opacity(100%);
 }
@@ -273,6 +262,27 @@ yt-searchbox ytd-text-input-assistant:hover {
 /* Remove the message from the icon in the corner of the player */
 .branding-context-container-inner.ytp-rounded-branding-context {
   display: none;
+}
+
+/* HOME */
+/* Margin home videos box */
+ytd-browse[page-subtype=home] #contents {
+  margin-top: 10px;
+}
+
+/* Remove chips when the sidebar is not minimized */
+tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-renderer:not(:has(yt-dropdown-menu)) {
+  display: none !important;
+}
+
+/* Fix frosted glass size */
+#frosted-glass:has(~ tp-yt-app-drawer[opened]) {
+  max-height: 56px;
+}
+
+/* Center videos on the subscriptions page */
+ytd-rich-grid-row #contents {
+  justify-content: center;
 }
 
 /* VIDEO PAGE */
@@ -315,6 +325,7 @@ segmented-like-dislike-button-view-model {
   transition-duration: 0.5s !important;
   transition-property: transform, filter !important;
 }
+
 #avatar:hover {
   filter: drop-shadow(0px 0px 1.5px var(--circlechannelpicture));
   transform: scale(1.1);
@@ -358,281 +369,6 @@ ytd-playlist-panel-renderer#playlist > #container {
   border-bottom: 1px var(--shadowbuttons) solid;
 }
 
-/* HIDE SHORTS */
-/* Hide Shorts on the video page and show on hover */
-/* - Contents - */
-/* Hiding Shorts contents */
-#items ytd-reel-shelf-renderer #contents {
-  position: relative;
-  display: block;
-  max-height: calc(500px * var(--keepshorts));
-  opacity: var(--keepshorts);
-  z-index: calc(10 * var(--keepshorts) - 5);
-  transition:
-    max-height 0.6s ease,
-    opacity 0.6s,
-    z-index 0.6s,
-    margin-bottom 0.5s;
-  transition-delay: var(--timeshortsclosing);
-}
-/* Showing Shorts contents on hover */
-#items ytd-reel-shelf-renderer:hover #contents {
-  max-height: 500px;
-  opacity: 1;
-  z-index: 5;
-  margin-bottom: calc(10px - 10px * var(--keepshorts));
-  transition-delay: var(--timeshortsopening);
-}
-/* - Header - */
-/* Restoring now disabled Shorts header */
-#items ytd-reel-shelf-renderer #header {
-  display: flex !important;
-  margin-bottom: 20px !important;
-}
-/* Making sure reminder text has enough space */
-#items ytd-reel-shelf-renderer #title-container {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-/* Shorts reminder text */
-html[lang^='pt'] {
-  --current-shorts-reminder: var(--textshortsreminderpt);
-}
-html[lang^='en'] {
-  --current-shorts-reminder: var(--textshortsreminderen);
-}
-html[lang^='es'] {
-  --current-shorts-reminder: var(--textshortsreminderes);
-}
-html[lang^='fr'] {
-  --current-shorts-reminder: var(--textshortsreminderfr);
-}
-html[lang^='de'] {
-  --current-shorts-reminder: var(--textshortsreminderde);
-}
-html[lang^='it'] {
-  --current-shorts-reminder: var(--textshortsreminderit);
-}
-html[lang^='ja'] {
-  --current-shorts-reminder: var(--textshortsreminderja);
-}
-html[lang^='zh'] {
-  --current-shorts-reminder: var(--textshortsreminderzh);
-}
-html[lang^='ko'] {
-  --current-shorts-reminder: var(--textshortsreminderko);
-}
-html[lang^='ru'] {
-  --current-shorts-reminder: var(--textshortsreminderru);
-}
-html[lang^='hi'] {
-  --current-shorts-reminder: var(--textshortsreminderhi);
-}
-html[lang^='ar'] {
-  --current-shorts-reminder: var(--textshortsreminderar);
-}
-#items ytd-reel-shelf-renderer #title-container::after {
-  content: var(--current-shorts-reminder);
-}
-#items ytd-reel-shelf-renderer #title-container::after {
-  font-size: 12px;
-  height: calc(14px - 14px * var(--keepshorts));
-  filter: opacity(calc(100% + -100% * var(--keepshorts)));
-  transition-duration: 0.6s;
-  transition-property: filter, height;
-  transition-delay: var(--timeshortsclosing);
-}
-/* Hiding Shorts reminder text when hovering */
-#items ytd-reel-shelf-renderer:hover #title-container::after {
-  filter: opacity(0%);
-  transition-delay: var(--timeshortsopening);
-  height: 0px;
-}
-/* Alternative Shorts header*/
-/* #items ytd-reel-shelf-renderer::before {
-  content: var(--textshortsreminder);
-  background-image: var(--imgshorts);
-  background-repeat: no-repeat;
-  background-size: 25px 25px;
-  background-position: left center;
-  padding-left: 32px;
-  padding-top: calc(10px - 10px * var(--neverhideshorts));
-  padding-bottom: calc(10px - 10px * var(--neverhideshorts));
-  color: whitesmoke;
-  font-size: 12px;
-  display: inline-block;
-  height: calc(25px - 25px * var(--neverhideshorts));
-  line-height: 25px;
-  filter: opacity(calc(100% - 100% * var(--neverhideshorts)));
-  transition-duration: 0.8s;
-  transition-property: filter, height;
-  transition-delay: var(--timeshortsclosing);
-  box-shadow:
-    0 -2.5px 2.5px -2.5px var(--shadowhovertoseeshorts),
-    0 2.5px 2.5px -2.5px var(--shadowhovertoseeshorts);
-}
-#items ytd-reel-shelf-renderer:hover::before {
-  filter: opacity(0%);
-  transition-delay: var(--timeshortsopening);
-  height: 0px;
-} */
-
-/* HIDE HEADER */
-/* Hide header when the screen height is small, header won't be hidden on Shorts Page */
-/* Hover on header to reveal it */
-/* Header will stay still when sidebar is open or when searchbox has hover, focus or any text written */
-@media screen and (max-height: 37.5em) {
-  /* - General - */
-  /* Hiding header container */
-  ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])) {
-    margin-top: calc(-1 * var(--ytd-toolbar-height) * (1 - var(--keepheader)) * (1 - var(--hideheadermethod))) !important;
-    transition:
-      margin-top 0.3s ease var(--timeheaderclosing),
-      opacity 0.3s ease var(--timeheaderclosing) !important;
-    /* Other method */
-    opacity: calc(1 - (1 - var(--keepheader)) * var(--hideheadermethod)) !important;
-  }
-  /* Hiding header container (video page) */
-  ytd-app > #content #masthead-container:has(#masthead[is-watch-page]) {
-    opacity: var(--keepheader) !important;
-    transition: opacity 0.3s ease var(--timeheaderclosing);
-  }
-  /* Showing header container */
-  ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])):hover,
-  ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])):has(yt-searchbox.ytSearchboxComponentHostIsFocused),
-  ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])):has(.ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)),
-  ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])):has(~ tp-yt-app-drawer[opened]),
-  ytd-app > #content:has(ytd-mini-guide-renderer:hover) #masthead-container:not(:has(#masthead[is-watch-page])) {
-    margin-top: 0px !important;
-    transition:
-      margin-top 0.3s ease var(--timeheaderopening),
-      opacity 0.3s ease var(--timeheaderopening) !important;
-    opacity: 1 !important;
-  }
-  /* Showing header container (video page) */
-  ytd-app > #content #masthead-container:has(#masthead[is-watch-page]):hover,
-  ytd-app > #content #masthead-container:has(#masthead[is-watch-page]):has(yt-searchbox.ytSearchboxComponentHostIsFocused),
-  ytd-app > #content #masthead-container:has(#masthead[is-watch-page]):has(.ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)),
-  ytd-app > #content #masthead-container:has(#masthead[is-watch-page]):has(~ tp-yt-app-drawer[opened]),
-  ytd-app > #content:has(ytd-mini-guide-renderer:hover) #masthead-container:has(#masthead[is-watch-page]) {
-    opacity: 1 !important;
-    transition: opacity 0.3s ease var(--timeheaderopening) !important;
-  }
-  /* Moving page higher */
-  ytd-app > #content ytd-page-manager {
-    margin-top: calc(var(--ytd-toolbar-height) * var(--keepheader)) !important;
-    transition: margin-top 0.3s ease var(--timeheaderclosing) !important;
-  }
-  /* Moving page back */
-  ytd-app > #content #masthead-container:hover ~ ytd-page-manager,
-  ytd-app > #content #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused) ~ ytd-page-manager,
-  ytd-app > #content #masthead-container:has(.ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) ~ ytd-page-manager,
-  ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]) ~ ytd-page-manager,
-  ytd-app > #content:has(ytd-mini-guide-renderer:hover) ytd-page-manager {
-    margin-top: var(--ytd-toolbar-height) !important;
-    transition: margin-top 0.3s ease var(--timeheaderopening) !important;
-  }
-  /* - Side bar management and icon - */
-  /* Increasing side bar height to match header height */
-  ytd-mini-guide-renderer {
-    margin-top: -56px !important;
-    padding-top: 56px !important;
-    transition:
-      margin-top 0.3s ease var(--timeheaderclosing),
-      padding-top 0.3s ease var(--timeheaderclosing) !important;
-  }
-  /* Decrease side bar height to make header clickable */
-  ytd-app > #content:has(#masthead-container:hover) ytd-mini-guide-renderer,
-  ytd-app > #content:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) ytd-mini-guide-renderer,
-  ytd-app > #content:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) ytd-mini-guide-renderer,
-  ytd-app > #content:has(#masthead-container ~ tp-yt-app-drawer[opened]) ytd-mini-guide-renderer,
-  ytd-app > #content:has(ytd-mini-guide-renderer:hover) ytd-mini-guide-renderer {
-    margin-top: 0px !important;
-    padding-top: 0px !important;
-    transition:
-      margin-top 0.3s ease var(--timeheaderopening),
-      padding-top 0.3s ease var(--timeheaderopening) !important;
-  }
-  /* Hidden header icon */
-  ytd-mini-guide-renderer:before {
-    background-image: var(--imgeye);
-    filter: invert(0.35);
-    background-size: 35px 35px;
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-    content: '';
-    position: fixed;
-    top: 10px;
-    left: calc(18px - 118px * var(--keepheader));
-    opacity: calc(1 - var(--keepheader)) !important;
-    transition: opacity 0.3s ease var(--timeheaderclosing);
-  }
-  /* Hiding hidden header icon */
-  ytd-app > #content:has(#masthead-container:hover) ytd-mini-guide-renderer:before,
-  ytd-app > #content:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) ytd-mini-guide-renderer:before,
-  ytd-app > #content:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) ytd-mini-guide-renderer:before,
-  ytd-app > #content:has(#masthead-container ~ tp-yt-app-drawer[opened]) ytd-mini-guide-renderer:before,
-  ytd-app > #content:has(ytd-mini-guide-renderer:hover) ytd-mini-guide-renderer:before {
-    opacity: 0 !important;
-    left: -50px;
-    transition: opacity 0.3s ease var(--timeheaderopening);
-  }
-  /* - Channel Page - */
-  /* Moving page higher */
-  ytd-app > #content #masthead-container ~ ytd-page-manager tp-yt-app-header {
-    margin-top: calc(var(--ytd-toolbar-height) * var(--keepheader)) !important;
-    transition: margin-top 0.3s ease var(--timeheaderclosing) !important;
-  }
-  /* Moving page back */
-  ytd-app > #content #masthead-container:hover ~ ytd-page-manager tp-yt-app-header,
-  ytd-app > #content #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused) ~ ytd-page-manager tp-yt-app-header,
-  ytd-app > #content:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) ~ ytd-page-manager tp-yt-app-header,
-  ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]) ~ ytd-page-manager tp-yt-app-header,
-  ytd-app > #content:has(ytd-mini-guide-renderer:hover) ytd-page-manager tp-yt-app-header {
-    margin-top: var(--ytd-toolbar-height) !important;
-    transition: margin-top 0.3s ease var(--timeheaderopening) !important;
-  }
-  /* - Home - */
-  /* Frosted-glass (header background) */
-  /* Hiding header container */
-  #frosted-glass {
-    max-height: var(--ytd-toolbar-height) !important;
-    margin-top: calc(-1 * var(--ytd-toolbar-height) * (1 - var(--keepheader)) * (1 - var(--hideheadermethod))) !important;
-    transition:
-      margin-top 0.3s ease var(--timeheaderclosing),
-      opacity 0.3s ease var(--timeheaderclosing) !important;
-    /* Other method */
-    opacity: calc(1 - (1 - var(--keepheader)) * var(--hideheadermethod)) !important;
-  }
-  /* Showing header container */
-  ytd-app > #content:has(#masthead-container:hover) #frosted-glass,
-  ytd-app > #content:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) #frosted-glass,
-  ytd-app > #content:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) #frosted-glass,
-  ytd-app > #content:has(tp-yt-app-drawer[opened]) #frosted-glass,
-  ytd-app > #content:has(ytd-mini-guide-renderer:hover) #frosted-glass {
-    margin-top: 0px !important;
-    transition:
-      margin-top 0.3s ease var(--timeheaderopening),
-      opacity 0.3s ease var(--timeheaderopening) !important;
-    opacity: 1 !important;
-  }
-  /* - Extras - */
-  /* Removing padding from watch page */
-  ytd-watch-flexy > #columns > div {
-    padding-top: 5px !important;
-  }
-  /* Removing chips from Home */
-  #header ytd-feed-filter-chip-bar-renderer {
-    display: none !important;
-  }
-  /* Removing chip (sort playlist) from Playlist Page */
-  ytd-item-section-renderer[exp-fix-playlist-header] chip-bar-view-model {
-    display: none !important;
-  }
-}
-
 /* PLAYLIST PAGE */
 /* Share and three dots buttons in playlist */
 /* Ensuring the shadow effect is not cut off */
@@ -658,7 +394,7 @@ html[lang^='ar'] {
   display: inline-block;
   width: 14px;
   height: 15px;
-  content: '';
+  content: "";
   margin-right: 5px;
 }
 
@@ -668,23 +404,19 @@ ytd-playlist-header-renderer.ytd-browse {
 }
 
 /* Adding margin to the playlist warning */
-ytd-browse[page-subtype='playlist'] ytd-alert-with-button-renderer[is-displayed] {
+ytd-browse[page-subtype=playlist] ytd-alert-with-button-renderer[is-displayed] {
   margin-bottom: 10px !important;
 }
 
 /* Hiding views from Watch Later and Liked Videos playlists */
-ytd-inline-form-renderer[hidden]
-  ~ .metadata-action-bar
-  .metadata-text-wrapper:has(~ .metadata-buttons-wrapper ytd-button-renderer[hidden]:nth-child(2))
-  .metadata-stats
-  yt-formatted-string:nth-child(4) {
+ytd-inline-form-renderer[hidden] ~ .metadata-action-bar .metadata-text-wrapper:has(~ .metadata-buttons-wrapper ytd-button-renderer[hidden]:nth-child(2)) .metadata-stats yt-formatted-string:nth-child(4) {
   display: none;
 }
 
 /* LIBRARY/PLAYLISTS PAGE */
 /* Playlist title */
 /* Glow effect */
-ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .ytLockupViewModelMetadata .ytLockupMetadataViewModelHeadingReset:not(:has(.ytLockupMetadataViewModelTitle[aria-label])) span {
+ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytLockupMetadataViewModelHeadingReset:not(:has(.ytLockupMetadataViewModelTitle[aria-label])) span {
   font-family: Calibri;
   text-shadow: 0px 0px 2px black;
   filter: drop-shadow(0px 0px 3px var(--shadowgeneral));
@@ -693,48 +425,318 @@ ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .ytLockupV
 
 /* Last updated message */
 /* Clock icon */
-ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions'])
-  .ytLockupViewModelMetadata
-  .ytContentMetadataViewModelMetadataRow:nth-child(2):not(:has(a), :has(.ytContentMetadataViewModelDelimiter))
-  > span:not(.ytContentMetadataViewModelMetadataTextMaxLines2):first-child::before {
+ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:nth-child(2):not(:has(a), :has(.ytContentMetadataViewModelDelimiter)) > span:not(.ytContentMetadataViewModelMetadataTextMaxLines2):first-child::before {
   background-image: var(--imgclockicon);
   filter: invert(1);
   background-size: 12px 12px;
   display: inline-block;
   width: 12px;
   height: 12px;
-  content: '';
+  content: "";
   margin-right: 2px;
 }
 
 /* Name of channel */
 /* User icon */
-ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:first-child > span:first-child a::before {
+ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:first-child > span:first-child a::before {
   background-image: var(--imguser);
   filter: invert(1);
   background-size: 11px 12px;
   display: inline-block;
   width: 11px;
   height: 12px;
-  content: '';
+  content: "";
   margin-right: 3px;
 }
 
 /* View full playlist button */
 /* Increased size of 'View full playlist' text */
-ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:last-child > span:first-child a {
+ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:last-child > span:first-child a {
   font-size: 15px;
   margin-top: 5px;
 }
+
 /* Playlist icon */
-ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:last-child > span:first-child a::before {
+ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:last-child > span:first-child a::before {
   background-image: var(--imgplaylisticon);
   filter: invert(1);
   background-size: 20px 20px;
   display: inline-block;
   width: 20px;
   height: 20px;
-  content: '';
+  content: "";
   position: relative;
   top: 5px;
 }
+
+:root {
+  --colorrainbow: linear-gradient(
+    rgba(248, 13, 27, 1) 0%,
+    rgba(255, 160, 0, 1) 11%,
+    rgba(255, 227, 2, 1) 22%,
+    rgba(0, 250, 34, 1) 33%,
+    rgba(0, 169, 238, 1) 44%,
+    rgba(159, 0, 255, 1) 55%,
+    rgba(0, 169, 238, 1) 66%,
+    rgba(0, 250, 34, 1) 77%,
+    rgba(255, 227, 2, 1) 88%,
+    rgba(248, 13, 27, 1) 100%
+  );
+  --speedrainbowanimation: 6s;
+}
+
+@keyframes animationcolorrainbow {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 230%;
+  }
+}
+/* Rainbow/RGB on the side */
+ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
+  width: 3px;
+  height: 100%;
+  content: "";
+  position: fixed;
+  z-index: 10000;
+  background-image: var(--colorrainbow);
+  background-size: 3px 180%;
+  animation: animationcolorrainbow var(--speedrainbowanimation) infinite linear var(--rainbowdirection);
+}
+
+:root {
+  --timeshortsclosing: 1s;
+  --timeshortsopening: 0.2s;
+}
+
+/* HIDE SHORTS */
+/* Hide Shorts on the video page and show on hover */
+#items ytd-reel-shelf-renderer {
+  /* - Contents - */
+  /* Hiding Shorts contents */
+}
+#items ytd-reel-shelf-renderer #contents {
+  position: relative;
+  display: block;
+  max-height: calc(500px * var(--keepshorts));
+  opacity: var(--keepshorts);
+  z-index: calc(10 * var(--keepshorts) - 5);
+  transition: max-height 0.6s ease, opacity 0.6s, z-index 0.6s, margin-bottom 0.5s;
+  transition-delay: var(--timeshortsclosing);
+}
+#items ytd-reel-shelf-renderer {
+  /* Showing Shorts contents on hover */
+}
+#items ytd-reel-shelf-renderer:hover #contents {
+  max-height: 500px;
+  opacity: 1;
+  z-index: 5;
+  margin-bottom: calc(10px - 10px * var(--keepshorts));
+  transition-delay: var(--timeshortsopening);
+}
+#items ytd-reel-shelf-renderer {
+  /* - Header - */
+  /* Restoring now disabled Shorts header */
+}
+#items ytd-reel-shelf-renderer #header {
+  display: flex !important;
+  margin-bottom: 20px !important;
+}
+#items ytd-reel-shelf-renderer {
+  /* Making sure reminder text has enough space */
+}
+#items ytd-reel-shelf-renderer #title-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#items ytd-reel-shelf-renderer #title-container::after {
+  content: var(--current-shorts-reminder);
+  font-size: 12px;
+  height: calc(14px - 14px * var(--keepshorts));
+  filter: opacity(calc(100% + -100% * var(--keepshorts)));
+  transition-duration: 0.6s;
+  transition-property: filter, height;
+  transition-delay: var(--timeshortsclosing);
+}
+#items ytd-reel-shelf-renderer {
+  /* Hiding Shorts reminder text when hovering */
+}
+#items ytd-reel-shelf-renderer:hover #title-container::after {
+  filter: opacity(0%);
+  transition-delay: var(--timeshortsopening);
+  height: 0px;
+}
+
+:root {
+  --timeheaderclosing: 1s;
+  --timeheaderopening: 0.2s;
+}
+
+/* HIDE HEADER */
+/* Hide header when the screen height is small, header won't be hidden on Shorts Page */
+/* Hover on header to reveal it */
+/* Header will stay still when sidebar is open or when searchbox has hover, focus or any text written */
+@media screen and (max-height: 37.5em) {
+  /* - Mixins - */
+  /* Header will be blocked when is hovered, search bar is focused, search bar has text or the side drawer is opened */
+  /* Header will be blocked when is hovered, search bar is focused, search bar has text, the side drawer is opened or the side drawer is hovered */
+  /* - General - */
+  /* - Side bar management and icon - */
+  /* Increasing side bar height to match header height */
+  ytd-mini-guide-renderer {
+    margin-top: -56px !important;
+    padding-top: 56px !important;
+    transition: margin-top 0.3s ease var(--timeheaderclosing), padding-top 0.3s ease var(--timeheaderclosing) !important;
+  }
+  /* Hidden header icon (eye icon) */
+  ytd-mini-guide-renderer:before {
+    background-image: var(--imgeye);
+    filter: invert(0.35);
+    background-size: 35px 35px;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    content: "";
+    position: fixed;
+    top: 10px;
+    left: calc(18px - 118px * var(--keepheader));
+    opacity: calc(1 - var(--keepheader)) !important;
+    transition: opacity 0.3s ease var(--timeheaderclosing);
+  }
+  ytd-app > #content {
+    /* Showing header container */
+  }
+  ytd-app > #content:has(ytd-mini-guide-renderer:hover) #masthead-container:not(:has(#masthead[is-watch-page])) {
+    margin-top: 0px !important;
+    transition: margin-top 0.3s ease var(--timeheaderopening), opacity 0.3s ease var(--timeheaderopening) !important;
+    opacity: 1 !important;
+  }
+  ytd-app > #content {
+    /* Showing header container (video page) */
+  }
+  ytd-app > #content:has(ytd-mini-guide-renderer:hover) #masthead-container:has(#masthead[is-watch-page]) {
+    opacity: 1 !important;
+    transition: opacity 0.3s ease var(--timeheaderopening) !important;
+  }
+  ytd-app > #content {
+    /* Moving page higher */
+  }
+  ytd-app > #content ytd-page-manager {
+    margin-top: calc(var(--ytd-toolbar-height) * var(--keepheader)) !important;
+    transition: margin-top 0.3s ease var(--timeheaderclosing) !important;
+  }
+  ytd-app > #content {
+    /* Moving page back */
+  }
+  ytd-app > #content:has(ytd-mini-guide-renderer:hover) ytd-page-manager {
+    margin-top: var(--ytd-toolbar-height) !important;
+    transition: margin-top 0.3s ease var(--timeheaderopening) !important;
+  }
+  ytd-app > #content {
+    /* - Header container - */
+  }
+  ytd-app > #content #masthead-container {
+    /* Hiding header container */
+  }
+  ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])) {
+    margin-top: calc(-1 * var(--ytd-toolbar-height) * (1 - var(--keepheader)) * (1 - var(--hideheadermethod))) !important;
+    transition: margin-top 0.3s ease var(--timeheaderclosing), opacity 0.3s ease var(--timeheaderclosing) !important;
+    /* Other method */
+    opacity: calc(1 - (1 - var(--keepheader)) * var(--hideheadermethod)) !important;
+  }
+  ytd-app > #content #masthead-container {
+    /* Hiding header container (video page) */
+  }
+  ytd-app > #content #masthead-container:has(#masthead[is-watch-page]) {
+    opacity: var(--keepheader) !important;
+    transition: opacity 0.3s ease var(--timeheaderclosing);
+  }
+  ytd-app > #content #masthead-container {
+    /* Showing header container */
+  }
+  ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])):hover, ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])):has(yt-searchbox.ytSearchboxComponentHostIsFocused), ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])):has(.ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)), ytd-app > #content #masthead-container:not(:has(#masthead[is-watch-page])):has(~ tp-yt-app-drawer[opened]) {
+    margin-top: 0px !important;
+    transition: margin-top 0.3s ease var(--timeheaderopening), opacity 0.3s ease var(--timeheaderopening) !important;
+    opacity: 1 !important;
+  }
+  ytd-app > #content #masthead-container {
+    /* Showing header container (video page) */
+  }
+  ytd-app > #content #masthead-container:has(#masthead[is-watch-page]):hover, ytd-app > #content #masthead-container:has(#masthead[is-watch-page]):has(yt-searchbox.ytSearchboxComponentHostIsFocused), ytd-app > #content #masthead-container:has(#masthead[is-watch-page]):has(.ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)), ytd-app > #content #masthead-container:has(#masthead[is-watch-page]):has(~ tp-yt-app-drawer[opened]) {
+    opacity: 1 !important;
+    transition: opacity 0.3s ease var(--timeheaderopening) !important;
+  }
+  ytd-app > #content #masthead-container {
+    /* Moving page back */
+  }
+  ytd-app > #content #masthead-container:hover ~ ytd-page-manager, ytd-app > #content #masthead-container:has(yt-searchbox.ytSearchboxComponentHostIsFocused) ~ ytd-page-manager, ytd-app > #content #masthead-container:has(.ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) ~ ytd-page-manager, ytd-app > #content #masthead-container:has(~ tp-yt-app-drawer[opened]) ~ ytd-page-manager {
+    margin-top: var(--ytd-toolbar-height) !important;
+    transition: margin-top 0.3s ease var(--timeheaderopening) !important;
+  }
+  ytd-app > #content {
+    /* Decrease side bar height to make header clickable */
+  }
+  ytd-app > #content:has(#masthead-container:hover) ytd-mini-guide-renderer, ytd-app > #content:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) ytd-mini-guide-renderer, ytd-app > #content:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) ytd-mini-guide-renderer, ytd-app > #content:has(#masthead-container ~ tp-yt-app-drawer[opened]) ytd-mini-guide-renderer, ytd-app > #content:has(ytd-mini-guide-renderer:hover) ytd-mini-guide-renderer {
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+    transition: margin-top 0.3s ease var(--timeheaderopening), padding-top 0.3s ease var(--timeheaderopening) !important;
+  }
+  ytd-app > #content {
+    /* Hiding hidden header icon */
+  }
+  ytd-app > #content:has(#masthead-container:hover) ytd-mini-guide-renderer:before, ytd-app > #content:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) ytd-mini-guide-renderer:before, ytd-app > #content:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) ytd-mini-guide-renderer:before, ytd-app > #content:has(#masthead-container ~ tp-yt-app-drawer[opened]) ytd-mini-guide-renderer:before, ytd-app > #content:has(ytd-mini-guide-renderer:hover) ytd-mini-guide-renderer:before {
+    opacity: 0 !important;
+    left: -50px;
+    transition: opacity 0.3s ease var(--timeheaderopening);
+  }
+  /* - Channel Page - */
+  ytd-app > #content {
+    /* Moving page higher */
+  }
+  ytd-app > #content #masthead-container ~ ytd-page-manager tp-yt-app-header {
+    margin-top: calc(var(--ytd-toolbar-height) * var(--keepheader)) !important;
+    transition: margin-top 0.3s ease var(--timeheaderclosing) !important;
+  }
+  ytd-app > #content {
+    /* Moving page back */
+  }
+  ytd-app > #content:has(#masthead-container:hover) ~ ytd-page-manager tp-yt-app-header, ytd-app > #content:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) ~ ytd-page-manager tp-yt-app-header, ytd-app > #content:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) ~ ytd-page-manager tp-yt-app-header, ytd-app > #content:has(#masthead-container ~ tp-yt-app-drawer[opened]) ~ ytd-page-manager tp-yt-app-header, ytd-app > #content:has(ytd-mini-guide-renderer:hover) ~ ytd-page-manager tp-yt-app-header {
+    margin-top: var(--ytd-toolbar-height) !important;
+    transition: margin-top 0.3s ease var(--timeheaderopening) !important;
+  }
+  /* - Home - */
+  /* Frosted-glass (header background) */
+  /* Hiding header container */
+  #frosted-glass {
+    max-height: var(--ytd-toolbar-height) !important;
+    margin-top: calc(-1 * var(--ytd-toolbar-height) * (1 - var(--keepheader)) * (1 - var(--hideheadermethod))) !important;
+    transition: margin-top 0.3s ease var(--timeheaderclosing), opacity 0.3s ease var(--timeheaderclosing) !important;
+    /* Other method */
+    opacity: calc(1 - (1 - var(--keepheader)) * var(--hideheadermethod)) !important;
+  }
+  ytd-app > #content {
+    /* Showing header container */
+  }
+  ytd-app > #content:hover #frosted-glass, ytd-app > #content:has(yt-searchbox.ytSearchboxComponentHostIsFocused) #frosted-glass, ytd-app > #content:has(.ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) #frosted-glass, ytd-app > #content:has(~ tp-yt-app-drawer[opened]) #frosted-glass {
+    margin-top: 0px !important;
+    transition: margin-top 0.3s ease var(--timeheaderopening), opacity 0.3s ease var(--timeheaderopening) !important;
+    opacity: 1 !important;
+  }
+  /* - Extras - */
+  /* Removing padding from watch page */
+  ytd-watch-flexy > #columns > div {
+    padding-top: 5px !important;
+  }
+  /* Removing chips from Home */
+  #header ytd-feed-filter-chip-bar-renderer {
+    display: none !important;
+  }
+  /* Removing chip (sort playlist) from Playlist Page */
+  ytd-item-section-renderer[exp-fix-playlist-header] chip-bar-view-model {
+    display: none !important;
+  }
+}
+
+/*# sourceMappingURL=youtube.css.map */

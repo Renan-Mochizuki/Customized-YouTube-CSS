@@ -1,0 +1,60 @@
+:root {
+  --timeshortsclosing: 1s;
+  --timeshortsopening: 0.2s;
+}
+
+/* HIDE SHORTS */
+/* Hide Shorts on the video page and show on hover */
+#items ytd-reel-shelf-renderer {
+  /* - Contents - */
+  /* Hiding Shorts contents */
+  #contents {
+    position: relative;
+    display: block;
+    max-height: calc(500px * var(--keepshorts));
+    opacity: var(--keepshorts);
+    z-index: calc(10 * var(--keepshorts) - 5);
+    transition:
+      max-height 0.6s ease,
+      opacity 0.6s,
+      z-index 0.6s,
+      margin-bottom 0.5s;
+    transition-delay: var(--timeshortsclosing);
+  }
+  /* Showing Shorts contents on hover */
+  &:hover #contents {
+    max-height: 500px;
+    opacity: 1;
+    z-index: 5;
+    margin-bottom: calc(10px - 10px * var(--keepshorts));
+    transition-delay: var(--timeshortsopening);
+  }
+  
+  /* - Header - */
+  /* Restoring now disabled Shorts header */
+  #header {
+    display: flex !important;
+    margin-bottom: 20px !important;
+  }
+  /* Making sure reminder text has enough space */
+  #title-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  #title-container::after {
+    content: var(--current-shorts-reminder);
+    font-size: 12px;
+    height: calc(14px - 14px * var(--keepshorts));
+    filter: opacity(calc(100% + -100% * var(--keepshorts)));
+    transition-duration: 0.6s;
+    transition-property: filter, height;
+    transition-delay: var(--timeshortsclosing);
+  }
+  /* Hiding Shorts reminder text when hovering */
+  &:hover #title-container::after {
+    filter: opacity(0%);
+    transition-delay: var(--timeshortsopening);
+    height: 0px;
+  }
+}
