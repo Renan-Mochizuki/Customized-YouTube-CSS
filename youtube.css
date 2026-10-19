@@ -295,8 +295,8 @@ ytd-playlist-panel-renderer#playlist > #container {
 }
 
 /* Moving the playlist up on the page */
-ytd-playlist-header-renderer.ytd-browse {
-  margin-top: -10px !important;
+ytd-browse[page-subtype=playlist]:not(:has(#alerts ytd-alert-with-button-renderer[is-displayed])) ytd-two-column-browse-results-renderer[page-subtype=playlist] #primary {
+  margin-top: -15px !important;
 }
 
 /* Adding margin to the playlist warning */
