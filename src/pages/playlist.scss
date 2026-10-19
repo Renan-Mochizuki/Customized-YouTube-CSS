@@ -1,0 +1,47 @@
+/* PLAYLIST PAGE */
+/* Share and three dots buttons in playlist */
+/* Ensuring the shadow effect is not cut off */
+.metadata-buttons-wrapper .ytd-playlist-header-renderer yt-button-shape {
+  margin-left: 2px;
+}
+
+/* Playlist title */
+/* Glow effect */
+.ytd-playlist-header-renderer #text,
+#header-description h3 {
+  font-family: Calibri;
+  text-shadow: 0px 0px 2px black;
+  filter: drop-shadow(0px 0px 3px var(--shadowgeneral));
+}
+
+/* Channel name in playlist */
+/* User icon */
+.metadata-action-bar .metadata-text-wrapper .metadata-owner #owner-text a::before {
+  background-image: var(--imguser);
+  filter: invert(1);
+  background-size: 14px 15px;
+  display: inline-block;
+  width: 14px;
+  height: 15px;
+  content: '';
+  margin-right: 5px;
+}
+
+/* Moving the playlist up on the page */
+ytd-playlist-header-renderer.ytd-browse {
+  margin-top: -10px !important;
+}
+
+/* Adding margin to the playlist warning */
+ytd-browse[page-subtype='playlist'] ytd-alert-with-button-renderer[is-displayed] {
+  margin-bottom: 10px !important;
+}
+
+/* Hiding views from Watch Later and Liked Videos playlists */
+ytd-inline-form-renderer[hidden]
+  ~ .metadata-action-bar
+  .metadata-text-wrapper:has(~ .metadata-buttons-wrapper ytd-button-renderer[hidden]:nth-child(2))
+  .metadata-stats
+  yt-formatted-string:nth-child(4) {
+  display: none;
+}

@@ -1,0 +1,43 @@
+/* PLAYER */
+/* Video progress bar */
+.ytp-play-progress {
+  background-image: var(--colorvideoprogress) !important;
+}
+
+/* Thumbnail progress bar */
+#progress.ytd-thumbnail-overlay-resume-playback-renderer {
+  background-image: var(--colorthumbprogress) !important;
+}
+
+/* Progress cursor */
+.ytp-scrubber-button.ytp-swatch-background-color {
+  background: var(--colorvideoprogresscursor) !important;
+  box-shadow: var(--shadowvideoprogresscursor) !important;
+}
+
+/* Left volume bar */
+.ytp-volume-slider-handle:before {
+  background: var(--colorvolumeleft) !important;
+  left: -64px !important;
+}
+
+/* Right volume bar */
+.ytp-volume-slider-handle:after {
+  background: var(--colorvolumeright) !important;
+  left: 12px !important;
+}
+
+/* Hide channel icon animation in the corner of the player */
+.annotation-type-custom.iv-branding {
+  filter: opacity(0%);
+  transition-property: filter;
+  transition-duration: 0.3s;
+}
+.annotation-type-custom.iv-branding:hover {
+  filter: opacity(100%);
+}
+
+/* Remove the message from the icon in the corner of the player */
+.branding-context-container-inner.ytp-rounded-branding-context {
+  display: none;
+}

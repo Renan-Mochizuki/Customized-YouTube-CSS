@@ -1,0 +1,21 @@
+@keyframes animationcolorrainbow {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 0% 230%;
+  }
+}
+
+/* Rainbow/RGB on the side */
+ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
+  width: 3px;
+  height: 100%;
+  content: '';
+  position: fixed;
+  z-index: 10000;
+  background-image: var(--colorrainbow);
+  background-size: 3px 180%;
+  animation: animationcolorrainbow var(--speedrainbowanimation) infinite linear var(--rainbowdirection);
+}

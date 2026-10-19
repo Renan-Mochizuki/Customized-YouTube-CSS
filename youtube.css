@@ -15,20 +15,6 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   --showshadowtitle: 1;
   /* If you want to change the direction of the rainbow animation, change it to 'normal' or 'reverse' */
   --rainbowdirection: reverse;
-  /* Text for the Shorts reminder */
-  --textshortsreminderen: 'Hover to see Shorts';
-  --textshortsreminderpt: 'Passe para ver Shorts';
-  --textshortsreminderes: 'Pasa el cursor para ver Shorts';
-  --textshortsreminderfr: 'Survolez pour voir les Shorts';
-  --textshortsreminderde: 'Bewegen Sie den Mauszeiger, um Shorts zu sehen';
-  --textshortsreminderit: 'Passa il cursore per vedere gli Shorts';
-  --textshortsreminderja: 'カーソルを合わせるとショートが表示されます';
-  --textshortsreminderzh: '将鼠标悬停以查看 Shorts';
-  --textshortsreminderko: '마우스를 올려 Shorts 보기';
-  --textshortsreminderru: 'Наведите курсор, чтобы посмотреть Shorts';
-  --textshortsreminderhi: 'Shorts देखने के लिए कर्सर रखें';
-  --textshortsreminderar: 'مرّر المؤشر لرؤية Shorts';
-  --current-shorts-reminder: var(--textshortsreminderen);
   --colorloadingpageprogress: linear-gradient(to left, rgb(255, 196, 0), red 40%, rgb(41, 0, 123));
   --colorvolumeleft: linear-gradient(to right, rgb(50, 0, 151) 40%, rgb(142, 142, 255));
   --colorvolumeright: linear-gradient(to right, rgb(76, 12, 204), rgb(24, 0, 71) 40%);
@@ -67,6 +53,61 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   --timeheaderopening: 0.2s;
 }
 
+/* Text for the Shorts reminder */
+:root {
+  /* Default value */
+  --current-shorts-reminder: "Hover to see Shorts";
+}
+
+/* Loop through each language to create the selector */
+html[lang^=en] {
+  --current-shorts-reminder: "Hover to see Shorts";
+}
+
+html[lang^=pt] {
+  --current-shorts-reminder: "Passe para ver Shorts";
+}
+
+html[lang^=es] {
+  --current-shorts-reminder: "Pasa el cursor para ver Shorts";
+}
+
+html[lang^=fr] {
+  --current-shorts-reminder: "Survolez pour voir les Shorts";
+}
+
+html[lang^=de] {
+  --current-shorts-reminder: "Bewegen Sie den Mauszeiger, um Shorts zu sehen";
+}
+
+html[lang^=it] {
+  --current-shorts-reminder: "Passa il cursore per vedere gli Shorts";
+}
+
+html[lang^=ja] {
+  --current-shorts-reminder: "カーソルを合わせるとショートが表示されます";
+}
+
+html[lang^=zh] {
+  --current-shorts-reminder: "将鼠标悬停以查看 Shorts";
+}
+
+html[lang^=ko] {
+  --current-shorts-reminder: "마우스를 올려 Shorts 보기";
+}
+
+html[lang^=ru] {
+  --current-shorts-reminder: "Наведите курсор, чтобы посмотреть Shorts";
+}
+
+html[lang^=hi] {
+  --current-shorts-reminder: "Shorts देखने के लिए कर्सर रखें";
+}
+
+html[lang^=ar] {
+  --current-shorts-reminder: "مرّر المؤشر لرؤية Shorts";
+}
+
 @keyframes animationcolorrainbow {
   0% {
     background-position: 0% 0%;
@@ -85,27 +126,6 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
   background-image: var(--colorrainbow);
   background-size: 3px 180%;
   animation: animationcolorrainbow var(--speedrainbowanimation) infinite linear var(--rainbowdirection);
-}
-
-/* HOME */
-/* Margin home videos box */
-ytd-browse[page-subtype=home] #contents {
-  margin-top: 10px;
-}
-
-/* Remove chips when the sidebar is not minimized */
-tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-renderer:not(:has(yt-dropdown-menu)) {
-  display: none !important;
-}
-
-/* Fix frosted glass size */
-#frosted-glass:has(~ tp-yt-app-drawer[opened]) {
-  max-height: 56px;
-}
-
-/* Center videos on the subscriptions page */
-ytd-rich-grid-row #contents {
-  justify-content: center;
 }
 
 /* HEADER */
@@ -279,6 +299,27 @@ yt-searchbox ytd-text-input-assistant:hover {
   display: none;
 }
 
+/* HOME */
+/* Margin home videos box */
+ytd-browse[page-subtype=home] #contents {
+  margin-top: 10px;
+}
+
+/* Remove chips when the sidebar is not minimized */
+tp-yt-app-drawer[opened] ~ ytd-page-manager #header ytd-feed-filter-chip-bar-renderer:not(:has(yt-dropdown-menu)) {
+  display: none !important;
+}
+
+/* Fix frosted glass size */
+#frosted-glass:has(~ tp-yt-app-drawer[opened]) {
+  max-height: 56px;
+}
+
+/* Center videos on the subscriptions page */
+ytd-rich-grid-row #contents {
+  justify-content: center;
+}
+
 /* VIDEO PAGE */
 /* Video title */
 /* Shadow */
@@ -363,6 +404,106 @@ ytd-playlist-panel-renderer#playlist > #container {
   border-bottom: 1px var(--shadowbuttons) solid;
 }
 
+/* PLAYLIST PAGE */
+/* Share and three dots buttons in playlist */
+/* Ensuring the shadow effect is not cut off */
+.metadata-buttons-wrapper .ytd-playlist-header-renderer yt-button-shape {
+  margin-left: 2px;
+}
+
+/* Playlist title */
+/* Glow effect */
+.ytd-playlist-header-renderer #text,
+#header-description h3 {
+  font-family: Calibri;
+  text-shadow: 0px 0px 2px black;
+  filter: drop-shadow(0px 0px 3px var(--shadowgeneral));
+}
+
+/* Channel name in playlist */
+/* User icon */
+.metadata-action-bar .metadata-text-wrapper .metadata-owner #owner-text a::before {
+  background-image: var(--imguser);
+  filter: invert(1);
+  background-size: 14px 15px;
+  display: inline-block;
+  width: 14px;
+  height: 15px;
+  content: "";
+  margin-right: 5px;
+}
+
+/* Moving the playlist up on the page */
+ytd-playlist-header-renderer.ytd-browse {
+  margin-top: -10px !important;
+}
+
+/* Adding margin to the playlist warning */
+ytd-browse[page-subtype=playlist] ytd-alert-with-button-renderer[is-displayed] {
+  margin-bottom: 10px !important;
+}
+
+/* Hiding views from Watch Later and Liked Videos playlists */
+ytd-inline-form-renderer[hidden] ~ .metadata-action-bar .metadata-text-wrapper:has(~ .metadata-buttons-wrapper ytd-button-renderer[hidden]:nth-child(2)) .metadata-stats yt-formatted-string:nth-child(4) {
+  display: none;
+}
+
+/* LIBRARY/PLAYLISTS PAGE */
+/* Playlist title */
+/* Glow effect */
+ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytLockupMetadataViewModelHeadingReset:not(:has(.ytLockupMetadataViewModelTitle[aria-label])) span {
+  font-family: Calibri;
+  text-shadow: 0px 0px 2px black;
+  filter: drop-shadow(0px 0px 3px var(--shadowgeneral));
+  font-size: 18px;
+}
+
+/* Last updated message */
+/* Clock icon */
+ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:nth-child(2):not(:has(a), :has(.ytContentMetadataViewModelDelimiter)) > span:not(.ytContentMetadataViewModelMetadataTextMaxLines2):first-child::before {
+  background-image: var(--imgclockicon);
+  filter: invert(1);
+  background-size: 12px 12px;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  content: "";
+  margin-right: 2px;
+}
+
+/* Name of channel */
+/* User icon */
+ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:first-child > span:first-child a::before {
+  background-image: var(--imguser);
+  filter: invert(1);
+  background-size: 11px 12px;
+  display: inline-block;
+  width: 11px;
+  height: 12px;
+  content: "";
+  margin-right: 3px;
+}
+
+/* View full playlist button */
+/* Increased size of 'View full playlist' text */
+ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:last-child > span:first-child a {
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+/* Playlist icon */
+ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:last-child > span:first-child a::before {
+  background-image: var(--imgplaylisticon);
+  filter: invert(1);
+  background-size: 20px 20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  content: "";
+  position: relative;
+  top: 5px;
+}
+
 /* HIDE SHORTS */
 /* Hide Shorts on the video page and show on hover */
 /* - Contents - */
@@ -398,55 +539,6 @@ ytd-playlist-panel-renderer#playlist > #container {
   width: 100%;
   display: flex;
   justify-content: space-between;
-}
-
-/* Shorts reminder text */
-html[lang^=pt] {
-  --current-shorts-reminder: var(--textshortsreminderpt);
-}
-
-html[lang^=en] {
-  --current-shorts-reminder: var(--textshortsreminderen);
-}
-
-html[lang^=es] {
-  --current-shorts-reminder: var(--textshortsreminderes);
-}
-
-html[lang^=fr] {
-  --current-shorts-reminder: var(--textshortsreminderfr);
-}
-
-html[lang^=de] {
-  --current-shorts-reminder: var(--textshortsreminderde);
-}
-
-html[lang^=it] {
-  --current-shorts-reminder: var(--textshortsreminderit);
-}
-
-html[lang^=ja] {
-  --current-shorts-reminder: var(--textshortsreminderja);
-}
-
-html[lang^=zh] {
-  --current-shorts-reminder: var(--textshortsreminderzh);
-}
-
-html[lang^=ko] {
-  --current-shorts-reminder: var(--textshortsreminderko);
-}
-
-html[lang^=ru] {
-  --current-shorts-reminder: var(--textshortsreminderru);
-}
-
-html[lang^=hi] {
-  --current-shorts-reminder: var(--textshortsreminderhi);
-}
-
-html[lang^=ar] {
-  --current-shorts-reminder: var(--textshortsreminderar);
 }
 
 #items ytd-reel-shelf-renderer #title-container::after {
@@ -632,106 +724,6 @@ html[lang^=ar] {
   ytd-item-section-renderer[exp-fix-playlist-header] chip-bar-view-model {
     display: none !important;
   }
-}
-/* END OF HIDE HEADER */
-/* PLAYLIST PAGE */
-/* Share and three dots buttons in playlist */
-/* Ensuring the shadow effect is not cut off */
-.metadata-buttons-wrapper .ytd-playlist-header-renderer yt-button-shape {
-  margin-left: 2px;
-}
-
-/* Playlist title */
-/* Glow effect */
-.ytd-playlist-header-renderer #text,
-#header-description h3 {
-  font-family: Calibri;
-  text-shadow: 0px 0px 2px black;
-  filter: drop-shadow(0px 0px 3px var(--shadowgeneral));
-}
-
-/* Channel name in playlist */
-/* User icon */
-.metadata-action-bar .metadata-text-wrapper .metadata-owner #owner-text a::before {
-  background-image: var(--imguser);
-  filter: invert(1);
-  background-size: 14px 15px;
-  display: inline-block;
-  width: 14px;
-  height: 15px;
-  content: "";
-  margin-right: 5px;
-}
-
-/* Moving the playlist up on the page */
-ytd-playlist-header-renderer.ytd-browse {
-  margin-top: -10px !important;
-}
-
-/* Adding margin to the playlist warning */
-ytd-browse[page-subtype=playlist] ytd-alert-with-button-renderer[is-displayed] {
-  margin-bottom: 10px !important;
-}
-
-/* Hiding views from Watch Later and Liked Videos playlists */
-ytd-inline-form-renderer[hidden] ~ .metadata-action-bar .metadata-text-wrapper:has(~ .metadata-buttons-wrapper ytd-button-renderer[hidden]:nth-child(2)) .metadata-stats yt-formatted-string:nth-child(4) {
-  display: none;
-}
-
-/* LIBRARY/PLAYLISTS PAGE */
-/* Playlist title */
-/* Glow effect */
-ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytLockupMetadataViewModelHeadingReset:not(:has(.ytLockupMetadataViewModelTitle[aria-label])) span {
-  font-family: Calibri;
-  text-shadow: 0px 0px 2px black;
-  filter: drop-shadow(0px 0px 3px var(--shadowgeneral));
-  font-size: 18px;
-}
-
-/* Last updated message */
-/* Clock icon */
-ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:nth-child(2):not(:has(a), :has(.ytContentMetadataViewModelDelimiter)) > span:not(.ytContentMetadataViewModelMetadataTextMaxLines2):first-child::before {
-  background-image: var(--imgclockicon);
-  filter: invert(1);
-  background-size: 12px 12px;
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  content: "";
-  margin-right: 2px;
-}
-
-/* Name of channel */
-/* User icon */
-ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:first-child > span:first-child a::before {
-  background-image: var(--imguser);
-  filter: invert(1);
-  background-size: 11px 12px;
-  display: inline-block;
-  width: 11px;
-  height: 12px;
-  content: "";
-  margin-right: 3px;
-}
-
-/* View full playlist button */
-/* Increased size of 'View full playlist' text */
-ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:last-child > span:first-child a {
-  font-size: 15px;
-  margin-top: 5px;
-}
-
-/* Playlist icon */
-ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:last-child > span:first-child a::before {
-  background-image: var(--imgplaylisticon);
-  filter: invert(1);
-  background-size: 20px 20px;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  content: "";
-  position: relative;
-  top: 5px;
 }
 
 /*# sourceMappingURL=youtube.css.map */
