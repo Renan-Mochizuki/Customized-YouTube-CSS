@@ -1,27 +1,29 @@
+@use 'sass:map';
+
 /* Text for the Shorts reminder */
 $shorts-reminders: (
-  "en": "Hover to see Shorts",
-  "pt": "Passe para ver Shorts",
-  "es": "Pasa el cursor para ver Shorts",
-  "fr": "Survolez pour voir les Shorts",
-  "de": "Bewegen Sie den Mauszeiger, um Shorts zu sehen",
-  "it": "Passa il cursore per vedere gli Shorts",
-  "ja": "カーソルを合わせるとショートが表示されます",
-  "zh": "将鼠标悬停以查看 Shorts",
-  "ko": "마우스를 올려 Shorts 보기",
-  "ru": "Наведите курсор, чтобы посмотреть Shorts",
-  "hi": "Shorts देखने के लिए कर्सर रखें",
-  "ar": "مرّر المؤشر لرؤية Shorts"
+  'en': 'Hover to see Shorts',
+  'pt': 'Passe para ver Shorts',
+  'es': 'Pasa el cursor para ver Shorts',
+  'fr': 'Survolez pour voir les Shorts',
+  'de': 'Bewegen Sie den Mauszeiger, um Shorts zu sehen',
+  'it': 'Passa il cursore per vedere gli Shorts',
+  'ja': 'カーソルを合わせるとショートが表示されます',
+  'zh': '将鼠标悬停以查看 Shorts',
+  'ko': '마우스를 올려 Shorts 보기',
+  'ru': 'Наведите курсор, чтобы посмотреть Shorts',
+  'hi': 'Shorts देखने के लिए कर्सर रखें',
+  'ar': 'مرّر المؤشر لرؤية Shorts',
 );
 
 :root {
   /* Default value */
-  --current-shorts-reminder: "#{map-get($shorts-reminders, 'en')}";
+  --current-shorts-reminder: "#{map.get($shorts-reminders, 'en')}";
 }
 
 /* Loop through each language to create the selector */
 @each $lang, $text in $shorts-reminders {
-  html[lang^="#{$lang}"] {
-    --current-shorts-reminder: "#{$text}";
+  html[lang^='#{$lang}'] {
+    --current-shorts-reminder: '#{$text}';
   }
 }

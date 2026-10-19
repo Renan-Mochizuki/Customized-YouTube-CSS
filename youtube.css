@@ -3,6 +3,7 @@
 Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
 */
 :root {
+  /* CONFIGS */
   /* If you don't want a notification circle at the corner of your profile, change it to 0 */
   --shownotificationcircle: 1;
   /* If you don't want Shorts in video page to be hidden, change it to 1 */
@@ -15,23 +16,12 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   --showshadowtitle: 1;
   /* If you want to change the direction of the rainbow animation, change it to 'normal' or 'reverse' */
   --rainbowdirection: reverse;
+  /* ---------------------------------- */
   --colorloadingpageprogress: linear-gradient(to left, rgb(255, 196, 0), red 40%, rgb(41, 0, 123));
   --colorvolumeleft: linear-gradient(to right, rgb(50, 0, 151) 40%, rgb(142, 142, 255));
   --colorvolumeright: linear-gradient(to right, rgb(76, 12, 204), rgb(24, 0, 71) 40%);
   --colorthumbprogress: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
   --colorvideoprogress: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
-  --colorrainbow: linear-gradient(
-    rgba(248, 13, 27, 1) 0%,
-    rgba(255, 160, 0, 1) 11%,
-    rgba(255, 227, 2, 1) 22%,
-    rgba(0, 250, 34, 1) 33%,
-    rgba(0, 169, 238, 1) 44%,
-    rgba(159, 0, 255, 1) 55%,
-    rgba(0, 169, 238, 1) 66%,
-    rgba(0, 250, 34, 1) 77%,
-    rgba(255, 227, 2, 1) 88%,
-    rgba(248, 13, 27, 1) 100%
-  );
   --colorvideoprogresscursor: rgb(212, 6, 143);
   --shadowvideoprogresscursor: 0 0 8px 2px rgb(168, 125, 255);
   --shadowbuttons: rgba(245, 245, 245, 0.612);
@@ -40,17 +30,12 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   --shadowgeneral: whitesmoke;
   --circlechannelpicture: gold;
   --colornotification: #cc0000;
-  --speedrainbowanimation: 6s;
   --imgyoutubeicon: url('https://i.imgur.com/9n4AS59.png'); /* Unknown Artist */
   --imguser: url('https://cdn0.iconfinder.com/data/icons/cryptocurrency-137/128/1_profile_user_avatar_account_person-132-1024.png');
   --imgplaylisticon: url('https://cdn2.iconfinder.com/data/icons/css-vol-2/24/play-list-1024.png');
   --imgclockicon: url('https://cdn1.iconfinder.com/data/icons/material-core/21/history-1024.png');
   --imgshorts: url('https://upload.wikimedia.org/wikipedia/commons/f/fc/Youtube_shorts_icon.svg');
   --imgeye: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-eye-512.png');
-  --timeshortsclosing: 1s;
-  --timeshortsopening: 0.2s;
-  --timeheaderclosing: 1s;
-  --timeheaderopening: 0.2s;
 }
 
 /* Text for the Shorts reminder */
@@ -61,71 +46,51 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
 
 /* Loop through each language to create the selector */
 html[lang^=en] {
-  --current-shorts-reminder: "Hover to see Shorts";
+  --current-shorts-reminder: 'Hover to see Shorts';
 }
 
 html[lang^=pt] {
-  --current-shorts-reminder: "Passe para ver Shorts";
+  --current-shorts-reminder: 'Passe para ver Shorts';
 }
 
 html[lang^=es] {
-  --current-shorts-reminder: "Pasa el cursor para ver Shorts";
+  --current-shorts-reminder: 'Pasa el cursor para ver Shorts';
 }
 
 html[lang^=fr] {
-  --current-shorts-reminder: "Survolez pour voir les Shorts";
+  --current-shorts-reminder: 'Survolez pour voir les Shorts';
 }
 
 html[lang^=de] {
-  --current-shorts-reminder: "Bewegen Sie den Mauszeiger, um Shorts zu sehen";
+  --current-shorts-reminder: 'Bewegen Sie den Mauszeiger, um Shorts zu sehen';
 }
 
 html[lang^=it] {
-  --current-shorts-reminder: "Passa il cursore per vedere gli Shorts";
+  --current-shorts-reminder: 'Passa il cursore per vedere gli Shorts';
 }
 
 html[lang^=ja] {
-  --current-shorts-reminder: "カーソルを合わせるとショートが表示されます";
+  --current-shorts-reminder: 'カーソルを合わせるとショートが表示されます';
 }
 
 html[lang^=zh] {
-  --current-shorts-reminder: "将鼠标悬停以查看 Shorts";
+  --current-shorts-reminder: '将鼠标悬停以查看 Shorts';
 }
 
 html[lang^=ko] {
-  --current-shorts-reminder: "마우스를 올려 Shorts 보기";
+  --current-shorts-reminder: '마우스를 올려 Shorts 보기';
 }
 
 html[lang^=ru] {
-  --current-shorts-reminder: "Наведите курсор, чтобы посмотреть Shorts";
+  --current-shorts-reminder: 'Наведите курсор, чтобы посмотреть Shorts';
 }
 
 html[lang^=hi] {
-  --current-shorts-reminder: "Shorts देखने के लिए कर्सर रखें";
+  --current-shorts-reminder: 'Shorts देखने के लिए कर्सर रखें';
 }
 
 html[lang^=ar] {
-  --current-shorts-reminder: "مرّر المؤشر لرؤية Shorts";
-}
-
-@keyframes animationcolorrainbow {
-  0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: 0% 230%;
-  }
-}
-/* Rainbow/RGB on the side */
-ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
-  width: 3px;
-  height: 100%;
-  content: "";
-  position: fixed;
-  z-index: 10000;
-  background-image: var(--colorrainbow);
-  background-size: 3px 180%;
-  animation: animationcolorrainbow var(--speedrainbowanimation) infinite linear var(--rainbowdirection);
+  --current-shorts-reminder: 'مرّر المؤشر لرؤية Shorts';
 }
 
 /* HEADER */
@@ -504,10 +469,53 @@ ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewM
   top: 5px;
 }
 
+:root {
+  --colorrainbow: linear-gradient(
+    rgba(248, 13, 27, 1) 0%,
+    rgba(255, 160, 0, 1) 11%,
+    rgba(255, 227, 2, 1) 22%,
+    rgba(0, 250, 34, 1) 33%,
+    rgba(0, 169, 238, 1) 44%,
+    rgba(159, 0, 255, 1) 55%,
+    rgba(0, 169, 238, 1) 66%,
+    rgba(0, 250, 34, 1) 77%,
+    rgba(255, 227, 2, 1) 88%,
+    rgba(248, 13, 27, 1) 100%
+  );
+  --speedrainbowanimation: 6s;
+}
+
+@keyframes animationcolorrainbow {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 230%;
+  }
+}
+/* Rainbow/RGB on the side */
+ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
+  width: 3px;
+  height: 100%;
+  content: "";
+  position: fixed;
+  z-index: 10000;
+  background-image: var(--colorrainbow);
+  background-size: 3px 180%;
+  animation: animationcolorrainbow var(--speedrainbowanimation) infinite linear var(--rainbowdirection);
+}
+
+:root {
+  --timeshortsclosing: 1s;
+  --timeshortsopening: 0.2s;
+}
+
 /* HIDE SHORTS */
 /* Hide Shorts on the video page and show on hover */
-/* - Contents - */
-/* Hiding Shorts contents */
+#items ytd-reel-shelf-renderer {
+  /* - Contents - */
+  /* Hiding Shorts contents */
+}
 #items ytd-reel-shelf-renderer #contents {
   position: relative;
   display: block;
@@ -517,8 +525,9 @@ ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewM
   transition: max-height 0.6s ease, opacity 0.6s, z-index 0.6s, margin-bottom 0.5s;
   transition-delay: var(--timeshortsclosing);
 }
-
-/* Showing Shorts contents on hover */
+#items ytd-reel-shelf-renderer {
+  /* Showing Shorts contents on hover */
+}
 #items ytd-reel-shelf-renderer:hover #contents {
   max-height: 500px;
   opacity: 1;
@@ -526,26 +535,24 @@ ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewM
   margin-bottom: calc(10px - 10px * var(--keepshorts));
   transition-delay: var(--timeshortsopening);
 }
-
-/* - Header - */
-/* Restoring now disabled Shorts header */
+#items ytd-reel-shelf-renderer {
+  /* - Header - */
+  /* Restoring now disabled Shorts header */
+}
 #items ytd-reel-shelf-renderer #header {
   display: flex !important;
   margin-bottom: 20px !important;
 }
-
-/* Making sure reminder text has enough space */
+#items ytd-reel-shelf-renderer {
+  /* Making sure reminder text has enough space */
+}
 #items ytd-reel-shelf-renderer #title-container {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-
 #items ytd-reel-shelf-renderer #title-container::after {
   content: var(--current-shorts-reminder);
-}
-
-#items ytd-reel-shelf-renderer #title-container::after {
   font-size: 12px;
   height: calc(14px - 14px * var(--keepshorts));
   filter: opacity(calc(100% + -100% * var(--keepshorts)));
@@ -553,12 +560,18 @@ ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewM
   transition-property: filter, height;
   transition-delay: var(--timeshortsclosing);
 }
-
-/* Hiding Shorts reminder text when hovering */
+#items ytd-reel-shelf-renderer {
+  /* Hiding Shorts reminder text when hovering */
+}
 #items ytd-reel-shelf-renderer:hover #title-container::after {
   filter: opacity(0%);
   transition-delay: var(--timeshortsopening);
   height: 0px;
+}
+
+:root {
+  --timeheaderclosing: 1s;
+  --timeheaderopening: 0.2s;
 }
 
 /* HIDE HEADER */

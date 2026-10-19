@@ -4,12 +4,12 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
 
 @use 'abstracts/variables.scss';
 @use 'abstracts/languages.scss';
-@use 'components/rainbowbar.scss';
 @use 'components/header.scss';
 @use 'components/player.scss';
 @use 'pages/home.scss';
 @use 'pages/videopage.scss';
 @use 'pages/playlist.scss';
 @use 'pages/library.scss';
+@use 'features/rainbowbar.scss';
 @use 'features/hideshorts.scss';
 @use 'features/hideheader.scss';
