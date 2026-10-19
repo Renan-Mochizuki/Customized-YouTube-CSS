@@ -26,7 +26,7 @@ ytd-browse:not([page-subtype='home'], [page-subtype='subscriptions']) .ytLockupV
 
     /* Name of channel */
     /* User icon */
-    &:first-child > span:first-child a::before {
+    &:first-child > span:first-child:not(.ytContentMetadataViewModelMetadataTextLastPart) a::before {
       background-image: var(--imguser);
       filter: invert(1);
       background-size: 11px 12px;

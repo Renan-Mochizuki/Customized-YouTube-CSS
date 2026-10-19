@@ -348,7 +348,7 @@ ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewM
   /* Name of channel */
   /* User icon */
 }
-ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:first-child > span:first-child a::before {
+ytd-browse:not([page-subtype=home], [page-subtype=subscriptions]) .ytLockupViewModelMetadata .ytContentMetadataViewModelMetadataRow:first-child > span:first-child:not(.ytContentMetadataViewModelMetadataTextLastPart) a::before {
   background-image: var(--imguser);
   filter: invert(1);
   background-size: 11px 12px;
