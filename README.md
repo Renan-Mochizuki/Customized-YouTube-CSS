@@ -1,27 +1,25 @@
 # CSS customizado para o YouTube
 
-Esse é um arquivo CSS que criei para customizar o YouTube e fazer algumas alterações em seu layout para uso pessoal.
-
-Obs.: O ícone customizado do YouTube não foi feito por mim.
+Esse é um código CSS que criei para customizar o YouTube e fazer algumas alterações em seu layout para uso pessoal e melhor usabilidade do site.
 
 ## Modificações
 
 - **Barra lateral arco-íris animada (RGB)**
 
 <div align="center">
-    <img width="150" src="./prints/barralateral.gif" alt="Barra Lateral"> 
+    <img width="150" src="./img/prints/barralateral.gif" alt="Barra Lateral"> 
 </div>
 
 - **Header**
 
 <div align="center">
-    <img width="720" src="./prints/header.gif" alt="Header">
+    <img width="720" src="./img/prints/header.gif" alt="Header">
 </div>
 
 - **Mudanças gerais de cor**
 
 <div align="center">
-    <img width="720" src="./prints/paginavideo.png" alt="Tela vídeo">
+    <img width="720" src="./img/paginavideo.png" alt="Tela vídeo">
 </div>
 
 - **Ocultamento dos Shorts da tela de vídeo**
@@ -29,7 +27,7 @@ Obs.: O ícone customizado do YouTube não foi feito por mim.
 Para ver os Shorts passe o cursor por cima.
 
 <div align="center">
-    <img width="720" src="./prints/ocultamentoshorts.gif" alt="Ocultamento dos Shorts">
+    <img width="720" src="./img/ocultamentoshorts.gif" alt="Ocultamento dos Shorts">
 </div>
 
 - **Ocultamento da header quando a tela estiver pequena**
@@ -38,7 +36,7 @@ Para acessar, na página de vídeo, passe o cursor na parte superior da página.
 Em outras páginas como Home e Shorts, passe o cursor por cima do ícone de olho.
 
 <div align="center">
-    <img width="720" src="./prints/ocultamentoheader.gif" alt="Ocultamento dos Header">
+    <img width="720" src="./img/ocultamentoheader.gif" alt="Ocultamento dos Header">
 </div>
 
 **Caso não queira ocultar**
@@ -59,30 +57,38 @@ Se não quiser que os Shorts ou a header seja ocultada, basta modificar as vári
 
 - Caixa de descrição transparente.
 
-## Como usar
+# Como usar
 
-Para utilizar a customização é necessário uma extensão que permita utilizar um código CSS, como por exemplo:
+Para utilizar a customização é necessário uma extensão que permita inserir um código CSS no navegador, como por exemplo:
 
-- [User CSS](https://chromewebstore.google.com/detail/user-css/okpjlejfhacmgjkmknjhadmkdbcldfcb)
+#### [Stylus](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
 
-Abra a [extensão](https://chromewebstore.google.com/detail/user-css/okpjlejfhacmgjkmknjhadmkdbcldfcb) e uma tela lateral aparecerá, nela, copie e cole o texto do código CSS.
-
-Você pode ligar e desligar a customização clicando no botão **ON/OFF** da tela lateral.
-
-Obs.: Talvez seja necessário reiniciar o navegador.
+Baixe e abra a extensão na página home do YouTube e uma janela flutuante aparecerá, clique no botão de `+` para escrever um novo estilo para o YouTube.
 
 <div align="center">
-    <img width="720" src="./prints/printusercss.png" alt="Print User CSS">
+    <img width="360" src="./img/prints/stylusadd.png" alt="Print adicionar novo estilo">
 </div>
 
-- [User JavaScript and CSS](https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld)
-
-Abra a [extensão](https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld) na página do youtube e será aberta uma tela flutuante. Clique na opção **https://www.youtube.com/** e será aberta uma nova página.
-Na nova página aberta, haverá uma seção na esquerda para código JS e outra na direita para CSS, insira o texto do código CSS na parte direita.
-Clique no botão 'Save' para salvar as alterações.
-
-Você pode ligar e desligar a customização clicando no radio button da tela flutuante.
+Uma aba será aberta, então copie e cole todo o código do arquivo [`youtube.css`](./youtube.css) nessa aba e clique no botão amarelo `Salvar`.
 
 <div align="center">
-    <img width="720" src="./prints/printuserjscss.png" alt="Print User Javascript and CSS">
+    <img width="720" src="./img/prints/styluscodigo.png" alt="Print aba Stylus">
 </div>
+
+Você pode ligar e desligar a customização clicando no botão com a logo da extensão da janela flutuante.
+
+<!-- #### [User JavaScript and CSS](https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld)
+
+Baixe e abra a extensão na página home do YouTube e uma janela flutuante aparecerá, clique no botão `New rule` para escrever um novo estilo para o YouTube.
+
+<div align="center">
+    <img width="360" src="./img/prints/usercssjsadd.png" alt="Print adicionar novo estilo">
+</div>
+
+Uma aba será aberta, então copie e cole todo o código do arquivo [`youtube.css`](./youtube.css) nessa aba, no lado direito, e clique no botão amarelo `Save`.
+
+<div align="center">
+    <img width="720" src="./img/prints/usercssjscodigo.png" alt="Print aba Stylus">
+</div>
+
+Você pode ligar e desligar a customização clicando no botão alternar na janela flutuante. -->

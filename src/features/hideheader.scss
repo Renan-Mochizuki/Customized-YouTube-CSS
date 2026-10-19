@@ -160,40 +160,40 @@
       left: -50px;
       transition: opacity 0.3s ease var(--timeheaderopening);
     }
-  }
 
-  /* - Channel Page - */
-  /* Moving page higher */
-  ytd-browse[page-subtype='channels'] tp-yt-app-header#header {
-    margin-top: calc(var(--ytd-toolbar-height) * var(--keepheader)) !important;
-    transition: margin-top 0.3s ease var(--timeheaderclosing) !important;
-  }
+    /* - Channel Page - */
+    /* Moving page higher */
+    ytd-browse[page-subtype='channels'] tp-yt-app-header#header {
+      margin-top: calc(var(--ytd-toolbar-height) * var(--keepheader)) !important;
+      transition: margin-top 0.3s ease var(--timeheaderclosing) !important;
+    }
 
-  /* Moving page back */
-  @include has-blocked-header('ytd-browse[page-subtype="channels"] tp-yt-app-header#header') {
-    margin-top: var(--ytd-toolbar-height) !important;
-    transition: margin-top 0.3s ease var(--timeheaderopening) !important;
-  }
+    /* Moving page back */
+    @include has-blocked-header('ytd-browse[page-subtype="channels"] tp-yt-app-header#header') {
+      margin-top: var(--ytd-toolbar-height) !important;
+      transition: margin-top 0.3s ease var(--timeheaderopening) !important;
+    }
 
-  /* - Home - */
-  /* Frosted-glass (header background) */
-  /* Hiding header container */
-  #frosted-glass {
-    max-height: var(--ytd-toolbar-height) !important;
-    margin-top: calc(-1 * var(--ytd-toolbar-height) * (1 - var(--keepheader)) * (1 - var(--hideheadermethod))) !important;
-    transition:
-      margin-top 0.3s ease var(--timeheaderclosing),
-      opacity 0.3s ease var(--timeheaderclosing) !important;
-    /* Other method */
-    opacity: calc(1 - (1 - var(--keepheader)) * var(--hideheadermethod)) !important;
-  }
-  /* Showing header container */
-  @include has-blocked-header('#frosted-glass') {
-    margin-top: 0px !important;
-    transition:
-      margin-top 0.3s ease var(--timeheaderopening),
-      opacity 0.3s ease var(--timeheaderopening) !important;
-    opacity: 1 !important;
+    /* - Home - */
+    /* Frosted-glass (header background) */
+    /* Hiding header container */
+    #frosted-glass {
+      max-height: var(--ytd-toolbar-height) !important;
+      margin-top: calc(-1 * var(--ytd-toolbar-height) * (1 - var(--keepheader)) * (1 - var(--hideheadermethod))) !important;
+      transition:
+        margin-top 0.3s ease var(--timeheaderclosing),
+        opacity 0.3s ease var(--timeheaderclosing) !important;
+      /* Other method */
+      opacity: calc(1 - (1 - var(--keepheader)) * var(--hideheadermethod)) !important;
+    }
+    /* Showing header container */
+    @include has-blocked-header('#frosted-glass') {
+      margin-top: 0px !important;
+      transition:
+        margin-top 0.3s ease var(--timeheaderopening),
+        opacity 0.3s ease var(--timeheaderopening) !important;
+      opacity: 1 !important;
+    }
   }
 
   /* - Extras - */

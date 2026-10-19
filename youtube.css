@@ -683,37 +683,37 @@ ytd-app:not(:has(ytd-watch-flexy[fullscreen])):before {
     left: -50px;
     transition: opacity 0.3s ease var(--timeheaderopening);
   }
-  /* - Channel Page - */
-  /* Moving page higher */
-  ytd-browse[page-subtype=channels] tp-yt-app-header#header {
+  ytd-app > #content {
+    /* - Channel Page - */
+    /* Moving page higher */
+  }
+  ytd-app > #content ytd-browse[page-subtype=channels] tp-yt-app-header#header {
     margin-top: calc(var(--ytd-toolbar-height) * var(--keepheader)) !important;
     transition: margin-top 0.3s ease var(--timeheaderclosing) !important;
   }
-  /* Moving page back */
-  &:has(#masthead-container:hover) ytd-browse[page-subtype=channels] tp-yt-app-header#header,
-  &:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) ytd-browse[page-subtype=channels] tp-yt-app-header#header,
-  &:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) ytd-browse[page-subtype=channels] tp-yt-app-header#header,
-  &:has(#masthead-container ~ tp-yt-app-drawer[opened]) ytd-browse[page-subtype=channels] tp-yt-app-header#header,
-  &:has(ytd-mini-guide-renderer:hover) ytd-browse[page-subtype=channels] tp-yt-app-header#header {
+  ytd-app > #content {
+    /* Moving page back */
+  }
+  ytd-app > #content:has(#masthead-container:hover) ytd-browse[page-subtype=channels] tp-yt-app-header#header, ytd-app > #content:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) ytd-browse[page-subtype=channels] tp-yt-app-header#header, ytd-app > #content:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) ytd-browse[page-subtype=channels] tp-yt-app-header#header, ytd-app > #content:has(#masthead-container ~ tp-yt-app-drawer[opened]) ytd-browse[page-subtype=channels] tp-yt-app-header#header, ytd-app > #content:has(ytd-mini-guide-renderer:hover) ytd-browse[page-subtype=channels] tp-yt-app-header#header {
     margin-top: var(--ytd-toolbar-height) !important;
     transition: margin-top 0.3s ease var(--timeheaderopening) !important;
   }
-  /* - Home - */
-  /* Frosted-glass (header background) */
-  /* Hiding header container */
-  #frosted-glass {
+  ytd-app > #content {
+    /* - Home - */
+    /* Frosted-glass (header background) */
+    /* Hiding header container */
+  }
+  ytd-app > #content #frosted-glass {
     max-height: var(--ytd-toolbar-height) !important;
     margin-top: calc(-1 * var(--ytd-toolbar-height) * (1 - var(--keepheader)) * (1 - var(--hideheadermethod))) !important;
     transition: margin-top 0.3s ease var(--timeheaderclosing), opacity 0.3s ease var(--timeheaderclosing) !important;
     /* Other method */
     opacity: calc(1 - (1 - var(--keepheader)) * var(--hideheadermethod)) !important;
   }
-  /* Showing header container */
-  &:has(#masthead-container:hover) #frosted-glass,
-  &:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) #frosted-glass,
-  &:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) #frosted-glass,
-  &:has(#masthead-container ~ tp-yt-app-drawer[opened]) #frosted-glass,
-  &:has(ytd-mini-guide-renderer:hover) #frosted-glass {
+  ytd-app > #content {
+    /* Showing header container */
+  }
+  ytd-app > #content:has(#masthead-container:hover) #frosted-glass, ytd-app > #content:has(#masthead-container yt-searchbox.ytSearchboxComponentHostIsFocused) #frosted-glass, ytd-app > #content:has(#masthead-container .ytSearchboxComponentInput.yt-searchbox-input:not(:placeholder-shown)) #frosted-glass, ytd-app > #content:has(#masthead-container ~ tp-yt-app-drawer[opened]) #frosted-glass, ytd-app > #content:has(ytd-mini-guide-renderer:hover) #frosted-glass {
     margin-top: 0px !important;
     transition: margin-top 0.3s ease var(--timeheaderopening), opacity 0.3s ease var(--timeheaderopening) !important;
     opacity: 1 !important;
