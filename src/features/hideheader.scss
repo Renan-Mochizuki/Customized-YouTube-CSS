@@ -7,7 +7,7 @@
 /* Hide header when the screen height is small, header won't be hidden on Shorts Page */
 /* Hover on header to reveal it */
 /* Header will stay still when sidebar is open or when searchbox has hover, focus or any text written */
-@media screen and (max-height: 37.5em) {
+@media (max-height: 37.5em) {
   /* - Mixins - */
 
   /* Header will be blocked when is hovered, search bar is focused, search bar has text or the side drawer is opened */
@@ -184,7 +184,7 @@
 
   ytd-app > #content {
     /* Showing header container */
-    @include blocked-header('#frosted-glass') {
+    @include has-blocked-header('#frosted-glass') {
       margin-top: 0px !important;
       transition:
         margin-top 0.3s ease var(--timeheaderopening),
@@ -203,7 +203,8 @@
     display: none !important;
   }
   /* Removing chip (sort playlist) from Playlist Page */
-  ytd-item-section-renderer[exp-fix-playlist-header] chip-bar-view-model {
+  ytd-item-section-renderer #header,
+  yt-item-section-renderer #header {
     display: none !important;
   }
 }
