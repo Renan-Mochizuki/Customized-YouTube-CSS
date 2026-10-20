@@ -4,8 +4,6 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
 */
 :root {
   /* CONFIGS */
-  /* If you don't want a notification circle at the corner of your profile, change it to 0 */
-  --shownotificationcircle: 1;
   /* If you don't want Shorts in video page to be hidden, change it to 1 */
   --keepshorts: 0;
   /* If you don't want the youtube header to be hidden, change it to 1 */
@@ -14,6 +12,8 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   --hideheadermethod: 0;
   /* If you don't want shadow effect on titles, change it to 0 */
   --showshadowtitle: 1;
+  /* If you don't want a notification circle at the corner of your profile, change it to 0 */
+  --shownotificationcircle: 1;
   /* If you want to change the direction of the rainbow animation, change it to 'normal' or 'reverse' */
   --rainbowdirection: reverse;
   /* ---------------------------------- */
@@ -21,7 +21,7 @@ Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
   --colorvolumeleft: linear-gradient(to right, rgb(50, 0, 151) 40%, rgb(142, 142, 255));
   --colorvolumeright: linear-gradient(to right, rgb(76, 12, 204), rgb(24, 0, 71) 40%);
   --colorthumbprogress: linear-gradient(to right, rgb(86, 0, 30), red 45%, rgb(212, 6, 143));
-  --colorvideoprogress: linear-gradient(to right, rgb(86, 0, 30), red 55%, rgb(212, 6, 143));
+  --colorvideoprogress: linear-gradient(to right, rgb(86, 0, 30), red 45%, rgb(212, 6, 143));
   --colorvideoprogresscursor: rgb(212, 6, 143);
   --shadowvideoprogresscursor: 0 0 8px 2px rgb(168, 125, 255);
   --shadowbuttons: rgba(245, 245, 245, 0.612);

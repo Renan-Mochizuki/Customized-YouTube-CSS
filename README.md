@@ -4,64 +4,94 @@ Esse é um código CSS que criei para customizar o YouTube e fazer algumas alter
 
 ## Modificações
 
-- **Barra lateral arco-íris animada (RGB)**
+### Barra lateral arco-íris animada (RGB)
 
 <div align="center">
     <img width="150" src="./img/prints/barralateral.gif" alt="Barra Lateral"> 
 </div>
 
-- **Header**
+### Header
 
 <div align="center">
     <img width="720" src="./img/prints/header.gif" alt="Header">
 </div>
 
-- **Mudanças gerais de cor**
+### Ocultamento dos Shorts na página de vídeo
 
 <div align="center">
-    <img width="720" src="./img/paginavideo.png" alt="Tela vídeo">
+    <img width="720" src="./img/prints/hideshorts.gif" alt="Ocultamento dos Shorts">
 </div>
 
-- **Ocultamento dos Shorts da tela de vídeo**
+Para revelar os Shorts, passe o cursor.
 
-Para ver os Shorts passe o cursor por cima.
+### Ocultamento da header quando a tela estiver pequena
 
 <div align="center">
-    <img width="720" src="./img/ocultamentoshorts.gif" alt="Ocultamento dos Shorts">
+    <strong>Página de vídeo</strong>
+    <img width="720" src="./img/prints/hideheadervideo.gif" alt="Ocultamento da header na página de vídeo">
 </div>
-
-- **Ocultamento da header quando a tela estiver pequena**
-
-Para acessar, na página de vídeo, passe o cursor na parte superior da página.
-Em outras páginas como Home e Shorts, passe o cursor por cima do ícone de olho.
 
 <div align="center">
-    <img width="720" src="./img/ocultamentoheader.gif" alt="Ocultamento dos Header">
+    <strong>Home</strong>
+    <img width="720" src="./img/prints/hideheaderhome.gif" alt="Ocultamento da header na home">
 </div>
 
-**Caso não queira ocultar**
+<div align="center">
+  <strong>Melhor usabilidade em janelas divididas</strong>
+</div>
 
-Se não quiser que os Shorts ou a header seja ocultada, basta modificar as váriaveis `--neverhideshorts` e `--neverhideheader` para o valor `1` no código CSS em `:root`.
+<table>
+  <tr>
+    <td align="center">
+      Antes<br>
+      <img width="400" src="./img/prints/hideheaderantes.png" alt="Antes de aplicar o CSS">
+    </td>
+    <td align="center">
+      Depois<br>
+      <img width="400" src="./img/prints/hideheaderdepois.png" alt="Depois de aplicar o CSS">
+    </td>
+  </tr>
+</table>
 
-**Outras mudanças mínimas**
+Para revelar a header, na página de vídeo, passe o cursor na parte superior da página. Em outras páginas como Home, Inscrições e Shorts, passe o cursor por cima do ícone de olho.
+
+### Outras mudanças
 
 - Adição de ícones nos detalhes da playlist na tela de playlist;
 
-- Adição de brilho nos botões like/dislike e título do vídeo;
+- Mudança da cor da barra de carregamento da página e da barra de progresso;
+
+- Mudança da cor da barra de volume do vídeo;
+
+- Adição de brilho nos botões like/dislike e título na página de vídeo;
 
 - Adição de borda enevoada em alguns botões;
 
 - Remoção dos chips/temas da Home (Para acessar minimize a barra lateral);
 
-- Remoção dos chips/temas da página de vídeo (Para acessar abra/expanda a descrição do vídeo)
+- Remoção dos chips/temas da página de vídeo (Para acessar abra a descrição do vídeo);
 
-- Caixa de descrição transparente.
+- Remoção da cor de fundo da caixa de descrição.
+
+### Caso não queira ocultar
+
+Se não quiser que os Shorts ou a header seja ocultada, ao colar o código CSS, modifique as váriaveis `--keepshorts` ou `--keepheader` para o valor `1` no topo do código.
+
+### Outras configurações
+
+Caso prefira o método de passar o cursor na parte superior da tela para revelar a header, modifique `--hideheadermethod` para `1`. 
+`--showshadowtitle: 0` para remover brilho dos títulos.
+`--shownotificationcircle: 0` para não exibir o círculo de notificação no canto da foto de perfil.
+`--rainbowdirection: normal` para inverter a direção da barra RGB.
+`--imgyoutubeicon: url('LINKPARAIMAGEM')` para alterar a logo do YouTube.
+Também é possível alterar cores ou outras imagens pelas variáveis.
+
 
 # Como usar
 
 Para utilizar a customização é necessário uma extensão que permita inserir um código CSS no navegador, como por exemplo:
 
-#### [Stylus](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
+### [Stylus](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
 
 Baixe e abra a extensão na página home do YouTube e uma janela flutuante aparecerá, clique no botão de `+` para escrever um novo estilo para o YouTube.
 
@@ -75,7 +105,7 @@ Uma aba será aberta, então copie e cole todo o código do arquivo [`youtube.cs
     <img width="720" src="./img/prints/styluscodigo.png" alt="Print aba Stylus">
 </div>
 
-Você pode ligar e desligar a customização clicando no botão com a logo da extensão da janela flutuante.
+Você pode ligar e desligar a customização clicando no botão com a logo da extensão na janela flutuante.
 
 <!-- #### [User JavaScript and CSS](https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld)
 
