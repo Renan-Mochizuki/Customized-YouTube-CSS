@@ -21,23 +21,23 @@ Esse é um código CSS que criei para customizar o YouTube e fazer algumas alter
 <div align="center">
     <img width="720" src="./img/prints/hideshorts.gif" alt="Ocultamento dos Shorts">
 </div>
-
+<br>
 Para revelar os Shorts, passe o cursor.
 
 ### Ocultamento da header quando a tela estiver pequena
 
 <div align="center">
-    <strong>Página de vídeo</strong>
+    <strong>Página de vídeo</strong><br>
     <img width="720" src="./img/prints/hideheadervideo.gif" alt="Ocultamento da header na página de vídeo">
 </div>
-
+<br>
 <div align="center">
-    <strong>Home</strong>
+    <strong>Home</strong><br>
     <img width="720" src="./img/prints/hideheaderhome.gif" alt="Ocultamento da header na home">
 </div>
-
+<br>
 <div align="center">
-  <strong>Melhor usabilidade em janelas divididas</strong>
+  <strong>Melhor aproveitamento da tela em janelas divididas</strong>
 </div>
 
 <table>
@@ -79,13 +79,17 @@ Se não quiser que os Shorts ou a header seja ocultada, ao colar o código CSS, 
 
 ### Outras configurações
 
-Caso prefira o método de passar o cursor na parte superior da tela para revelar a header, modifique `--hideheadermethod` para `1`. 
-`--showshadowtitle: 0` para remover brilho dos títulos.
-`--shownotificationcircle: 0` para não exibir o círculo de notificação no canto da foto de perfil.
-`--rainbowdirection: normal` para inverter a direção da barra RGB.
-`--imgyoutubeicon: url('LINKPARAIMAGEM')` para alterar a logo do YouTube.
-Também é possível alterar cores ou outras imagens pelas variáveis.
+Caso prefira o método de passar o cursor na parte superior da tela para revelar a header, modifique `--hideheadermethod` para `1`.
 
+`--showshadowtitle: 0` para remover brilho dos títulos.
+
+`--shownotificationcircle: 0` para não exibir o círculo de notificação no canto da foto de perfil.
+
+`--rainbowdirection: normal` para inverter a direção da barra RGB.
+
+`--imgyoutubeicon: url('LINKPARAIMAGEM')` para alterar a logo do YouTube.
+
+Também é possível alterar cores ou outras imagens pelas variáveis.
 
 # Como usar
 
