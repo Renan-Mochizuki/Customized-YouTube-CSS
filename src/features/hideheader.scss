@@ -7,7 +7,7 @@
 /* Hide header when the screen height is small, header won't be hidden on Shorts Page */
 /* Hover on header to reveal it */
 /* Header will stay still when sidebar is open or when searchbox has hover, focus or any text written */
-@media (max-height: 37.5em) {
+@media (max-height: 37.5rem) {
   /* - Mixins - */
 
   /* Selectors to block the header */
@@ -209,5 +209,10 @@
   ytd-item-section-renderer #header,
   yt-item-section-renderer #header {
     display: none !important;
+  }
+  /* Maximizing video player height */
+  ytd-watch-flexy:not(:has(#columns ytd-player video)) #full-bleed-container {
+    height: 100dvh !important;
+    max-height: 37.5rem !important;
   }
 }
