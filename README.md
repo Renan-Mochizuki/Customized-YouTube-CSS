@@ -57,6 +57,8 @@ Para revelar os Shorts, passe o cursor.
 
 Para revelar a header, na página de vídeo, passe o cursor na parte superior da página. Em outras páginas como Home, Inscrições e Shorts, passe o cursor por cima do ícone de olho.
 
+Obs.: A header permanece visível enquanto houver texto na barra de pesquisa. Remova o texto da barra de pesquisa para que a header possa ser ocultado.
+
 ### Outras mudanças
 
 - Adição de ícones nos detalhes da playlist na tela de playlist;
