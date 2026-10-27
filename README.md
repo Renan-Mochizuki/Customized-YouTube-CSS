@@ -2,6 +2,8 @@
 
 Esse é um código CSS que criei para customizar o YouTube e fazer algumas alterações em seu layout para uso pessoal e melhor usabilidade do site.
 
+**Código:** [`youtube.css`](./youtube.css)
+
 ## Modificações
 
 ### Barra lateral arco-íris animada (RGB)
