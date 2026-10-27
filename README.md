@@ -57,7 +57,7 @@ Para revelar os Shorts, passe o cursor.
 
 Para revelar a header, na página de vídeo, passe o cursor na parte superior da página. Em outras páginas como Home, Inscrições e Shorts, passe o cursor por cima do ícone de olho.
 
-Obs.: A header permanece visível enquanto houver texto na barra de pesquisa. Remova o texto da barra de pesquisa para que a header possa ser ocultado.
+Obs.: A header permanece visível enquanto houver texto na barra de pesquisa. Remova o texto da barra de pesquisa para que a header possa ser ocultada.
 
 ### Outras mudanças
 
@@ -113,7 +113,7 @@ Uma aba será aberta, então copie e cole todo o código do arquivo [`youtube.cs
     <img width="720" src="./img/prints/styluscodigo.png" alt="Print aba Stylus">
 </div>
 
-Você pode ligar e desligar a customização clicando no botão com a logo da extensão na janela flutuante.
+Você pode ligar e desligar a customização clicando no botão radio button com a logo da extensão na janela flutuante.
 
 <!-- #### [User JavaScript and CSS](https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld)
 
