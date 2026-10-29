@@ -59,24 +59,6 @@ Para revelar a header, na página de vídeo, passe o cursor na parte superior da
 
 Obs.: A header permanece visível enquanto houver texto na barra de pesquisa. Remova o texto da barra de pesquisa para que a header possa ser ocultada.
 
-### Outras mudanças
-
-- Adição de ícones nos detalhes da playlist na tela de playlist;
-
-- Mudança da cor da barra de carregamento da página e da barra de progresso;
-
-- Mudança da cor da barra de volume do vídeo;
-
-- Adição de brilho nos botões like/dislike e título na página de vídeo;
-
-- Adição de borda enevoada em alguns botões;
-
-- Remoção dos chips/temas da Home (Para acessar minimize a barra lateral);
-
-- Remoção dos chips/temas da página de vídeo (Para acessar abra a descrição do vídeo);
-
-- Remoção da cor de fundo da caixa de descrição.
-
 ### Caso não queira ocultar
 
 Se não quiser que os Shorts ou a header seja ocultada, ao colar o código CSS, modifique as váriaveis `--keepshorts` ou `--keepheader` para o valor `1` no topo do código.
@@ -94,6 +76,24 @@ Caso prefira o método de passar o cursor na parte superior da tela para revelar
 `--imgyoutubeicon: url('LINKPARAIMAGEM')` para alterar a logo do YouTube.
 
 Também é possível alterar cores ou outras imagens pelas variáveis.
+
+## Outras mudanças
+
+- Adição de ícones nos detalhes da playlist na tela de playlist;
+
+- Mudança da cor da barra de carregamento da página e da barra de progresso;
+
+- Mudança da cor da barra de volume do vídeo;
+
+- Adição de brilho nos botões like/dislike e título na página de vídeo;
+
+- Adição de borda enevoada em alguns botões;
+
+- Remoção dos chips/temas da Home (Para acessar minimize a barra lateral);
+
+- Remoção dos chips/temas da página de vídeo (Para acessar abra a descrição do vídeo);
+
+- Remoção da cor de fundo da caixa de descrição.
 
 # Como usar
 
@@ -130,3 +130,9 @@ Uma aba será aberta, então copie e cole todo o código do arquivo [`youtube.cs
 </div>
 
 Você pode ligar e desligar a customização clicando no botão alternar na janela flutuante. -->
+
+# Personalização
+
+Além da possibilidade de alterar as variáveis predefinidas como especificado em **Outras configurações**, é possível criar um novo arquivo CSS escolhendo apenas as funcionalidades desejadas.
+
+Importe o projeto, instale as dependências (rodando `npm i`), e abra a pasta `standalone` e importe quais funcionalidades quiser no arquivo `personalized.scss`. Então rode `npm run build-own` e utilize o arquivo criado `personalized.css`.
