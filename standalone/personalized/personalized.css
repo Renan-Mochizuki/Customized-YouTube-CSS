@@ -1,0 +1,98 @@
+@charset "UTF-8";
+/*  
+Author/GitHub: https://github.com/Renan-Mochizuki/Customized-YouTube-CSS
+*/
+:root {
+  /* CONFIGS */
+  /* If you don't want Shorts in video page to be hidden, change it to 1 */
+  --keepshorts: 0;
+  /* If you don't want the youtube header to be hidden, change it to 1 */
+  --keepheader: 0;
+  /* If you want to toggle the hide header method, 0 for hover eye method and 1 for screen top hover method */
+  --hideheadermethod: 0;
+  /* If you don't want shadow effect on titles, change it to 0 */
+  --showshadowtitle: 1;
+  /* If you don't want a notification circle at the corner of your profile, change it to 0 */
+  --shownotificationcircle: 1;
+  /* If you want to change the direction of the rainbow animation, change it to 'normal' or 'reverse' */
+  --rainbowdirection: reverse;
+  /* ---------------------------------- */
+  --colorloadingpageprogress: linear-gradient(to left, rgb(255, 196, 0), red 40%, rgb(41, 0, 123));
+  --colorvolumeleft: linear-gradient(to right, rgb(50, 0, 151) 40%, rgb(142, 142, 255));
+  --colorvolumeright: linear-gradient(to right, rgb(76, 12, 204), rgb(24, 0, 71) 40%);
+  --colorthumbprogress: linear-gradient(to right, rgb(86, 0, 30), red 45%, rgb(212, 6, 143));
+  --colorvideoprogress: linear-gradient(to right, rgb(86, 0, 30), red 45%, rgb(212, 6, 143));
+  --colorvideoprogresscursor: rgb(212, 6, 143);
+  --shadowvideoprogresscursor: 0 0 8px 2px rgb(168, 125, 255);
+  --shadowbuttons: rgba(245, 245, 245, 0.612);
+  --shadowhovertoseeshorts: rgba(160, 160, 160, 0.5);
+  --shadowtitles: violet;
+  --shadowgeneral: whitesmoke;
+  --circlechannelpicture: gold;
+  --colornotification: #cc0000;
+  --imgyoutubeicon: url('https://i.imgur.com/9n4AS59.png'); /* Unknown Artist */
+  --imguser: url('https://cdn0.iconfinder.com/data/icons/cryptocurrency-137/128/1_profile_user_avatar_account_person-132-1024.png');
+  --imgplaylisticon: url('https://cdn2.iconfinder.com/data/icons/css-vol-2/24/play-list-1024.png');
+  --imgclockicon: url('https://cdn1.iconfinder.com/data/icons/material-core/21/history-1024.png');
+  --imgshorts: url('https://upload.wikimedia.org/wikipedia/commons/f/fc/Youtube_shorts_icon.svg');
+  --imgeye: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-eye-512.png');
+}
+
+/* Text for the Shorts reminder */
+:root {
+  /* Default value */
+  --current-shorts-reminder: "Hover to see Shorts";
+}
+
+/* Loop through each language to create the selector */
+html[lang^=en] {
+  --current-shorts-reminder: 'Hover to see Shorts';
+}
+
+html[lang^=pt] {
+  --current-shorts-reminder: 'Passe para ver Shorts';
+}
+
+html[lang^=es] {
+  --current-shorts-reminder: 'Pasa el cursor para ver Shorts';
+}
+
+html[lang^=fr] {
+  --current-shorts-reminder: 'Survolez pour voir les Shorts';
+}
+
+html[lang^=de] {
+  --current-shorts-reminder: 'Bewegen Sie den Mauszeiger, um Shorts zu sehen';
+}
+
+html[lang^=it] {
+  --current-shorts-reminder: 'Passa il cursore per vedere gli Shorts';
+}
+
+html[lang^=ja] {
+  --current-shorts-reminder: 'カーソルを合わせるとショートが表示されます';
+}
+
+html[lang^=zh] {
+  --current-shorts-reminder: '将鼠标悬停以查看 Shorts';
+}
+
+html[lang^=ko] {
+  --current-shorts-reminder: '마우스를 올려 Shorts 보기';
+}
+
+html[lang^=ru] {
+  --current-shorts-reminder: 'Наведите курсор, чтобы посмотреть Shorts';
+}
+
+html[lang^=hi] {
+  --current-shorts-reminder: 'Shorts देखने के लिए कर्सर रखें';
+}
+
+html[lang^=ar] {
+  --current-shorts-reminder: 'مرّر المؤشر لرؤية Shorts';
+}
+
+/* @use '../../src/' */
+
+/*# sourceMappingURL=personalized.css.map */
