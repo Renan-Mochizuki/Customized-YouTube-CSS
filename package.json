@@ -2,8 +2,8 @@
   "scripts": {
     "build": "sass src/main.scss youtube.css",
     "watch": "sass --watch src/main.scss youtube.css",
-    "build-standalone": "sass standalone/hideshorts/hideshorts.scss:standalone/hideshorts/hideshorts.css standalone/hideheader/hideheader.scss:standalone/hideheader/hideheader.css standalone/rainbowbar/rainbowbar.scss:standalone/rainbowbar/rainbowbar.css",
-    "watch-standalone": "sass --watch standalone/hideshorts/hideshorts.scss:standalone/hideshorts/hideshorts.css standalone/hideheader/hideheader.scss:standalone/hideheader/hideheader.css standalone/rainbowbar/rainbowbar.scss:standalone/rainbowbar/rainbowbar.css"
+    "build-standalone": "sass standalone/customheader/customheader.scss:standalone/customheader/customheader.css standalone/hideshorts/hideshorts.scss:standalone/hideshorts/hideshorts.css standalone/hideheader/hideheader.scss:standalone/hideheader/hideheader.css standalone/rainbowbar/rainbowbar.scss:standalone/rainbowbar/rainbowbar.css",
+    "watch-standalone": "sass --watch standalone/customheader/customheader.scss:standalone/customheader/customheader.css standalone/hideshorts/hideshorts.scss:standalone/hideshorts/hideshorts.css standalone/hideheader/hideheader.scss:standalone/hideheader/hideheader.css standalone/rainbowbar/rainbowbar.scss:standalone/rainbowbar/rainbowbar.css"
   },
   "devDependencies": {
     "sass": "^1.104.1"
