@@ -2,8 +2,8 @@
   "scripts": {
     "build": "sass src/main.scss youtube.css",
     "watch": "sass --watch src/main.scss youtube.css",
-    "build-standalone": "sass standalone/rainbowbar/rainbowbar.scss standalone/rainbowbar/rainbowbar.css",
-    "watch-standalone": "sass --watch standalone/rainbowbar/rainbowbar.scss standalone/rainbowbar/rainbowbar.css"
+    "build-standalone": "sass standalone/hideshorts/hideshorts.scss standalone/hideshorts/hideshorts.css && sass standalone/rainbowbar/rainbowbar.scss standalone/rainbowbar/rainbowbar.css",
+    "watch-standalone": "sass --watch standalone/hideshorts/hideshorts.scss standalone/hideshorts/hideshorts.css && sass --watch standalone/rainbowbar/rainbowbar.scss standalone/rainbowbar/rainbowbar.css"
   },
   "devDependencies": {
     "sass": "^1.104.1"
